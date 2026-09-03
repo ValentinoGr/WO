@@ -11,6 +11,14 @@
   margin-top: a.$esp-9;
 }
 
+// Cuando la franja de beneficios (envíos/cuotas/garantía) es la última
+// sección antes del footer —hoy solo pasa en el home—, va pegada sin el
+// espacio en blanco: separarla la hacía ver "flotando" en vez de cerrar
+// la página junto con el footer.
+body:has(main > .beneficios:last-child) .footer {
+  margin-top: 0;
+}
+
 .footer__interior { @include a.contenedor; }
 
 .footer__grilla {

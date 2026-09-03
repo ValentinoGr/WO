@@ -185,9 +185,11 @@ export function iniciarHeader() {
   carrito.alCambiar(actualizarContador);
   actualizarContador();
 
-  // Marca el link de la sección actual.
+  // Marca el link de la sección actual. Incluye el nav de escritorio Y el
+  // menú mobile: antes solo marcaba [data-nav], así que en mobile ningún
+  // link se marcaba nunca.
   const pagina = window.location.pathname.split("/").pop() || "index.html";
-  $$("[data-nav] a").forEach((a) => {
+  $$("[data-nav] a, .menu-mobile__lista a").forEach((a) => {
     if (a.getAttribute("href") === pagina) a.setAttribute("aria-current", "page");
   });
 }

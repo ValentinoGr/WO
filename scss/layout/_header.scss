@@ -52,6 +52,7 @@
 
 .nav__link {
   font-size: a.$txt-sm;
+  position: relative;
   color: a.$color-texto-secundario;
   text-decoration: none;
   padding-block: a.$esp-2;
@@ -60,9 +61,23 @@
 
   &:hover { color: a.$negro; }
 
+  // El subrayado es lo que distingue "activo" de "hover": ambos usan el
+  // mismo color, así que solo el color no alcanzaba para notar cuál sección
+  // era la actual.
   &[aria-current="page"] {
     color: a.$negro;
     font-weight: a.$peso-medio;
+
+    &::after {
+      content: "";
+      position: absolute;
+      left: 0;
+      right: 0;
+      bottom: -2px;
+      height: 2px;
+      border-radius: a.$radio-full;
+      background-color: a.$negro;
+    }
   }
 }
 
@@ -202,4 +217,14 @@
 
   &:hover { background-color: a.$beige; }
   @include a.foco;
+
+  // Acá todos los links ya son font-weight medio por defecto, así que el
+  // activo necesita una marca propia en vez de compartir el color/peso del
+  // hover (que además es transitorio, no se queda pegado como este).
+  &[aria-current="page"] {
+    background-color: a.$negro;
+    color: a.$blanco;   // 18.88 ✓
+
+    &:hover { background-color: a.$negro-hover; }
+  }
 }
