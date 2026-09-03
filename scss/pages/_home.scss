@@ -25,9 +25,32 @@
   }
 }
 
+// Logo a la izquierda del título. En mobile se apila arriba (a 375px no
+// entran los dos lado a lado sin que el texto quede ilegible); a partir de
+// "sm" pasan a fila, alineados contra la primera línea del título.
+.hero__marca {
+  display: flex;
+  flex-direction: column;
+  align-items: flex-start;
+  gap: a.$esp-3;
+  margin-bottom: a.$esp-4;
+
+  @include a.desde("sm") {
+    flex-direction: row;
+    align-items: center;
+    gap: a.$esp-5;
+  }
+}
+
+.hero__logo {
+  width: clamp(72px, 18vw, 128px);
+  height: auto;
+  flex-shrink: 0;
+}
+
 .hero__titulo {
   @include a.titulo(a.$txt-4xl);
-  margin-bottom: a.$esp-4;
+  margin-bottom: 0;
 }
 
 .hero__bajada {
