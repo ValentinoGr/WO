@@ -9,10 +9,10 @@ export const CONFIG = {
   nombre: "Wo!",
   descripcion: "Accesorios para iPhone en Rafaela, Santa Fe. Envíos a todo el país.",
 
-  // ⚠ PENDIENTE: reemplazar por el número real del cliente.
-  // Formato wa.me: código de país + área sin 0 + número sin 15. Sin espacios
-  // ni símbolos. Ej. Rafaela (3492) 123456 → "5493492123456"
-  whatsapp: "5493492XXXXXX",
+  // Formato wa.me: código de país (54) + 9 (celular AR, lo pide WhatsApp
+  // aunque ya no haga falta para llamar) + área sin 0 + número sin 15.
+  // +54 3492 606377 → "5493492606377"
+  whatsapp: "5493492606377",
 
   email: "hola@wo.com.ar",
   direccion: "Rafaela, Santa Fe",
