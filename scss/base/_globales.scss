@@ -1,0 +1,50 @@
+// ===========================================================================
+// Utilidades globales
+// ===========================================================================
+
+@use "../abstracts" as a;
+
+.contenedor          { @include a.contenedor; }
+.contenedor--angosto { @include a.contenedor(a.$ancho-contenedor-angosto); }
+
+.solo-lectores { @include a.solo-lectores; }
+
+// Link "Saltar al contenido" — primer elemento del <body>.
+.saltar-contenido {
+  position: absolute;
+  top: a.$esp-2;
+  left: a.$esp-2;
+  z-index: a.$z-toast;
+  padding: a.$esp-2 a.$esp-4;
+  background-color: a.$negro;
+  color: a.$blanco;
+  border-radius: a.$radio-md;
+  text-decoration: none;
+  translate: 0 -200%;
+
+  &:focus {
+    translate: 0 0;
+  }
+}
+
+// Secciones alternadas
+.seccion {
+  padding-block: a.$esp-8;
+
+  @include a.desde("md") {
+    padding-block: a.$esp-10;
+  }
+}
+
+.seccion--beige { background-color: a.$color-fondo-alt; }
+.seccion--nude  { background-color: a.$nude; }
+
+.seccion__encabezado {
+  @include a.flex(row, space-between, baseline, a.$esp-4);
+  margin-bottom: a.$esp-5;
+  flex-wrap: wrap;
+}
+
+.seccion__titulo { @include a.titulo(a.$txt-2xl); }
+
+[hidden] { display: none !important; }

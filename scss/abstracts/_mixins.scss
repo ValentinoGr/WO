@@ -1,0 +1,142 @@
+// ===========================================================================
+// Mixins
+// ===========================================================================
+
+@use "variables" as v;
+@use "breakpoints" as bp;
+
+// --- Layout ----------------------------------------------------------------
+
+@mixin contenedor($ancho: v.$ancho-contenedor) {
+  width: 100%;
+  max-width: $ancho;
+  margin-inline: auto;
+  padding-inline: v.$padding-lateral;
+
+  @include bp.desde("md") {
+    padding-inline: v.$padding-lateral-desktop;
+  }
+}
+
+// Grid de productos: 2 col en mobile (pedido del brief), 3-4 en desktop.
+@mixin grid-productos {
+  display: grid;
+  grid-template-columns: repeat(2, minmax(0, 1fr));
+  gap: v.$esp-3;
+
+  @include bp.desde("md") {
+    grid-template-columns: repeat(3, minmax(0, 1fr));
+    gap: v.$esp-5;
+  }
+  @include bp.desde("lg") {
+    grid-template-columns: repeat(4, minmax(0, 1fr));
+  }
+}
+
+@mixin flex($dir: row, $justify: flex-start, $align: center, $gap: 0) {
+  display: flex;
+  flex-direction: $dir;
+  justify-content: $justify;
+  align-items: $align;
+  @if $gap != 0 { gap: $gap; }
+}
+
+// --- Accesibilidad ---------------------------------------------------------
+
+// Texto solo para lectores de pantalla.
+@mixin solo-lectores {
+  position: absolute;
+  width: 1px;
+  height: 1px;
+  padding: 0;
+  margin: -1px;
+  overflow: hidden;
+  clip-path: inset(50%);
+  white-space: nowrap;
+  border: 0;
+}
+
+// Foco visible consistente. :focus-visible para no molestar al mouse.
+@mixin foco($color: v.$color-foco, $offset: 2px) {
+  &:focus-visible {
+    outline: 2px solid $color;
+    outline-offset: $offset;
+    border-radius: v.$radio-sm;
+  }
+}
+
+// Área táctil mínima de 44x44 (WCAG 2.5.5) sin agrandar el elemento visible.
+@mixin area-tactil($min: 44px) {
+  position: relative;
+
+  &::after {
+    content: "";
+    position: absolute;
+    inset: 50% auto auto 50%;
+    translate: -50% -50%;
+    min-width: $min;
+    min-height: $min;
+    width: 100%;
+    height: 100%;
+  }
+}
+
+// --- Tipografía ------------------------------------------------------------
+
+@mixin titulo($size: v.$txt-2xl) {
+  font-size: $size;
+  font-weight: v.$peso-semi;
+  line-height: v.$alto-linea-ajustado;
+  letter-spacing: -0.02em;
+  color: v.$color-texto;
+  text-wrap: balance;
+}
+
+// Corta el texto a N líneas.
+@mixin truncar($lineas: 2) {
+  display: -webkit-box;
+  -webkit-line-clamp: $lineas;
+  line-clamp: $lineas;
+  -webkit-box-orient: vertical;
+  overflow: hidden;
+}
+
+// --- Media -----------------------------------------------------------------
+
+// Bloque de color con la relación de aspecto final de la foto.
+// Placeholder mientras el cliente no entregue las imágenes: NO se generan
+// archivos, es solo color. Al llegar las fotos se reemplaza por <img> y este
+// mixin queda como fondo del contenedor (evita el flash blanco al cargar).
+@mixin bloque-imagen($aspecto: v.$aspecto-producto, $fondo: v.$nude) {
+  aspect-ratio: $aspecto;
+  width: 100%;
+  background-color: $fondo;
+  overflow: hidden;
+}
+
+@mixin imagen-cubre {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+  display: block;
+}
+
+// --- Utilidades ------------------------------------------------------------
+
+// Scroll horizontal con snap (carruseles mobile).
+@mixin scroll-snap-x {
+  display: flex;
+  overflow-x: auto;
+  scroll-snap-type: x mandatory;
+  scrollbar-width: none;
+  -webkit-overflow-scrolling: touch;
+
+  &::-webkit-scrollbar { display: none; }
+  > * { scroll-snap-align: start; flex: 0 0 auto; }
+}
+
+@mixin sin-lista {
+  list-style: none;
+  margin: 0;
+  padding: 0;
+}

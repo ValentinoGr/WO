@@ -1,0 +1,20 @@
+node_modules/
+
+# CSS compilado desde scss/ — se regenera con `npm run css`
+css/main.css
+css/main.css.map
+.sass-cache/
+
+# Sistema
+.DS_Store
+Thumbs.db
+desktop.ini
+
+# Editores
+.vscode/
+.idea/
+*.swp
+
+# Entorno (Fase 2 — backend Mercado Pago)
+.env
+.env.local

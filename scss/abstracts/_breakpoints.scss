@@ -1,0 +1,31 @@
+// ===========================================================================
+// Breakpoints — mobile first
+// ===========================================================================
+// Se usan siempre con min-width. No hay estilos "de desktop hacia abajo".
+
+@use "sass:map";
+
+$bp: (
+  "sm":  480px,
+  "md":  768px,
+  "lg":  1024px,
+  "xl":  1280px,
+);
+
+// Uso:  @include desde("md") { ... }
+@mixin desde($nombre) {
+  @if map.has-key($bp, $nombre) {
+    @media (min-width: map.get($bp, $nombre)) { @content; }
+  } @else {
+    @error "Breakpoint `#{$nombre}` no existe. Disponibles: #{map.keys($bp)}.";
+  }
+}
+
+// Escape para casos puntuales (ej: menú mobile que debe morir en desktop).
+@mixin hasta($nombre) {
+  @if map.has-key($bp, $nombre) {
+    @media (max-width: map.get($bp, $nombre) - 0.02px) { @content; }
+  } @else {
+    @error "Breakpoint `#{$nombre}` no existe. Disponibles: #{map.keys($bp)}.";
+  }
+}

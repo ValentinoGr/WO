@@ -1,0 +1,135 @@
+// ===========================================================================
+// Wo! — Design tokens
+// ===========================================================================
+// Paleta definida por el cliente: negros, grises, beige y nude.
+// NO hay color de acento cromático. Ver CLAUDE.md §8.
+//
+// Todos los ratios de contraste de este archivo están verificados contra
+// WCAG 2.1 AA. Los comentarios `→ X.XX` son el ratio real medido.
+// Antes de usar una combinación que no esté acá, verificala.
+// ---------------------------------------------------------------------------
+
+@use "sass:string";
+
+// --- Acción ----------------------------------------------------------------
+// Botones, links, iconos activos, estados seleccionados.
+$negro:        #111111;   // texto sobre blanco → 18.88 · sobre beige → 15.78 · sobre nude → 11.33
+$negro-hover:  #2E2E2E;   // blanco sobre él → 13.58
+
+// --- Texto y jerarquía -----------------------------------------------------
+$gris-oscuro:  #4A4A4A;   // texto secundario. blanco → 8.86 · beige → 7.41 · nude → 5.32
+$gris-medio:   #8A8A8A;   // ⚠ NO usar como texto sobre fondo claro (blanco → 3.45, no pasa AA).
+                          //   Uso permitido: bordes de controles de formulario (3.45 ≥ 3:1 de
+                          //   WCAG 1.4.11) y texto deshabilitado (exento de contraste).
+$gris-claro:   #E5E3E0;   // separadores y bordes decorativos (blanco → 1.28).
+                          //   ⚠ NO usar como borde de input: no llega a 3:1. Para eso, $gris-medio.
+
+// --- Superficies -----------------------------------------------------------
+$blanco:       #FFFFFF;   // fondo base
+$beige:        #EFEAE3;   // secciones alternadas
+$nude:         #D9C5B4;   // fondos de card, franjas destacadas
+
+// --- Acento cálido ---------------------------------------------------------
+// $nude-oscuro es el acento del cliente, pero su uso como TEXTO es limitado:
+// pasa AA solo sobre blanco (4.92). Sobre beige da 4.12 y sobre nude 2.95: ambos fallan.
+$nude-oscuro:  #8A6A52;   // ✓ fondo de badge con texto blanco (4.92)
+                          // ✓ texto sobre blanco puro (4.92)
+                          // ✗ texto sobre $beige (4.12) o $nude (2.95)
+                          // ✗ fondo de badge sobre card $nude: solo 2.95 de separación, se hunde
+
+$marron:       #5F4938;   // texto cálido que SÍ funciona en las tres superficies.
+                          // blanco → 8.41 · beige → 7.03 · nude → 5.05
+                          // Usar cuando se necesite calidez en texto sobre beige o nude.
+
+// --- Semánticos ------------------------------------------------------------
+// Preferí estos en los componentes: si el cliente ajusta un hex, se toca acá.
+$color-texto:            $negro;
+$color-texto-secundario: $gris-oscuro;
+$color-texto-desactivado:$gris-medio;
+$color-fondo:            $blanco;
+$color-fondo-alt:        $beige;
+$color-superficie-card:  $nude;
+$color-borde:            $gris-claro;      // separadores decorativos
+$color-borde-control:    $gris-medio;      // inputs, selects, checkbox → 3:1
+$color-foco:             $negro;
+
+// Feedback: gama mínima, desaturada para no romper la paleta.
+// Verificados sobre $blanco.
+$color-error:   #A33A2B;  // → 5.68
+$color-exito:   #2F6B4F;  // → 5.42
+
+// --- Tipografía ------------------------------------------------------------
+$font-base: "Inter", -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto,
+            "Helvetica Neue", Arial, sans-serif;
+
+$peso-regular:  400;
+$peso-medio:    500;
+$peso-semi:     600;
+$peso-bold:     700;
+
+// Escala fluida (mobile → desktop) con clamp()
+$txt-xs:   clamp(0.75rem,  0.72rem + 0.15vw, 0.8125rem);
+$txt-sm:   clamp(0.875rem, 0.85rem + 0.15vw, 0.9375rem);
+$txt-base: clamp(0.9375rem, 0.9rem + 0.2vw,  1rem);
+$txt-lg:   clamp(1.0625rem, 1rem + 0.3vw,    1.1875rem);
+$txt-xl:   clamp(1.25rem,  1.15rem + 0.5vw,  1.5rem);
+$txt-2xl:  clamp(1.5rem,   1.3rem + 1vw,     2rem);
+$txt-3xl:  clamp(1.875rem, 1.5rem + 1.8vw,   2.75rem);
+$txt-4xl:  clamp(2.25rem,  1.7rem + 2.7vw,   3.5rem);
+
+$alto-linea-ajustado: 1.15;
+$alto-linea-base:     1.6;
+
+// --- Espaciado (escala de 4px) ---------------------------------------------
+$esp-1:  0.25rem;
+$esp-2:  0.5rem;
+$esp-3:  0.75rem;
+$esp-4:  1rem;
+$esp-5:  1.5rem;
+$esp-6:  2rem;
+$esp-7:  2.5rem;
+$esp-8:  3rem;
+$esp-9:  4rem;
+$esp-10: 5rem;
+$esp-11: 6rem;
+
+// --- Layout ----------------------------------------------------------------
+$ancho-contenedor:        1280px;
+$ancho-contenedor-angosto: 760px;
+$padding-lateral:         $esp-4;
+$padding-lateral-desktop: $esp-6;
+$alto-header:             64px;
+
+// --- Radios ----------------------------------------------------------------
+$radio-sm:   4px;
+$radio-md:   8px;
+$radio-lg:   14px;
+$radio-xl:   22px;
+$radio-full: 999px;
+
+// --- Sombras ---------------------------------------------------------------
+// Neutras y sutiles: la paleta es cálida, una sombra azulada la ensucia.
+$sombra-sm: 0 1px 2px rgba(17, 17, 17, 0.05);
+$sombra-md: 0 4px 12px rgba(17, 17, 17, 0.07);
+$sombra-lg: 0 12px 32px rgba(17, 17, 17, 0.10);
+
+// --- Transiciones ----------------------------------------------------------
+$transicion-rapida: 140ms ease;
+$transicion-base:   220ms ease;
+$curva-suave:       cubic-bezier(0.4, 0, 0.2, 1);
+
+// --- Capas -----------------------------------------------------------------
+$z-base:     1;
+$z-sticky:   100;
+$z-header:   200;
+$z-overlay:  300;
+$z-drawer:   400;
+$z-toast:    500;
+
+// --- Relaciones de aspecto -------------------------------------------------
+// Mientras no lleguen las fotos del cliente, los bloques de color usan esto.
+// Ver README §Especificación de imágenes.
+// Van sin comillas: `1 / 1` a secas lo interpretaría como división (1).
+$aspecto-producto:  string.unquote("1 / 1");    // cuadrado
+$aspecto-categoria: string.unquote("4 / 3");
+$aspecto-hero:      string.unquote("16 / 9");

@@ -1,0 +1,92 @@
+// ===========================================================================
+// Botones
+// ===========================================================================
+
+@use "../abstracts" as a;
+
+.btn {
+  @include a.flex(row, center, center, a.$esp-2);
+  min-height: 44px;                       // área táctil WCAG 2.5.5
+  padding: a.$esp-3 a.$esp-5;
+  border-radius: a.$radio-full;
+  font-size: a.$txt-sm;
+  font-weight: a.$peso-medio;
+  text-align: center;
+  text-decoration: none;
+  border: 1px solid transparent;
+  cursor: pointer;
+  transition: background-color a.$transicion-base,
+              color a.$transicion-base,
+              border-color a.$transicion-base;
+  @include a.foco;
+
+  &[disabled],
+  &[aria-disabled="true"] {
+    cursor: not-allowed;
+    opacity: 0.45;
+    pointer-events: none;
+  }
+}
+
+// --- Primario: la acción principal. Blanco sobre negro → 18.88 ✓ ------------
+.btn--primario {
+  background-color: a.$negro;
+  color: a.$blanco;
+
+  &:hover { background-color: a.$negro-hover; }
+}
+
+// --- Secundario: contorno. Negro sobre cualquier superficie clara ✓ ---------
+// Borde en $gris-medio (no $gris-claro): un borde de control necesita 3:1
+// contra el fondo y $gris-claro solo llega a 1.28.
+.btn--secundario {
+  background-color: transparent;
+  color: a.$negro;
+  border-color: a.$gris-medio;
+
+  &:hover {
+    background-color: a.$negro;
+    color: a.$blanco;
+    border-color: a.$negro;
+  }
+}
+
+// --- Fantasma: para barras de herramientas y filtros ------------------------
+.btn--fantasma {
+  background-color: transparent;
+  color: a.$color-texto-secundario;
+
+  &:hover {
+    background-color: a.$beige;
+    color: a.$negro;
+  }
+}
+
+// --- Sobre superficie oscura (footer, banners en negro) ---------------------
+.btn--invertido {
+  background-color: a.$blanco;
+  color: a.$negro;
+
+  &:hover { background-color: a.$beige; }
+}
+
+// --- Modificadores de tamaño ------------------------------------------------
+.btn--sm  { padding: a.$esp-2 a.$esp-4; font-size: a.$txt-xs; }
+.btn--lg  { padding: a.$esp-4 a.$esp-7; font-size: a.$txt-base; }
+.btn--bloque { width: 100%; }
+
+// --- Botón de ícono ---------------------------------------------------------
+.btn-icono {
+  @include a.flex(row, center, center);
+  width: 44px;
+  height: 44px;
+  border-radius: a.$radio-full;
+  color: a.$negro;
+  background-color: transparent;
+  transition: background-color a.$transicion-rapida;
+  @include a.foco;
+
+  &:hover { background-color: a.$beige; }
+
+  svg { width: 22px; height: 22px; }
+}

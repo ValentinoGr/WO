@@ -1,0 +1,53 @@
+// ===========================================================================
+// Tipografía
+// ===========================================================================
+
+@use "../abstracts" as a;
+
+body {
+  font-family: a.$font-base;
+  font-size: a.$txt-base;
+  font-weight: a.$peso-regular;
+  line-height: a.$alto-linea-base;
+  color: a.$color-texto;
+  background-color: a.$color-fondo;
+}
+
+h1, h2, h3, h4 {
+  font-weight: a.$peso-semi;
+  line-height: a.$alto-linea-ajustado;
+  letter-spacing: -0.02em;
+  text-wrap: balance;
+}
+
+h1 { font-size: a.$txt-4xl; }
+h2 { font-size: a.$txt-3xl; }
+h3 { font-size: a.$txt-xl; }
+h4 { font-size: a.$txt-lg; }
+
+p {
+  text-wrap: pretty;
+}
+
+a {
+  color: inherit;
+  text-decoration-color: a.$gris-medio;
+  text-underline-offset: 0.2em;
+  transition: text-decoration-color a.$transicion-rapida;
+
+  &:hover { text-decoration-color: currentColor; }
+  @include a.foco;
+}
+
+strong, b { font-weight: a.$peso-semi; }
+
+small { font-size: a.$txt-sm; }
+
+// Precio anterior tachado.
+// Va en $gris-oscuro, NO en $nude-oscuro: sobre card nude el nude-oscuro
+// da 2.95 y no pasa AA. Ver CLAUDE.md §8.
+s, del {
+  color: a.$color-texto-secundario;
+  text-decoration-line: line-through;
+  text-decoration-thickness: 1px;
+}

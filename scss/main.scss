@@ -1,0 +1,28 @@
+// ===========================================================================
+// Wo! — hoja de estilos principal
+// ===========================================================================
+// Compilar:  npm run css        (una vez)
+//            npm run css:watch  (durante desarrollo)
+//
+// Orden: abstracts (no emite CSS) → base → layout → components → pages.
+// Nada de @import: está deprecado en Dart Sass. Siempre @use / @forward.
+
+// --- Base -------------------------------------------------------------------
+@use "base/reset";
+@use "base/tipografia";
+@use "base/globales";
+
+// --- Componentes ------------------------------------------------------------
+@use "components/botones";
+@use "components/badges";
+@use "components/media";
+
+// --- Layout (Bloque D) ------------------------------------------------------
+// @use "layout/header";
+// @use "layout/footer";
+
+// --- Páginas (Bloque E) -----------------------------------------------------
+// @use "pages/home";
+// @use "pages/tienda";
+// @use "pages/producto";
+// @use "pages/carrito";

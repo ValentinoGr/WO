@@ -1,0 +1,7 @@
+// Punto único de entrada de los abstracts.
+// En cualquier parcial:  @use "../abstracts" as a;
+// y después:             a.$negro, a.$esp-4, @include a.desde("md")
+
+@forward "variables";
+@forward "breakpoints";
+@forward "mixins";

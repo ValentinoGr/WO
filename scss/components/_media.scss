@@ -1,0 +1,50 @@
+// ===========================================================================
+// Media — bloques de imagen
+// ===========================================================================
+// Las fotos reales las entrega el cliente. Hasta entonces, `.media` es un
+// bloque de color de la paleta con la relación de aspecto FINAL, así el
+// layout ya está resuelto y al pegar las fotos no se mueve nada (cero CLS).
+// No se generan archivos de placeholder.
+//
+// Cuando lleguen las imágenes:
+//   <div class="media media--producto">
+//     <img src="..." alt="..." width="800" height="800" loading="lazy">
+//   </div>
+// El color queda de fondo y tapa el flash blanco mientras carga.
+// Especificación para el cliente: README §Especificación de imágenes.
+
+@use "../abstracts" as a;
+
+.media {
+  @include a.bloque-imagen;
+  position: relative;
+  border-radius: a.$radio-lg;
+
+  img { @include a.imagen-cubre; }
+}
+
+.media--producto  { aspect-ratio: a.$aspecto-producto; }
+.media--categoria { aspect-ratio: a.$aspecto-categoria; }
+.media--hero      { aspect-ratio: a.$aspecto-hero; border-radius: a.$radio-xl; }
+
+// Variantes de fondo, para que una grilla de bloques vacíos no sea un muro
+// de un solo color. Se alternan con :nth-child en la grilla.
+.media--beige { background-color: a.$beige; }
+.media--nude  { background-color: a.$nude; }
+.media--gris  { background-color: a.$gris-claro; }
+
+// Marca de agua discreta mientras no hay foto. Se apaga sola en cuanto el
+// contenedor tiene un <img> adentro.
+.media:not(:has(img))::after {
+  content: "Wo!";
+  position: absolute;
+  inset: 0;
+  display: grid;
+  place-items: center;
+  font-size: a.$txt-xl;
+  font-weight: a.$peso-bold;
+  letter-spacing: -0.03em;
+  color: a.$negro;
+  opacity: 0.10;
+  pointer-events: none;
+}

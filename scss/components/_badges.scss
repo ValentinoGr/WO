@@ -1,0 +1,80 @@
+// ===========================================================================
+// Badges — "Nuevo", "% OFF", "Sin stock", "Envío gratis"
+// ===========================================================================
+// REGLA DE CONTRASTE (ver CLAUDE.md §8):
+// El badge siempre lleva texto blanco sobre fondo oscuro. Cuál fondo depende
+// de la superficie sobre la que se apoya:
+//
+//   sobre $blanco       → $nude-oscuro (4.92 contra el texto blanco;
+//                          4.92 de separación contra el fondo blanco) ✓
+//   sobre $nude/$beige  → $negro. $nude-oscuro sobre $nude da apenas 2.95
+//                          de separación: el badge se hunde en la card ✗
+//
+// Nunca fondo $nude o $beige con texto oscuro: no hay suficiente separación
+// contra la card, que ya es nude.
+
+@use "../abstracts" as a;
+
+.badge {
+  display: inline-flex;
+  align-items: center;
+  gap: a.$esp-1;
+  padding: a.$esp-1 a.$esp-3;
+  border-radius: a.$radio-full;
+  font-size: a.$txt-xs;
+  font-weight: a.$peso-semi;
+  line-height: 1.4;
+  letter-spacing: 0.01em;
+  white-space: nowrap;
+}
+
+// --- Descuento: el badge que más tiene que saltar ---------------------------
+// Por defecto asume card nude → fondo negro.
+.badge--descuento {
+  background-color: a.$negro;
+  color: a.$blanco;
+}
+
+// Variante para cuando la card es blanca: ahí el cálido sí funciona.
+.badge--descuento-calido {
+  background-color: a.$nude-oscuro;
+  color: a.$blanco;
+}
+
+// --- Nuevo ------------------------------------------------------------------
+.badge--nuevo {
+  background-color: a.$negro;
+  color: a.$blanco;
+}
+
+// --- Sin stock: apagado a propósito -----------------------------------------
+// Texto blanco sobre $gris-oscuro → 8.86 ✓
+.badge--sin-stock {
+  background-color: a.$gris-oscuro;
+  color: a.$blanco;
+}
+
+// --- Envío gratis -----------------------------------------------------------
+.badge--envio {
+  background-color: a.$marron;      // blanco sobre $marron → 8.41 ✓
+  color: a.$blanco;
+}
+
+// --- Badge de contorno, para filtros activos --------------------------------
+.badge--contorno {
+  background-color: transparent;
+  color: a.$negro;
+  border: 1px solid a.$gris-medio;
+}
+
+// Contenedor de badges apilados sobre la imagen del producto.
+.badges {
+  position: absolute;
+  top: a.$esp-3;
+  left: a.$esp-3;
+  z-index: a.$z-base;
+  display: flex;
+  flex-direction: column;
+  align-items: flex-start;
+  gap: a.$esp-1;
+}
