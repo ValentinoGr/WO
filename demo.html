@@ -1,0 +1,235 @@
+<!DOCTYPE html>
+<html lang="es-AR">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta name="robots" content="noindex, nofollow">
+  <title>Wo! — Control de paleta y componentes</title>
+  <link rel="stylesheet" href="css/main.css">
+</head>
+<body>
+  <a class="saltar-contenido" href="#contenido">Saltar al contenido</a>
+
+  <main id="contenido" class="contenedor" style="padding-block: 2rem 4rem;">
+
+    <h1 style="margin-bottom:.5rem;">Wo! — Control de paleta y componentes</h1>
+    <p style="color:#4A4A4A; margin-bottom:2rem;">
+      Página interna para validar el diseño. No forma parte del sitio.
+    </p>
+
+    <div class="demo-nota">
+      <strong>Qué estás viendo.</strong> Los productos salen de
+      <code>data/productos.json</code> real, a través de la misma capa de datos
+      que van a usar el home y el catálogo. Los bloques de color son los
+      placeholders de imagen: tienen la relación de aspecto final (1:1), así que
+      cuando lleguen las fotos del cliente nada se mueve de lugar.
+    </div>
+
+    <!-- =================================================================== -->
+    <h2 style="margin-bottom:1rem;">1. Paleta</h2>
+    <div class="paleta" id="paleta"></div>
+
+    <!-- =================================================================== -->
+    <h2 style="margin-bottom:1rem;">2. Contraste verificado (WCAG AA)</h2>
+    <p style="color:#4A4A4A; margin-bottom:1rem; font-size:.9375rem;">
+      Calculado en vivo con la fórmula de luminancia relativa de WCAG 2.1.
+      El umbral para texto normal es 4.5:1.
+    </p>
+    <table class="contraste" id="tabla-contraste"></table>
+
+    <!-- =================================================================== -->
+    <h2 style="margin-bottom:1rem;">3. Badges sobre cada superficie</h2>
+    <p style="color:#4A4A4A; margin-bottom:1rem; font-size:.9375rem;">
+      La regla: sobre blanco el badge de descuento va en <code>$nude-oscuro</code>;
+      sobre nude o beige va en <code>$negro</code>, porque el nude-oscuro tiene
+      solo 2.95 de separación contra la card y se hunde. Comparalos.
+    </p>
+    <div id="demo-badges"></div>
+
+    <!-- =================================================================== -->
+    <h2 style="margin-bottom:1rem;">4. Cards de producto</h2>
+    <div id="demo-cards"></div>
+
+    <div class="demo-carrito" id="barra-carrito" hidden>
+      <span id="carrito-texto">Carrito vacío</span>
+      <button class="btn btn--invertido btn--sm" id="btn-vaciar">Vaciar</button>
+    </div>
+
+  </main>
+
+  <script type="module">
+    import { cargarProductos } from "./js/data/productos.js";
+    import { renderizarGrilla, crearCardProducto } from "./js/ui/cardProducto.js";
+    import { crear, $ } from "./js/utils/dom.js";
+    import * as carrito from "./js/carrito/estado.js";
+    import { precio } from "./js/utils/formato.js";
+
+    // === 1. Paleta =========================================================
+    const PALETA = [
+      { n: "$negro",        hex: "#111111", texto: "#FFFFFF", uso: "Botones, texto principal" },
+      { n: "$negro-hover",  hex: "#2E2E2E", texto: "#FFFFFF", uso: "Hover de botones" },
+      { n: "$gris-oscuro",  hex: "#4A4A4A", texto: "#FFFFFF", uso: "Texto secundario" },
+      { n: "$gris-medio",   hex: "#8A8A8A", texto: "#FFFFFF", uso: "Bordes de control · deshabilitado" },
+      { n: "$gris-claro",   hex: "#E5E3E0", texto: "#111111", uso: "Separadores decorativos" },
+      { n: "$blanco",       hex: "#FFFFFF", texto: "#111111", uso: "Fondo base" },
+      { n: "$beige",        hex: "#EFEAE3", texto: "#111111", uso: "Secciones alternadas" },
+      { n: "$nude",         hex: "#D9C5B4", texto: "#111111", uso: "Fondo de card, franjas" },
+      { n: "$nude-oscuro",  hex: "#8A6A52", texto: "#FFFFFF", uso: "Fondo de badge sobre blanco" },
+      { n: "$marron",       hex: "#5F4938", texto: "#FFFFFF", uso: "Texto cálido, todas las superficies" },
+    ];
+
+    $("#paleta").replaceChildren(...PALETA.map(c =>
+      crear("div", { class: "muestra" }, [
+        crear("div", {
+          class: "muestra__color",
+          style: `background-color:${c.hex}; color:${c.texto}`,
+        }, ["Aa"]),
+        crear("div", { class: "muestra__datos" }, [
+          crear("div", { class: "muestra__nombre" }, [c.n]),
+          crear("div", { class: "muestra__hex" }, [c.hex]),
+          crear("div", { class: "muestra__uso" }, [c.uso]),
+        ]),
+      ])
+    ));
+
+    // === 2. Contraste ======================================================
+    const lin = v => { v /= 255; return v <= 0.03928 ? v / 12.92 : ((v + 0.055) / 1.055) ** 2.4; };
+    const lum = h => {
+      const n = parseInt(h.slice(1), 16);
+      return 0.2126 * lin(n >> 16 & 255) + 0.7152 * lin(n >> 8 & 255) + 0.0722 * lin(n & 255);
+    };
+    const ratio = (a, b) => {
+      const [hi, lo] = [lum(a), lum(b)].sort((x, y) => y - x);
+      return (hi + 0.05) / (lo + 0.05);
+    };
+
+    const FONDOS = [
+      { n: "$blanco", hex: "#FFFFFF" },
+      { n: "$beige",  hex: "#EFEAE3" },
+      { n: "$nude",   hex: "#D9C5B4" },
+      { n: "$negro",  hex: "#111111" },
+    ];
+    const TEXTOS = [
+      { n: "$negro",       hex: "#111111" },
+      { n: "$gris-oscuro", hex: "#4A4A4A" },
+      { n: "$gris-medio",  hex: "#8A8A8A" },
+      { n: "$nude-oscuro", hex: "#8A6A52" },
+      { n: "$marron",      hex: "#5F4938" },
+      { n: "$blanco",      hex: "#FFFFFF" },
+    ];
+
+    $("#tabla-contraste").replaceChildren(
+      crear("thead", {}, [
+        crear("tr", {}, [
+          crear("th", {}, ["Texto \\ Fondo"]),
+          ...FONDOS.map(f => crear("th", {}, [f.n])),
+        ]),
+      ]),
+      crear("tbody", {}, TEXTOS.map(t =>
+        crear("tr", {}, [
+          crear("td", {}, [t.n]),
+          ...FONDOS.map(f => {
+            const r = ratio(t.hex, f.hex);
+            const pasa = r >= 4.5;
+            return crear("td", {}, [
+              crear("span", {
+                class: "contraste__celda",
+                style: `background-color:${f.hex}; color:${t.hex}`,
+              }, ["Texto"]),
+              crear("span", {
+                class: `contraste__ratio--${pasa ? "pasa" : "falla"}`,
+                style: "margin-left:.5rem",
+              }, [`${r.toFixed(2)} ${pasa ? "✓" : "✗"}`]),
+            ]);
+          }),
+        ])
+      ))
+    );
+
+    // === 3. Badges sobre cada superficie ===================================
+    const superficies = [
+      { clase: "demo-fondo--blanco", titulo: "Sobre $blanco", clara: true },
+      { clase: "demo-fondo--beige",  titulo: "Sobre $beige",  clara: false },
+      { clase: "demo-fondo--nude",   titulo: "Sobre $nude",   clara: false },
+    ];
+
+    $("#demo-badges").replaceChildren(...superficies.map(s =>
+      crear("div", { class: `demo-fondo ${s.clase}` }, [
+        crear("p", { class: "demo-fondo__titulo" }, [s.titulo]),
+        crear("div", { style: "display:flex; gap:.5rem; flex-wrap:wrap;" }, [
+          crear("span", {
+            class: s.clara ? "badge badge--descuento-calido" : "badge badge--descuento",
+          }, ["15% OFF"]),
+          crear("span", { class: "badge badge--nuevo" }, ["Nuevo"]),
+          crear("span", { class: "badge badge--envio" }, ["Envío gratis"]),
+          crear("span", { class: "badge badge--sin-stock" }, ["Sin stock"]),
+          // Contraejemplo: así se ve la combinación que descartamos.
+          !s.clara && crear("span", {
+            class: "badge",
+            style: "background-color:#8A6A52; color:#fff; opacity:.999",
+            title: "Contraejemplo: solo 2.95 de separación contra el fondo",
+          }, ["✗ nude-oscuro acá"]),
+        ]),
+      ])
+    ));
+
+    // === 4. Cards ==========================================================
+    try {
+      const productos = await cargarProductos();
+
+      $("#demo-cards").replaceChildren(
+        crear("div", { class: "demo-fondo demo-fondo--blanco" }, [
+          crear("p", { class: "demo-fondo__titulo" }, [
+            `Sobre $blanco — ${productos.length} productos del JSON real`,
+          ]),
+          crear("div", { class: "grilla-demo", id: "grilla-blanco" }),
+        ]),
+        crear("div", { class: "demo-fondo demo-fondo--beige" }, [
+          crear("p", { class: "demo-fondo__titulo" }, ["Sobre $beige"]),
+          crear("div", { class: "grilla-demo", id: "grilla-beige" }),
+        ])
+      );
+
+      renderizarGrilla($("#grilla-blanco"), productos, { superficieClara: true });
+      renderizarGrilla($("#grilla-beige"), productos.slice(0, 4), { superficieClara: false });
+
+      // --- Carrito: se prueba agregando desde la consola o clickeando ------
+      const barra = $("#barra-carrito");
+      const texto = $("#carrito-texto");
+
+      function pintarCarrito() {
+        const t = carrito.totales();
+        barra.hidden = t.cantidad === 0;
+        texto.textContent =
+          `${t.cantidad} ${t.cantidad === 1 ? "producto" : "productos"} · ` +
+          `${precio(t.subtotal)} · ${t.textoEnvio}`;
+      }
+
+      carrito.alCambiar(pintarCarrito);
+      pintarCarrito();
+
+      $("#btn-vaciar").addEventListener("click", () => carrito.vaciar());
+
+      // Expuesto para poder probar el carrito desde la consola del navegador.
+      window.wo = { productos, carrito, precio };
+      console.info(
+        "%cWo! demo",
+        "font-weight:bold",
+        "\nProbá el carrito desde acá:" +
+        "\n  wo.carrito.agregar(wo.productos[3], { cantidad: 2 })" +
+        "\n  wo.carrito.totales()"
+      );
+
+    } catch (error) {
+      $("#demo-cards").replaceChildren(
+        crear("div", { class: "demo-error" }, [
+          crear("p", {}, [error.message]),
+          crear("p", { style: "margin-top:.5rem; font-size:.875rem;" }, [
+            "Si abriste el archivo con doble clic, cerralo y levantá el servidor: npm run serve",
+          ]),
+        ])
+      );
+    }
+  </script>
+</body>
+</html>

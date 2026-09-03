@@ -1,0 +1,142 @@
+// ===========================================================================
+// Card de producto
+// ===========================================================================
+
+@use "../abstracts" as a;
+
+.card-producto {
+  position: relative;
+  background-color: a.$blanco;
+  border-radius: a.$radio-lg;
+  overflow: hidden;
+  transition: transform a.$transicion-base a.$curva-suave,
+              box-shadow a.$transicion-base;
+
+  &:hover {
+    transform: translateY(-2px);
+    box-shadow: a.$sombra-md;
+  }
+
+  // El foco va en la card entera, no solo en el <a>: el área clickeable
+  // es toda la card.
+  &:focus-within {
+    outline: 2px solid a.$color-foco;
+    outline-offset: 2px;
+  }
+
+  .media { border-radius: a.$radio-lg a.$radio-lg 0 0; }
+}
+
+// Agotado: se apaga pero sigue siendo navegable. Ocultarlo sería peor —
+// el cliente igual quiere saber que el producto existe.
+.card-producto--agotado {
+  .media,
+  .card-producto__precios { opacity: 0.55; }
+}
+
+.card-producto__link {
+  display: block;
+  text-decoration: none;
+  color: inherit;
+
+  // El outline lo dibuja la card con :focus-within.
+  &:focus-visible { outline: none; }
+}
+
+.card-producto__cuerpo {
+  padding: a.$esp-3;
+
+  @include a.desde("md") {
+    padding: a.$esp-4;
+  }
+}
+
+.card-producto__marca {
+  font-size: a.$txt-xs;
+  font-weight: a.$peso-medio;
+  text-transform: uppercase;
+  letter-spacing: 0.06em;
+  color: a.$color-texto-secundario;   // 8.86 sobre blanco ✓
+  margin-bottom: a.$esp-1;
+}
+
+.card-producto__nombre {
+  @include a.truncar(2);
+  font-size: a.$txt-sm;
+  font-weight: a.$peso-medio;
+  line-height: 1.35;
+  letter-spacing: -0.01em;
+  color: a.$color-texto;
+  margin-bottom: a.$esp-1;
+  min-height: 2.7em;   // reserva 2 líneas: alinea los precios entre cards
+
+  @include a.desde("md") { font-size: a.$txt-base; }
+}
+
+.card-producto__compat {
+  @include a.truncar(1);
+  font-size: a.$txt-xs;
+  color: a.$color-texto-secundario;
+  margin-bottom: a.$esp-3;
+}
+
+.card-producto__precios {
+  @include a.flex(row, flex-start, baseline, a.$esp-2);
+  flex-wrap: wrap;
+}
+
+.card-producto__precio {
+  font-size: a.$txt-lg;
+  font-weight: a.$peso-semi;
+  letter-spacing: -0.02em;
+  color: a.$color-texto;
+}
+
+.card-producto__precio-anterior {
+  font-size: a.$txt-sm;
+  // Color heredado de la regla de <s> en base/_tipografia.scss ($gris-oscuro).
+  // NO ponerlo en $nude-oscuro: no pasa AA sobre card nude.
+}
+
+.card-producto__cuotas {
+  font-size: a.$txt-xs;
+  color: a.$color-texto-secundario;
+  margin-top: a.$esp-1;
+  @include a.truncar(1);
+}
+
+// --- Puntos de color de las variantes ---------------------------------------
+
+.card-producto__colores {
+  @include a.sin-lista;
+  @include a.flex(row, flex-start, center, a.$esp-1);
+  margin-top: a.$esp-3;
+}
+
+.punto-color {
+  width: 14px;
+  height: 14px;
+  border-radius: a.$radio-full;
+  background-color: var(--color);
+  // El borde es imprescindible: sin él, un punto blanco sobre card blanca
+  // es invisible.
+  border: 1px solid a.$gris-claro;
+  flex-shrink: 0;
+}
+
+.punto-color--agotado {
+  position: relative;
+  opacity: 0.4;
+
+  // Barra diagonal que marca el color agotado.
+  &::after {
+    content: "";
+    position: absolute;
+    inset: 50% auto auto 50%;
+    width: 18px;
+    height: 1px;
+    background-color: a.$negro;
+    translate: -50% -50%;
+    rotate: -45deg;
+  }
+}

@@ -1,0 +1,152 @@
+// ===========================================================================
+// Estilos exclusivos de demo.html
+// ===========================================================================
+// Página de control interna, no forma parte del sitio público.
+// Al cerrar el proyecto: borrar demo.html, este archivo y su @use en main.scss.
+
+@use "../abstracts" as a;
+
+.demo-nota {
+  padding: a.$esp-4;
+  background-color: a.$beige;
+  border-left: 3px solid a.$negro;
+  border-radius: a.$radio-md;
+  margin-bottom: a.$esp-6;
+  font-size: a.$txt-sm;
+
+  code {
+    font-family: ui-monospace, "SF Mono", Menlo, Consolas, monospace;
+    font-size: 0.9em;
+    background-color: a.$blanco;
+    padding: 0.1em 0.4em;
+    border-radius: a.$radio-sm;
+  }
+}
+
+// --- Muestrario de paleta ---------------------------------------------------
+
+.paleta {
+  display: grid;
+  grid-template-columns: repeat(auto-fill, minmax(150px, 1fr));
+  gap: a.$esp-3;
+  margin-bottom: a.$esp-6;
+}
+
+.muestra {
+  border: 1px solid a.$gris-claro;
+  border-radius: a.$radio-md;
+  overflow: hidden;
+}
+
+.muestra__color {
+  height: 76px;
+  display: grid;
+  place-items: center;
+  font-size: a.$txt-sm;
+  font-weight: a.$peso-semi;
+}
+
+.muestra__datos {
+  padding: a.$esp-2 a.$esp-3;
+  background-color: a.$blanco;
+  font-size: a.$txt-xs;
+  line-height: 1.5;
+}
+
+.muestra__nombre {
+  font-weight: a.$peso-semi;
+  font-family: ui-monospace, "SF Mono", Menlo, Consolas, monospace;
+}
+
+.muestra__hex {
+  color: a.$color-texto-secundario;
+  text-transform: uppercase;
+}
+
+.muestra__uso {
+  color: a.$color-texto-secundario;
+  margin-top: a.$esp-1;
+}
+
+// --- Tabla de contraste -----------------------------------------------------
+
+.contraste {
+  width: 100%;
+  border-collapse: collapse;
+  font-size: a.$txt-sm;
+  margin-bottom: a.$esp-6;
+
+  th, td {
+    padding: a.$esp-2 a.$esp-3;
+    text-align: left;
+    border-bottom: 1px solid a.$gris-claro;
+  }
+
+  th {
+    font-weight: a.$peso-semi;
+    font-size: a.$txt-xs;
+    text-transform: uppercase;
+    letter-spacing: 0.05em;
+    color: a.$color-texto-secundario;
+  }
+
+  td:first-child {
+    font-family: ui-monospace, "SF Mono", Menlo, Consolas, monospace;
+    font-size: a.$txt-xs;
+  }
+}
+
+.contraste__celda {
+  padding: a.$esp-1 a.$esp-2;
+  border-radius: a.$radio-sm;
+  font-weight: a.$peso-medio;
+  white-space: nowrap;
+}
+
+.contraste__ratio--pasa  { color: a.$color-exito; font-weight: a.$peso-semi; }
+.contraste__ratio--falla { color: a.$color-error; font-weight: a.$peso-semi; }
+
+// Envoltura para probar la card sobre distintos fondos.
+.demo-fondo {
+  padding: a.$esp-5;
+  border-radius: a.$radio-lg;
+  margin-bottom: a.$esp-5;
+}
+
+.demo-fondo--blanco { background-color: a.$blanco; border: 1px solid a.$gris-claro; }
+.demo-fondo--beige  { background-color: a.$beige; }
+.demo-fondo--nude   { background-color: a.$nude; }
+
+.demo-fondo__titulo {
+  font-size: a.$txt-sm;
+  font-weight: a.$peso-semi;
+  margin-bottom: a.$esp-4;
+  text-transform: uppercase;
+  letter-spacing: 0.05em;
+  color: a.$color-texto-secundario;
+}
+
+.grilla-demo { @include a.grid-productos; }
+
+// Barra de estado del carrito
+.demo-carrito {
+  position: sticky;
+  bottom: 0;
+  z-index: a.$z-sticky;
+  background-color: a.$negro;
+  color: a.$blanco;
+  padding: a.$esp-3 a.$esp-4;
+  border-radius: a.$radio-md a.$radio-md 0 0;
+  @include a.flex(row, space-between, center, a.$esp-4);
+  flex-wrap: wrap;
+  font-size: a.$txt-sm;
+  margin-top: a.$esp-6;
+}
+
+.demo-error {
+  padding: a.$esp-5;
+  background-color: a.$beige;
+  border-radius: a.$radio-md;
+  text-align: center;
+  color: a.$color-error;
+}
