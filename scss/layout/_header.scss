@@ -1,0 +1,205 @@
+// ===========================================================================
+// Header
+// ===========================================================================
+
+@use "../abstracts" as a;
+
+.header {
+  position: sticky;
+  top: 0;
+  z-index: a.$z-header;
+  background-color: a.$blanco;
+  border-bottom: 1px solid a.$color-borde;
+  transition: box-shadow a.$transicion-base;
+}
+
+.header--scroll { box-shadow: a.$sombra-sm; }
+
+.header__interior {
+  @include a.contenedor;
+  @include a.flex(row, space-between, center, a.$esp-3);
+  min-height: a.$alto-header;
+}
+
+// --- Logo -------------------------------------------------------------------
+
+.logo {
+  font-size: a.$txt-xl;
+  font-weight: a.$peso-bold;
+  letter-spacing: -0.04em;
+  color: a.$negro;
+  text-decoration: none;
+  flex-shrink: 0;
+  @include a.foco;
+
+  &:hover { text-decoration: none; }
+}
+
+// --- Navegación desktop -----------------------------------------------------
+
+.nav {
+  display: none;
+
+  @include a.desde("lg") {
+    @include a.flex(row, flex-start, center, a.$esp-5);
+  }
+}
+
+.nav__lista {
+  @include a.sin-lista;
+  @include a.flex(row, flex-start, center, a.$esp-5);
+}
+
+.nav__link {
+  font-size: a.$txt-sm;
+  color: a.$color-texto-secundario;
+  text-decoration: none;
+  padding-block: a.$esp-2;
+  transition: color a.$transicion-rapida;
+  @include a.foco;
+
+  &:hover { color: a.$negro; }
+
+  &[aria-current="page"] {
+    color: a.$negro;
+    font-weight: a.$peso-medio;
+  }
+}
+
+// --- Acciones ---------------------------------------------------------------
+
+.header__acciones {
+  @include a.flex(row, flex-end, center, a.$esp-1);
+  flex-shrink: 0;
+}
+
+.header__carrito { position: relative; }
+
+.contador {
+  position: absolute;
+  top: 2px;
+  right: 2px;
+  min-width: 18px;
+  height: 18px;
+  padding-inline: 5px;
+  border-radius: a.$radio-full;
+  background-color: a.$negro;
+  color: a.$blanco;      // 18.88 ✓
+  font-size: 11px;
+  font-weight: a.$peso-semi;
+  line-height: 18px;
+  text-align: center;
+  pointer-events: none;
+}
+
+.contador--pulso { animation: contador-pulso 400ms a.$curva-suave; }
+
+@keyframes contador-pulso {
+  0%   { transform: scale(1); }
+  40%  { transform: scale(1.35); }
+  100% { transform: scale(1); }
+}
+
+// --- Buscador ---------------------------------------------------------------
+
+.busqueda {
+  display: none;
+  position: relative;
+  flex: 1;
+  max-width: 380px;
+
+  @include a.desde("md") { display: block; }
+}
+
+.busqueda__campo {
+  width: 100%;
+  height: 40px;
+  padding: 0 a.$esp-4;
+  border: 1px solid a.$color-borde-control;   // $gris-medio → 3.45, cumple 1.4.11
+  border-radius: a.$radio-full;
+  background-color: a.$blanco;
+  font-size: a.$txt-sm;
+  color: a.$color-texto;
+
+  &::placeholder { color: a.$color-texto-secundario; }
+
+  &:focus-visible {
+    outline: 2px solid a.$negro;
+    outline-offset: 1px;
+    border-color: a.$negro;
+  }
+}
+
+.busqueda__sugerencias {
+  position: absolute;
+  top: calc(100% + 6px);
+  left: 0;
+  right: 0;
+  z-index: a.$z-overlay;
+  background-color: a.$blanco;
+  border: 1px solid a.$color-borde;
+  border-radius: a.$radio-md;
+  box-shadow: a.$sombra-lg;
+  overflow: hidden;
+}
+
+.sugerencia {
+  display: block;
+  padding: a.$esp-3 a.$esp-4;
+  font-size: a.$txt-sm;
+  color: a.$color-texto;
+  text-decoration: none;
+
+  &:hover, &:focus-visible {
+    background-color: a.$beige;
+    outline: none;
+  }
+
+  & + & { border-top: 1px solid a.$color-borde; }
+}
+
+// --- Menú mobile ------------------------------------------------------------
+
+.header__menu-btn {
+  @include a.desde("lg") { display: none; }
+}
+
+.menu-mobile {
+  position: fixed;
+  inset: 0;
+  z-index: a.$z-drawer;
+  background-color: a.$blanco;
+  padding: a.$esp-4;
+  overflow-y: auto;
+  opacity: 0;
+  transition: opacity a.$transicion-base;
+
+  @include a.desde("lg") { display: none; }
+}
+
+.menu-mobile--abierto { opacity: 1; }
+
+.menu-mobile__encabezado {
+  @include a.flex(row, space-between, center);
+  margin-bottom: a.$esp-6;
+}
+
+.menu-mobile__lista {
+  @include a.sin-lista;
+  display: grid;
+  gap: a.$esp-1;
+}
+
+.menu-mobile__link {
+  display: block;
+  padding: a.$esp-4 a.$esp-3;
+  font-size: a.$txt-lg;
+  font-weight: a.$peso-medio;
+  color: a.$color-texto;
+  text-decoration: none;
+  border-radius: a.$radio-md;
+  border-bottom: 1px solid a.$color-borde;
+
+  &:hover { background-color: a.$beige; }
+  @include a.foco;
+}

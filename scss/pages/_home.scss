@@ -1,0 +1,243 @@
+// ===========================================================================
+// Home
+// ===========================================================================
+
+@use "../abstracts" as a;
+
+// --- Hero -------------------------------------------------------------------
+
+.hero {
+  background-color: a.$beige;
+  padding-block: a.$esp-8;
+
+  @include a.desde("md") { padding-block: a.$esp-10; }
+}
+
+.hero__interior {
+  @include a.contenedor;
+  display: grid;
+  gap: a.$esp-6;
+
+  @include a.desde("lg") {
+    grid-template-columns: 1fr 1fr;
+    align-items: center;
+    gap: a.$esp-8;
+  }
+}
+
+.hero__titulo {
+  @include a.titulo(a.$txt-4xl);
+  margin-bottom: a.$esp-4;
+}
+
+.hero__bajada {
+  font-size: a.$txt-lg;
+  color: a.$color-texto-secundario;   // 7.41 sobre beige ✓
+  max-width: 46ch;
+  margin-bottom: a.$esp-6;
+}
+
+// --- Selector de modelo — la pieza central del home -------------------------
+
+.selector-modelo {
+  background-color: a.$blanco;
+  border-radius: a.$radio-xl;
+  padding: a.$esp-5;
+  box-shadow: a.$sombra-md;
+
+  @include a.desde("md") { padding: a.$esp-6; }
+}
+
+.selector-modelo__titulo {
+  @include a.titulo(a.$txt-xl);
+  margin-bottom: a.$esp-2;
+}
+
+.selector-modelo__ayuda {
+  font-size: a.$txt-sm;
+  color: a.$color-texto-secundario;
+  margin-bottom: a.$esp-4;
+}
+
+.selector-modelo__form {
+  display: grid;
+  gap: a.$esp-3;
+
+  @include a.desde("sm") {
+    grid-template-columns: 1fr auto;
+  }
+}
+
+.selector-modelo__select {
+  width: 100%;
+  min-height: 48px;
+  padding: 0 a.$esp-4;
+  border: 1px solid a.$color-borde-control;   // 3.45 → cumple WCAG 1.4.11
+  border-radius: a.$radio-full;
+  background-color: a.$blanco;
+  font-size: a.$txt-base;
+  color: a.$color-texto;
+  cursor: pointer;
+
+  // La flecha nativa se reemplaza por una propia para que no varíe entre
+  // navegadores. Es SVG inline en data URI: no genera un request.
+  appearance: none;
+  background-image: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='12' height='8' viewBox='0 0 12 8' fill='none'%3E%3Cpath d='M1 1.5L6 6.5L11 1.5' stroke='%23111111' stroke-width='1.8' stroke-linecap='round'/%3E%3C/svg%3E");
+  background-repeat: no-repeat;
+  background-position: right a.$esp-4 center;
+  padding-right: a.$esp-7;
+
+  &:focus-visible {
+    outline: 2px solid a.$negro;
+    outline-offset: 1px;
+    border-color: a.$negro;
+  }
+}
+
+.selector-modelo__btn { white-space: nowrap; }
+
+.selector-modelo__recordado {
+  margin-top: a.$esp-3;
+  font-size: a.$txt-xs;
+  color: a.$color-texto-secundario;
+}
+
+.selector-modelo__limpiar {
+  font-size: inherit;
+  color: a.$negro;
+  font-weight: a.$peso-medio;
+  text-decoration: underline;
+  text-underline-offset: 0.2em;
+  @include a.foco;
+}
+
+// --- Grid de categorías -----------------------------------------------------
+
+.categorias {
+  display: grid;
+  grid-template-columns: repeat(2, minmax(0, 1fr));
+  gap: a.$esp-3;
+
+  @include a.desde("md") {
+    grid-template-columns: repeat(4, minmax(0, 1fr));
+    gap: a.$esp-4;
+  }
+}
+
+.categoria {
+  position: relative;
+  display: block;
+  border-radius: a.$radio-lg;
+  overflow: hidden;
+  text-decoration: none;
+  color: a.$color-texto;
+  transition: transform a.$transicion-base a.$curva-suave;
+
+  &:hover { transform: translateY(-2px); }
+  @include a.foco;
+}
+
+.categoria__nombre {
+  position: absolute;
+  left: a.$esp-3;
+  bottom: a.$esp-3;
+  padding: a.$esp-2 a.$esp-3;
+  border-radius: a.$radio-full;
+  background-color: a.$blanco;
+  font-size: a.$txt-sm;
+  font-weight: a.$peso-medio;
+  color: a.$negro;              // 18.88 sobre blanco ✓
+  box-shadow: a.$sombra-sm;
+}
+
+// --- Franja de beneficios ---------------------------------------------------
+
+.beneficios {
+  background-color: a.$nude;
+  padding-block: a.$esp-6;
+}
+
+.beneficios__grilla {
+  @include a.contenedor;
+  display: grid;
+  grid-template-columns: repeat(2, minmax(0, 1fr));
+  gap: a.$esp-5;
+
+  @include a.desde("md") {
+    grid-template-columns: repeat(4, minmax(0, 1fr));
+  }
+}
+
+.beneficio {
+  text-align: center;
+}
+
+.beneficio__icono {
+  @include a.flex(row, center, center);
+  width: 44px;
+  height: 44px;
+  margin: 0 auto a.$esp-3;
+  border-radius: a.$radio-full;
+  background-color: a.$negro;
+  color: a.$blanco;
+
+  svg { width: 22px; height: 22px; }
+}
+
+.beneficio__titulo {
+  font-size: a.$txt-sm;
+  font-weight: a.$peso-semi;
+  color: a.$negro;              // 11.33 sobre nude ✓
+  margin-bottom: a.$esp-1;
+}
+
+.beneficio__texto {
+  font-size: a.$txt-xs;
+  color: a.$gris-oscuro;        // 5.32 sobre nude ✓
+  line-height: 1.5;
+}
+
+// --- Estados de carga y error -----------------------------------------------
+
+.grilla-estado {
+  grid-column: 1 / -1;
+  padding: a.$esp-8 a.$esp-4;
+  text-align: center;
+  color: a.$color-texto-secundario;
+}
+
+.grilla-estado__titulo {
+  font-size: a.$txt-lg;
+  font-weight: a.$peso-semi;
+  color: a.$color-texto;
+  margin-bottom: a.$esp-2;
+}
+
+// Esqueleto de carga: ocupa el mismo espacio que la card real para que la
+// grilla no salte cuando llegan los datos.
+.esqueleto {
+  border-radius: a.$radio-lg;
+  overflow: hidden;
+  background-color: a.$blanco;
+}
+
+.esqueleto__media {
+  aspect-ratio: a.$aspecto-producto;
+  background-color: a.$gris-claro;
+  animation: latido 1.4s ease-in-out infinite;
+}
+
+.esqueleto__linea {
+  height: 12px;
+  margin: a.$esp-3;
+  border-radius: a.$radio-sm;
+  background-color: a.$gris-claro;
+  animation: latido 1.4s ease-in-out infinite;
+
+  &:nth-child(3) { width: 60%; }
+}
+
+@keyframes latido {
+  0%, 100% { opacity: 1; }
+  50%      { opacity: 0.5; }
+}

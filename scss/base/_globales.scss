@@ -47,4 +47,7 @@
 
 .seccion__titulo { @include a.titulo(a.$txt-2xl); }
 
+// Grilla estándar de productos: 2 col en mobile, 3 en tablet, 4 en desktop.
+.grilla-productos { @include a.grid-productos; }
+
 [hidden] { display: none !important; }

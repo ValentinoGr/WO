@@ -17,14 +17,16 @@
 @use "components/badges";
 @use "components/media";
 @use "components/card-producto";
+@use "components/drawer";
+@use "components/toast";
 @use "components/paleta-demo";
 
-// --- Layout (Bloque D) ------------------------------------------------------
-// @use "layout/header";
-// @use "layout/footer";
+// --- Layout -----------------------------------------------------------------
+@use "layout/header";
+@use "layout/footer";
 
-// --- Páginas (Bloque E) -----------------------------------------------------
-// @use "pages/home";
+// --- Páginas ----------------------------------------------------------------
+@use "pages/home";
 // @use "pages/tienda";
 // @use "pages/producto";
 // @use "pages/carrito";

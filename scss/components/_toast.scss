@@ -1,0 +1,71 @@
+// ===========================================================================
+// Toast
+// ===========================================================================
+
+@use "../abstracts" as a;
+
+.toasts {
+  position: fixed;
+  left: 50%;
+  bottom: a.$esp-4;
+  z-index: a.$z-toast;
+  translate: -50% 0;
+  display: grid;
+  gap: a.$esp-2;
+  width: min(420px, calc(100vw - #{a.$esp-6}));
+  pointer-events: none;
+
+  @include a.desde("md") {
+    left: auto;
+    right: a.$esp-6;
+    bottom: a.$esp-6;
+    translate: none;
+  }
+}
+
+.toast {
+  @include a.flex(row, flex-start, center, a.$esp-3);
+  padding: a.$esp-3 a.$esp-4;
+  border-radius: a.$radio-md;
+  background-color: a.$negro;
+  color: a.$blanco;                 // 18.88 ✓
+  box-shadow: a.$sombra-lg;
+  font-size: a.$txt-sm;
+  pointer-events: auto;
+  opacity: 0;
+  translate: 0 12px;
+  transition: opacity a.$transicion-base, translate a.$transicion-base a.$curva-suave;
+}
+
+.toast--visible {
+  opacity: 1;
+  translate: 0 0;
+}
+
+// El error también va sobre negro, con el ícono en rojo: un toast rojo entero
+// rompería la paleta de neutros.
+.toast--error .toast__icono { color: #FF8A7A; }
+.toast--exito .toast__icono { color: #8FD3AE; }
+
+.toast__icono {
+  @include a.flex(row, center, center);
+  flex-shrink: 0;
+  svg { width: 18px; height: 18px; }
+}
+
+.toast__texto {
+  flex: 1;
+  line-height: 1.4;
+}
+
+.toast__accion {
+  flex-shrink: 0;
+  font-size: a.$txt-xs;
+  font-weight: a.$peso-semi;
+  color: a.$blanco;
+  text-decoration: underline;
+  text-underline-offset: 0.2em;
+  padding: a.$esp-1 a.$esp-2;
+
+  @include a.foco(a.$blanco);
+}

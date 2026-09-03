@@ -1,0 +1,139 @@
+// ===========================================================================
+// Footer
+// ===========================================================================
+
+@use "../abstracts" as a;
+
+.footer {
+  background-color: a.$negro;
+  color: a.$blanco;
+  padding-block: a.$esp-8 a.$esp-5;
+  margin-top: a.$esp-9;
+}
+
+.footer__interior { @include a.contenedor; }
+
+.footer__grilla {
+  display: grid;
+  grid-template-columns: 1fr;
+  gap: a.$esp-6;
+  padding-bottom: a.$esp-7;
+
+  @include a.desde("md") {
+    grid-template-columns: 1.4fr repeat(3, 1fr);
+    gap: a.$esp-5;
+  }
+}
+
+.footer__marca {
+  font-size: a.$txt-2xl;
+  font-weight: a.$peso-bold;
+  letter-spacing: -0.04em;
+  color: a.$blanco;
+  text-decoration: none;
+  display: inline-block;
+  margin-bottom: a.$esp-3;
+}
+
+.footer__descripcion {
+  font-size: a.$txt-sm;
+  // $gris-claro sobre $negro → 14.74 ✓
+  color: a.$gris-claro;
+  max-width: 34ch;
+}
+
+.footer__titulo {
+  font-size: a.$txt-xs;
+  font-weight: a.$peso-semi;
+  text-transform: uppercase;
+  letter-spacing: 0.08em;
+  color: a.$blanco;
+  margin-bottom: a.$esp-3;
+}
+
+.footer__lista {
+  @include a.sin-lista;
+  display: grid;
+  gap: a.$esp-2;
+}
+
+.footer__link {
+  font-size: a.$txt-sm;
+  color: a.$gris-claro;      // 14.74 sobre negro ✓
+  text-decoration: none;
+  transition: color a.$transicion-rapida;
+
+  &:hover { color: a.$blanco; }
+  @include a.foco(a.$blanco);
+}
+
+.footer__redes {
+  @include a.flex(row, flex-start, center, a.$esp-3);
+  margin-top: a.$esp-4;
+}
+
+.footer__red {
+  @include a.flex(row, center, center);
+  width: 40px;
+  height: 40px;
+  border-radius: a.$radio-full;
+  border: 1px solid rgba(255, 255, 255, 0.25);
+  color: a.$blanco;
+  transition: background-color a.$transicion-rapida;
+
+  &:hover { background-color: rgba(255, 255, 255, 0.12); }
+  @include a.foco(a.$blanco);
+
+  svg { width: 20px; height: 20px; }
+}
+
+// --- Franja inferior --------------------------------------------------------
+
+.footer__base {
+  @include a.flex(row, space-between, center, a.$esp-4);
+  flex-wrap: wrap;
+  padding-top: a.$esp-5;
+  border-top: 1px solid rgba(255, 255, 255, 0.15);
+  font-size: a.$txt-xs;
+  color: a.$gris-claro;
+}
+
+.footer__pagos {
+  @include a.flex(row, flex-start, center, a.$esp-2);
+  flex-wrap: wrap;
+}
+
+.footer__pago {
+  padding: a.$esp-1 a.$esp-3;
+  border: 1px solid rgba(255, 255, 255, 0.25);
+  border-radius: a.$radio-sm;
+  font-size: a.$txt-xs;
+  color: a.$blanco;
+}
+
+// --- Botón flotante de WhatsApp ---------------------------------------------
+
+.wsp-flotante {
+  position: fixed;
+  right: a.$esp-4;
+  bottom: a.$esp-4;
+  z-index: a.$z-sticky;
+  @include a.flex(row, center, center);
+  width: 54px;
+  height: 54px;
+  border-radius: a.$radio-full;
+  background-color: a.$negro;
+  color: a.$blanco;
+  box-shadow: a.$sombra-lg;
+  transition: transform a.$transicion-base a.$curva-suave,
+              background-color a.$transicion-rapida;
+
+  &:hover {
+    background-color: a.$negro-hover;
+    transform: scale(1.06);
+  }
+
+  @include a.foco;
+
+  svg { width: 28px; height: 28px; }
+}

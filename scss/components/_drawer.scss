@@ -1,0 +1,237 @@
+// ===========================================================================
+// Drawer del carrito
+// ===========================================================================
+
+@use "../abstracts" as a;
+
+.drawer-fondo {
+  position: fixed;
+  inset: 0;
+  z-index: a.$z-overlay;
+  background-color: rgba(17, 17, 17, 0.45);
+  opacity: 0;
+  transition: opacity a.$transicion-base;
+}
+
+.drawer-fondo--visible { opacity: 1; }
+
+.drawer {
+  position: fixed;
+  top: 0;
+  right: 0;
+  bottom: 0;
+  z-index: a.$z-drawer;
+  width: min(420px, 100vw);
+  display: flex;
+  flex-direction: column;
+  background-color: a.$blanco;
+  box-shadow: a.$sombra-lg;
+  translate: 100% 0;
+  transition: translate a.$transicion-base a.$curva-suave;
+}
+
+.drawer--abierto { translate: 0 0; }
+
+.drawer__encabezado {
+  @include a.flex(row, space-between, center);
+  padding: a.$esp-4;
+  border-bottom: 1px solid a.$color-borde;
+  flex-shrink: 0;
+}
+
+.drawer__titulo {
+  font-size: a.$txt-lg;
+  font-weight: a.$peso-semi;
+}
+
+.drawer__cuerpo {
+  flex: 1;
+  overflow-y: auto;
+  padding: a.$esp-4;
+}
+
+.drawer__lista {
+  @include a.sin-lista;
+  display: grid;
+  gap: a.$esp-4;
+}
+
+// --- Item -------------------------------------------------------------------
+
+.drawer__item {
+  display: grid;
+  grid-template-columns: 68px 1fr auto;
+  gap: a.$esp-3;
+  padding-bottom: a.$esp-4;
+  border-bottom: 1px solid a.$color-borde;
+
+  &:last-child { border-bottom: none; padding-bottom: 0; }
+}
+
+.drawer__miniatura {
+  width: 68px;
+  border-radius: a.$radio-md;
+  background-color: a.$nude;
+}
+
+.drawer__item-nombre {
+  font-size: a.$txt-sm;
+  font-weight: a.$peso-medio;
+  line-height: 1.3;
+  @include a.truncar(2);
+}
+
+.drawer__item-variante,
+.drawer__item-precio {
+  font-size: a.$txt-xs;
+  color: a.$color-texto-secundario;
+  margin-top: 2px;
+}
+
+.drawer__item-derecha {
+  text-align: right;
+  @include a.flex(column, space-between, flex-end);
+}
+
+.drawer__item-subtotal {
+  font-size: a.$txt-sm;
+  font-weight: a.$peso-semi;
+  white-space: nowrap;
+}
+
+.drawer__quitar {
+  font-size: a.$txt-xs;
+  color: a.$color-texto-secundario;   // 8.86 ✓
+  text-decoration: underline;
+  text-underline-offset: 0.2em;
+  padding: a.$esp-1;
+
+  &:hover { color: a.$negro; }
+  @include a.foco;
+}
+
+// --- Control de cantidad ----------------------------------------------------
+
+.cantidad {
+  @include a.flex(row, flex-start, center);
+  margin-top: a.$esp-2;
+  border: 1px solid a.$color-borde-control;
+  border-radius: a.$radio-full;
+  width: fit-content;
+  overflow: hidden;
+}
+
+.cantidad__btn {
+  width: 30px;
+  height: 30px;
+  @include a.flex(row, center, center);
+  font-size: a.$txt-base;
+  line-height: 1;
+  color: a.$negro;
+  transition: background-color a.$transicion-rapida;
+
+  &:hover:not(:disabled) { background-color: a.$beige; }
+
+  &:disabled {
+    color: a.$color-texto-desactivado;   // deshabilitado: exento de contraste
+    cursor: not-allowed;
+  }
+
+  @include a.foco(a.$negro, -2px);
+}
+
+.cantidad__valor {
+  min-width: 30px;
+  text-align: center;
+  font-size: a.$txt-sm;
+  font-weight: a.$peso-medio;
+  font-variant-numeric: tabular-nums;
+}
+
+// --- Estado vacío -----------------------------------------------------------
+
+.drawer__vacio {
+  text-align: center;
+  padding: a.$esp-9 a.$esp-4;
+}
+
+.drawer__vacio-titulo {
+  font-size: a.$txt-lg;
+  font-weight: a.$peso-semi;
+  margin-bottom: a.$esp-2;
+}
+
+.drawer__vacio-texto {
+  font-size: a.$txt-sm;
+  color: a.$color-texto-secundario;
+  margin-bottom: a.$esp-5;
+}
+
+// --- Footer del drawer ------------------------------------------------------
+
+.drawer__footer {
+  flex-shrink: 0;
+  padding: a.$esp-4;
+  border-top: 1px solid a.$color-borde;
+  background-color: a.$blanco;
+}
+
+.drawer__envio { margin-bottom: a.$esp-4; }
+
+.drawer__envio-texto {
+  font-size: a.$txt-xs;
+  color: a.$color-texto-secundario;
+  margin-bottom: a.$esp-2;
+}
+
+.drawer__envio-texto--ok {
+  color: a.$marron;              // 8.41 sobre blanco ✓
+  font-weight: a.$peso-semi;
+}
+
+.barra-progreso {
+  height: 5px;
+  border-radius: a.$radio-full;
+  background-color: a.$gris-claro;
+  overflow: hidden;
+}
+
+.barra-progreso__relleno {
+  display: block;
+  height: 100%;
+  background-color: a.$negro;
+  border-radius: a.$radio-full;
+  transition: width a.$transicion-base a.$curva-suave;
+}
+
+.drawer__total {
+  @include a.flex(row, space-between, baseline);
+  font-size: a.$txt-sm;
+  color: a.$color-texto-secundario;
+  margin-bottom: a.$esp-1;
+}
+
+.drawer__total-monto {
+  font-size: a.$txt-xl;
+  font-weight: a.$peso-semi;
+  letter-spacing: -0.02em;
+  color: a.$color-texto;
+}
+
+.drawer__aclaracion {
+  font-size: a.$txt-xs;
+  color: a.$color-texto-secundario;
+  margin-bottom: a.$esp-3;
+}
+
+.drawer__link-alternativo {
+  display: block;
+  padding: a.$esp-3;
+  margin-bottom: a.$esp-3;
+  background-color: a.$beige;
+  border-radius: a.$radio-md;
+  font-size: a.$txt-sm;
+  font-weight: a.$peso-medio;
+  text-align: center;
+  color: a.$negro;
+}
