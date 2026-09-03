@@ -35,10 +35,13 @@ if (!producto) {
 
 // ---------------------------------------------------------------------------
 
+// Estas dos vistas reemplazan todo el contenido de la página: sin producto
+// que renderizar, no hay otro <h1> — este pasa a serlo, para que la página
+// nunca quede sin encabezado principal.
 function mostrarError(mensaje) {
   contenedor.replaceChildren(
     crear("div", { class: "grilla-estado" }, [
-      crear("p", { class: "grilla-estado__titulo" }, ["No pudimos cargar el producto"]),
+      crear("h1", { class: "grilla-estado__titulo" }, ["No pudimos cargar el producto"]),
       crear("p", {}, [mensaje]),
     ])
   );
@@ -47,7 +50,7 @@ function mostrarError(mensaje) {
 function mostrarNoEncontrado() {
   contenedor.replaceChildren(
     crear("div", { class: "grilla-estado" }, [
-      crear("p", { class: "grilla-estado__titulo" }, ["Este producto no existe o fue dado de baja"]),
+      crear("h1", { class: "grilla-estado__titulo" }, ["Este producto no existe o fue dado de baja"]),
       crear("a", { class: "btn btn--primario", href: "tienda.html", style: "margin-top:1rem" },
         ["Volver a la tienda"]),
     ])

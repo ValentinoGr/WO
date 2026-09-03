@@ -344,3 +344,23 @@ No implementar: login de usuarios, cupones de descuento, reviews de productos, w
 9. Checkout por WhatsApp funcionando end to end, detrás de la capa abstraída
 
 Antes de escribir código, proponé el plan de implementación por pasos y esperá confirmación.
+
+---
+
+## 12. Estado del entregable
+
+Los 9 puntos de la sección 11 están completos. Detalle de cada uno:
+
+1. ✅ Estructura completa + `README.md` (instrucciones para correr, agregar productos, y la especificación de imágenes para el cliente)
+2. ✅ `data/productos.json` — 15 productos activos + 1 dado de baja (`activo:false`), cubriendo variantes con stock 0, universales, descuentos y sin stock
+3. ✅ SASS con `@use`/`@forward` (no `@import`, deprecado), tokens, mixins y reset
+4. ✅ Header y footer en las 6 páginas — HTML repetido a propósito, no inyectado por JS (mejor SEO y sin CLS)
+5. ✅ Home con selector de modelo operativo, categorías, destacados y novedades
+6. ✅ Catálogo con filtros (categoría, modelo, marca, precio) y orden, sincronizados con la URL
+7. ✅ Página de producto: galería, variantes, cuotas, specs, relacionados, JSON-LD
+8. ✅ Carrito con persistencia versionada en localStorage
+9. ✅ Checkout por WhatsApp end to end, detrás de `checkout/index.js`
+
+**Verificación:** 46 aserciones automatizadas (núcleo + filtros) corriendo en Node, chequeo de que cada `import` resuelve a un export real, y Lighthouse con Chrome real: **90-100 en las cuatro métricas en las 6 páginas** (detalle en el README, sección Calidad).
+
+**Pendiente, no de código:** el número de WhatsApp real y las fotos de producto — ambos documentados en el README como lo único que falta para pasar a producción.

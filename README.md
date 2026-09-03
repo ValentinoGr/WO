@@ -188,6 +188,34 @@ el navegador, cualquiera lo edita desde la consola y compra a $1.
 
 ---
 
+## Calidad — Lighthouse
+
+Medido con Chrome real (no estimado), corriendo sobre `python -m http.server`
+en local — sin CDN ni cache-control, así que en producción va a dar mejor,
+no peor.
+
+| Página | Performance | Accesibilidad | Best Practices | SEO |
+|---|---|---|---|---|
+| `index.html` | 98 | 100 | 96 | 100 |
+| `tienda.html` | 98 | 100 | 96 | 100 |
+| `producto.html` | 90 | 100 | 96 | 100 |
+| `carrito.html` | 99 | 100 | 100 | 60* |
+| `contacto.html` | 99 | 100 | 100 | 100 |
+| `faq.html` | 99 | 100 | 100 | 100 |
+
+\* El carrito tiene `<meta name="robots" content="noindex">` a propósito —
+no tiene sentido que Google indexe una página de carrito de compras. Ese es
+el único motivo del puntaje SEO bajo ahí; es intencional, no un bug.
+
+Cosas que van a subir solas cuando lleguen las fotos reales del cliente:
+hoy cada `<img>` rota devuelve 404 (documentado, ver arriba), lo que resta
+unos puntos en Performance por errores de consola y en el peso de la página.
+
+Para repetir la medición: `npx lighthouse http://localhost:5500/index.html
+--view` con el sitio corriendo.
+
+---
+
 ## Pendientes de configuración
 
 - [ ] **Número de WhatsApp real** en `CONFIG.whatsapp` (`js/config.js`).

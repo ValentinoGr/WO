@@ -29,9 +29,15 @@
 
 // Agotado: se apaga pero sigue siendo navegable. Ocultarlo sería peor —
 // el cliente igual quiere saber que el producto existe.
+//
+// OJO: la opacidad va solo en la <img> de la foto, nunca en `.media` entero
+// ni en `.card-producto__precios`. Medido con Lighthouse: aplicarla al
+// contenedor diluía también el badge "Sin stock" y el precio hacia el fondo
+// blanco, y el contraste de ambos (ya verificados AA en aislamiento) caía
+// por debajo de 4.5:1 (2.77 y 4.17 medidos). El badge y el precio se
+// mantienen a color completo; solo la foto se atenúa.
 .card-producto--agotado {
-  .media,
-  .card-producto__precios { opacity: 0.55; }
+  .media img { opacity: 0.5; }
 }
 
 .card-producto__link {

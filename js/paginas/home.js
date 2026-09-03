@@ -3,7 +3,6 @@
 // ===========================================================================
 
 import { $, crear } from "../utils/dom.js";
-import { CONFIG } from "../config.js";
 import { obtenerDestacados, obtenerNovedades } from "../data/productos.js";
 import { renderizarGrilla } from "../ui/cardProducto.js";
 import { montarSelectorModelo } from "../ui/selectorModelo.js";
@@ -11,20 +10,9 @@ import { montarSelectorModelo } from "../ui/selectorModelo.js";
 // --- Selector de modelo (lo más importante del home) -----------------------
 montarSelectorModelo($("#selector-modelo"));
 
-// --- Categorías ------------------------------------------------------------
-const FONDOS = ["media--nude", "media--beige", "media--gris"];
-
-$("#categorias")?.replaceChildren(
-  ...CONFIG.categorias.map((cat, i) =>
-    crear("a", {
-      class: "categoria",
-      href: `tienda.html?categoria=${encodeURIComponent(cat.id)}`,
-    }, [
-      crear("div", { class: `media media--categoria ${FONDOS[i % FONDOS.length]}` }),
-      crear("span", { class: "categoria__nombre" }, [cat.nombre]),
-    ])
-  )
-);
+// Las categorías son HTML estático en index.html, no se pintan por acá:
+// evita el salto de layout de esperar a que este script las arme (medido con
+// Lighthouse — el div vacío colapsaba y después empujaba todo hacia abajo).
 
 // --- Grillas de productos --------------------------------------------------
 

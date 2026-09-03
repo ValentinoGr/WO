@@ -3,6 +3,8 @@
 <head>
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <link rel="icon" href="assets/favicon.svg" type="image/svg+xml">
+  <meta name="theme-color" content="#111111">
   <title>Producto — Wo!</title>
   <meta name="description" content="Accesorios para iPhone — Wo!">
 
@@ -101,14 +103,34 @@
 
       <nav class="breadcrumb" id="breadcrumb" aria-label="Ruta de navegación"></nav>
 
+      <!-- Esqueletos: reservan el espacio final para que la página no salte
+           cuando termina el fetch del producto (medido con Lighthouse: sin
+           esto el CLS daba 0.82). obtenerProducto() y montarGaleria() hacen
+           replaceChildren() sobre estos mismos contenedores, así que el
+           esqueleto se saca solo apenas llega el dato real. -->
       <div id="producto-contenido">
         <div class="producto">
-          <div class="producto__galeria" id="galeria"></div>
+          <div class="producto__galeria" id="galeria">
+            <div class="media media--producto media--nude" aria-hidden="true"></div>
+          </div>
 
           <div class="producto__info">
-            <div id="producto-cuerpo"></div>
+            <!-- Sin aria-hidden en estos contenedores: producto.js hace
+                 replaceChildren() sobre ellos (no los reemplaza a ellos
+                 mismos), así que un aria-hidden puesto acá se quedaría
+                 pegado para siempre y ocultaría el precio y el botón de
+                 comprar reales. Las barras del esqueleto no tienen texto:
+                 no hay nada que un lector de pantalla deba saltear. -->
+            <div id="producto-cuerpo">
+              <div class="esqueleto__linea" style="width:30%"></div>
+              <div class="esqueleto__linea" style="width:75%; height:26px; margin-top:12px"></div>
+              <div class="esqueleto__linea" style="width:45%"></div>
+              <div class="esqueleto__linea" style="width:35%; height:30px; margin-top:20px"></div>
+            </div>
             <div id="producto-variantes"></div>
-            <div id="producto-acciones" class="producto__acciones"></div>
+            <div id="producto-acciones" class="producto__acciones">
+              <div class="esqueleto__linea" style="width:130px; height:44px; border-radius:999px"></div>
+            </div>
           </div>
         </div>
 

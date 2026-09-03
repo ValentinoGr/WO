@@ -3,8 +3,10 @@
 <head>
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <link rel="icon" href="assets/favicon.svg" type="image/svg+xml">
+  <meta name="theme-color" content="#111111">
   <title>Wo! — Accesorios para iPhone en Rafaela</title>
-  <meta name="description" content="Fundas, cargadores, power banks, protectores y parlantes para tu iPhone. Encontrá lo que necesitás filtrando por tu modelo. Rafaela, Santa Fe. Envíos a todo el país.">
+  <meta name="description" content="Fundas, cargadores y accesorios para tu iPhone. Filtrá por tu modelo y encontrá lo que necesitás. Rafaela, Santa Fe. Envíos a todo el país.">
 
   <meta property="og:type" content="website">
   <meta property="og:title" content="Wo! — Accesorios para iPhone">
@@ -128,7 +130,40 @@
           <h2 class="seccion__titulo">Categorías</h2>
           <a class="btn btn--fantasma btn--sm" href="tienda.html">Ver todo</a>
         </div>
-        <div class="categorias" id="categorias"></div>
+        <!-- Estático a propósito, no inyectado por JS: las 7 categorías ya
+             están hardcodeadas en el nav y el footer, y así se evita el
+             salto de layout de esperar a que el JS las pinte. Si el cliente
+             suma una categoría, se agrega acá + CONFIG.categorias. -->
+        <div class="categorias">
+          <a class="categoria" href="tienda.html?categoria=fundas">
+            <div class="media media--categoria media--nude"></div>
+            <span class="categoria__nombre">Fundas</span>
+          </a>
+          <a class="categoria" href="tienda.html?categoria=cargadores">
+            <div class="media media--categoria media--beige"></div>
+            <span class="categoria__nombre">Cargadores</span>
+          </a>
+          <a class="categoria" href="tienda.html?categoria=powerbanks">
+            <div class="media media--categoria media--gris"></div>
+            <span class="categoria__nombre">Power banks</span>
+          </a>
+          <a class="categoria" href="tienda.html?categoria=protectores">
+            <div class="media media--categoria media--nude"></div>
+            <span class="categoria__nombre">Protectores de pantalla</span>
+          </a>
+          <a class="categoria" href="tienda.html?categoria=cables">
+            <div class="media media--categoria media--beige"></div>
+            <span class="categoria__nombre">Cables</span>
+          </a>
+          <a class="categoria" href="tienda.html?categoria=parlantes">
+            <div class="media media--categoria media--gris"></div>
+            <span class="categoria__nombre">Parlantes</span>
+          </a>
+          <a class="categoria" href="tienda.html?categoria=auriculares">
+            <div class="media media--categoria media--nude"></div>
+            <span class="categoria__nombre">Auriculares</span>
+          </a>
+        </div>
       </div>
     </section>
 
