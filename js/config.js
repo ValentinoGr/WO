@@ -19,8 +19,7 @@ export const CONFIG = {
   horarios: "Lunes a viernes de 9 a 13 y de 16:30 a 20:30 · Sábados de 9 a 13",
 
   redes: {
-    instagram: "https://instagram.com/",
-    facebook: "https://facebook.com/",
+    instagram: "https://www.instagram.com/wo.electronics/",
   },
 
   // --- Formato -------------------------------------------------------------

@@ -26,11 +26,25 @@ html {
   }
 }
 
+// Footer siempre anclado al fondo del viewport, incluso en páginas con poco
+// contenido (contacto, FAQ, carrito vacío) donde si no quedaba "flotando"
+// a mitad de pantalla en vez de pegado abajo.
 body {
   min-height: 100vh;
   min-height: 100dvh;
+  display: flex;
+  flex-direction: column;
   -webkit-font-smoothing: antialiased;
   text-rendering: optimizeLegibility;
+}
+
+body > header,
+body > footer {
+  flex-shrink: 0;
+}
+
+body > main {
+  flex: 1 0 auto;
 }
 
 img, picture, video, canvas, svg {
