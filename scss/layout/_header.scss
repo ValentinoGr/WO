@@ -22,17 +22,22 @@
 }
 
 // --- Logo -------------------------------------------------------------------
+// Isotipo real (no texto "Wo!" plano) en el header y en el encabezado del
+// menú mobile. El logo grande vive aparte, en el hero del home.
 
 .logo {
-  font-size: a.$txt-xl;
-  font-weight: a.$peso-bold;
-  letter-spacing: -0.04em;
-  color: a.$negro;
-  text-decoration: none;
+  display: inline-flex;
+  align-items: center;
   flex-shrink: 0;
   @include a.foco;
+}
 
-  &:hover { text-decoration: none; }
+.logo__img {
+  height: 30px;
+  width: auto;
+  display: block;
+
+  @include a.desde("md") { height: 34px; }
 }
 
 // --- Navegación desktop -----------------------------------------------------
