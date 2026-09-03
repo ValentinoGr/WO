@@ -1,0 +1,195 @@
+// ===========================================================================
+// Página de producto
+// ===========================================================================
+
+@use "../abstracts" as a;
+
+.producto-pagina { padding-block: a.$esp-5 a.$esp-9; }
+
+// --- Breadcrumb ---------------------------------------------------------------
+
+.breadcrumb {
+  font-size: a.$txt-xs;
+  color: a.$color-texto-secundario;
+  margin-bottom: a.$esp-5;
+
+  a {
+    color: a.$color-texto-secundario;
+    text-decoration: none;
+    &:hover { color: a.$negro; text-decoration: underline; }
+  }
+
+  [aria-current="page"] {
+    color: a.$color-texto;
+    font-weight: a.$peso-medio;
+  }
+}
+
+// --- Layout principal -----------------------------------------------------
+
+.producto {
+  display: grid;
+  gap: a.$esp-6;
+  margin-bottom: a.$esp-9;
+
+  @include a.desde("lg") {
+    grid-template-columns: 1fr 1fr;
+    gap: a.$esp-8;
+  }
+}
+
+.producto__info { min-width: 0; }
+
+.producto__marca {
+  font-size: a.$txt-xs;
+  font-weight: a.$peso-medio;
+  text-transform: uppercase;
+  letter-spacing: 0.06em;
+  color: a.$color-texto-secundario;
+  margin-bottom: a.$esp-2;
+}
+
+.producto__titulo {
+  @include a.titulo(a.$txt-2xl);
+  margin-bottom: a.$esp-2;
+}
+
+.producto__compat {
+  font-size: a.$txt-sm;
+  color: a.$color-texto-secundario;
+  margin-bottom: a.$esp-5;
+}
+
+// --- Precio -----------------------------------------------------------------
+
+.producto__precios {
+  @include a.flex(row, flex-start, center, a.$esp-3);
+  flex-wrap: wrap;
+  margin-bottom: a.$esp-3;
+}
+
+.producto__precio {
+  font-size: a.$txt-3xl;
+  font-weight: a.$peso-semi;
+  letter-spacing: -0.02em;
+}
+
+.producto__precio-anterior {
+  font-size: a.$txt-lg;
+  // Hereda color de <s> (base/_tipografia.scss → $gris-oscuro).
+}
+
+.producto__cuotas {
+  @include a.sin-lista;
+  font-size: a.$txt-sm;
+  color: a.$color-texto-secundario;
+  margin-bottom: a.$esp-6;
+
+  li + li { margin-top: 2px; }
+}
+
+// --- Variantes ----------------------------------------------------------------
+
+.producto__seccion-titulo {
+  font-size: a.$txt-base;
+  font-weight: a.$peso-semi;
+  margin-bottom: a.$esp-3;
+
+  span { font-weight: a.$peso-regular; color: a.$color-texto-secundario; }
+}
+
+.producto__swatches {
+  @include a.flex(row, flex-start, center, a.$esp-2);
+  flex-wrap: wrap;
+  margin-bottom: a.$esp-6;
+}
+
+.swatch {
+  position: relative;
+  width: 40px;
+  height: 40px;
+  border-radius: a.$radio-full;
+  background-color: var(--color);
+  border: 1px solid a.$gris-claro;
+  transition: box-shadow a.$transicion-rapida;
+  @include a.foco;
+
+  &:hover:not(:disabled) { box-shadow: 0 0 0 2px a.$blanco, 0 0 0 3px a.$gris-medio; }
+}
+
+.swatch--activo {
+  box-shadow: 0 0 0 2px a.$blanco, 0 0 0 3px a.$negro;
+}
+
+.swatch:disabled {
+  opacity: 0.35;
+  cursor: not-allowed;
+
+  &::after {
+    content: "";
+    position: absolute;
+    inset: 50% auto auto 50%;
+    width: 28px;
+    height: 1px;
+    background-color: a.$negro;
+    translate: -50% -50%;
+    rotate: -45deg;
+  }
+}
+
+// --- Acciones -------------------------------------------------------------
+
+.producto__acciones {
+  display: grid;
+  gap: a.$esp-4;
+}
+
+.cantidad--grande {
+  width: fit-content;
+
+  .cantidad__btn { width: 44px; height: 44px; font-size: a.$txt-lg; }
+  .cantidad__valor { min-width: 44px; font-size: a.$txt-base; }
+}
+
+.producto__sin-stock {
+  padding: a.$esp-3;
+  background-color: a.$beige;
+  border-radius: a.$radio-md;
+  color: a.$gris-oscuro;
+  font-size: a.$txt-sm;
+  text-align: center;
+}
+
+// --- Descripción y especificaciones -----------------------------------------
+
+.producto__detalle {
+  max-width: 760px;
+  margin-bottom: a.$esp-9;
+  padding-top: a.$esp-6;
+  border-top: 1px solid a.$color-borde;
+}
+
+.producto__descripcion {
+  font-size: a.$txt-base;
+  line-height: a.$alto-linea-base;
+  color: a.$color-texto-secundario;
+}
+
+.producto__tabla-specs {
+  display: grid;
+  grid-template-columns: auto 1fr;
+  gap: a.$esp-2 a.$esp-5;
+  font-size: a.$txt-sm;
+
+  dt {
+    color: a.$color-texto-secundario;
+    font-weight: a.$peso-medio;
+  }
+
+  dd { color: a.$color-texto; }
+
+  dt, dd {
+    padding-block: a.$esp-2;
+    border-bottom: 1px solid a.$color-borde;
+  }
+}

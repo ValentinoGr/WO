@@ -1,0 +1,127 @@
+// ===========================================================================
+// Tienda — layout de catálogo
+// ===========================================================================
+
+@use "../abstracts" as a;
+
+.tienda { padding-block: a.$esp-6 a.$esp-9; }
+
+.tienda__encabezado { margin-bottom: a.$esp-4; }
+
+.tienda__titulo {
+  @include a.titulo(a.$txt-2xl);
+  margin-bottom: a.$esp-1;
+}
+
+.tienda__resultado {
+  font-size: a.$txt-sm;
+  color: a.$color-texto-secundario;
+}
+
+// --- Barra de herramientas ---------------------------------------------------
+
+.tienda__barra {
+  @include a.flex(row, space-between, center, a.$esp-3);
+  flex-wrap: wrap;
+  margin-bottom: a.$esp-5;
+  padding-bottom: a.$esp-4;
+  border-bottom: 1px solid a.$color-borde;
+}
+
+.tienda__btn-filtros {
+  @include a.desde("lg") { display: none; }
+}
+
+.tienda__chips {
+  @include a.flex(row, flex-start, center, a.$esp-2);
+  flex-wrap: wrap;
+  flex: 1;
+  min-width: 0;
+}
+
+.tienda__orden { margin-left: auto; }
+
+.selector-orden {
+  min-height: 40px;
+  padding: 0 a.$esp-3;
+  border: 1px solid a.$color-borde-control;
+  border-radius: a.$radio-md;
+  background-color: a.$blanco;
+  font-size: a.$txt-sm;
+  color: a.$color-texto;
+
+  &:focus-visible {
+    outline: 2px solid a.$negro;
+    outline-offset: 1px;
+  }
+}
+
+// --- Cuerpo: panel + resultados ----------------------------------------------
+
+.tienda__cuerpo {
+  display: grid;
+  gap: a.$esp-6;
+
+  @include a.desde("lg") {
+    grid-template-columns: 240px 1fr;
+    align-items: flex-start;
+  }
+}
+
+// --- Panel de filtros: drawer en mobile, sidebar fija en desktop ------------
+
+.panel-filtros-fondo {
+  position: fixed;
+  inset: 0;
+  z-index: a.$z-overlay;
+  background-color: rgba(17, 17, 17, 0.45);
+  opacity: 0;
+  transition: opacity a.$transicion-base;
+
+  @include a.desde("lg") { display: none; }
+}
+
+.panel-filtros-fondo--visible { opacity: 1; }
+
+.panel-filtros {
+  @include a.desde("lg") {
+    position: sticky;
+    top: calc(#{a.$alto-header} + #{a.$esp-4});
+  }
+}
+
+// Mobile: drawer que entra desde la izquierda.
+@include a.hasta("lg") {
+  .panel-filtros {
+    position: fixed;
+    top: 0;
+    left: 0;
+    bottom: 0;
+    z-index: a.$z-drawer;
+    width: min(340px, 88vw);
+    background-color: a.$blanco;
+    padding: a.$esp-4;
+    overflow-y: auto;
+    translate: -100% 0;
+    transition: translate a.$transicion-base a.$curva-suave;
+    box-shadow: a.$sombra-lg;
+  }
+
+  .panel-filtros--abierto { translate: 0 0; }
+}
+
+.panel-filtros__encabezado {
+  @include a.flex(row, space-between, center);
+  margin-bottom: a.$esp-4;
+
+  @include a.desde("lg") { display: none; }
+}
+
+.panel-filtros__h {
+  font-size: a.$txt-lg;
+  font-weight: a.$peso-semi;
+}
+
+// --- Resultados ---------------------------------------------------------------
+
+.tienda__resultados { min-width: 0; }

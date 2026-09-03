@@ -87,6 +87,7 @@ function filaItem(item) {
   if (item.imagen) {
     media.append(crear("img", {
       src: item.imagen, alt: "", width: 120, height: 120, loading: "lazy",
+      onError: (e) => e.target.remove(),   // sin foto real todavía: cae al bloque de color
     }));
   }
 

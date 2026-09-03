@@ -1,0 +1,194 @@
+// ===========================================================================
+// Página de carrito
+// ===========================================================================
+
+@use "../abstracts" as a;
+
+.carrito-pagina { padding-block: a.$esp-5 a.$esp-9; }
+
+.carrito-pagina__titulo {
+  @include a.titulo(a.$txt-2xl);
+  margin-bottom: a.$esp-5;
+}
+
+// --- Estado vacío -------------------------------------------------------------
+
+.carrito-vacio {
+  text-align: center;
+  padding: a.$esp-11 a.$esp-4;
+}
+
+.carrito-vacio__titulo {
+  font-size: a.$txt-xl;
+  font-weight: a.$peso-semi;
+  margin-bottom: a.$esp-2;
+}
+
+.carrito-vacio__texto {
+  color: a.$color-texto-secundario;
+  margin-bottom: a.$esp-6;
+}
+
+// --- Layout: lista + resumen ---------------------------------------------------
+
+.carrito-cuerpo {
+  display: grid;
+  gap: a.$esp-6;
+  align-items: flex-start;
+
+  @include a.desde("lg") {
+    grid-template-columns: 1fr 360px;
+  }
+}
+
+.carrito-cantidad {
+  font-size: a.$txt-sm;
+  color: a.$color-texto-secundario;
+  margin-bottom: a.$esp-4;
+}
+
+.carrito-lista {
+  @include a.sin-lista;
+  display: grid;
+  gap: a.$esp-4;
+}
+
+// --- Item ----------------------------------------------------------------------
+
+.carrito-item {
+  display: grid;
+  grid-template-columns: 88px 1fr auto auto;
+  align-items: center;
+  gap: a.$esp-4;
+  padding-block: a.$esp-4;
+  border-bottom: 1px solid a.$color-borde;
+
+  @include a.hasta("sm") {
+    grid-template-columns: 72px 1fr;
+    grid-template-areas: "media datos" "media cantidad" "media subtotal";
+    row-gap: a.$esp-2;
+  }
+}
+
+.carrito-item__media-link {
+  display: block;
+  @include a.hasta("sm") { grid-area: media; }
+}
+
+.carrito-item__miniatura {
+  width: 88px;
+  border-radius: a.$radio-md;
+  background-color: a.$nude;
+
+  @include a.hasta("sm") { width: 72px; }
+}
+
+.carrito-item__datos { @include a.hasta("sm") { grid-area: datos; } }
+
+.carrito-item__nombre {
+  display: block;
+  font-size: a.$txt-sm;
+  font-weight: a.$peso-medio;
+  color: a.$color-texto;
+  text-decoration: none;
+  margin-bottom: 2px;
+
+  &:hover { text-decoration: underline; }
+}
+
+.carrito-item__variante,
+.carrito-item__precio-unit {
+  font-size: a.$txt-xs;
+  color: a.$color-texto-secundario;
+}
+
+.carrito-item__quitar {
+  display: block;
+  margin-top: a.$esp-1;
+  font-size: a.$txt-xs;
+  color: a.$color-texto-secundario;
+  text-decoration: underline;
+  text-underline-offset: 0.2em;
+
+  &:hover { color: a.$negro; }
+  @include a.foco;
+}
+
+.carrito-item__cantidad { @include a.hasta("sm") { grid-area: cantidad; } }
+
+.carrito-item__subtotal {
+  font-size: a.$txt-sm;
+  font-weight: a.$peso-semi;
+  white-space: nowrap;
+  @include a.hasta("sm") { grid-area: subtotal; }
+}
+
+// --- Resumen lateral -------------------------------------------------------
+
+.carrito-resumen {
+  background-color: a.$beige;
+  border-radius: a.$radio-lg;
+  padding: a.$esp-5;
+  display: grid;
+  gap: a.$esp-4;
+
+  @include a.desde("lg") {
+    position: sticky;
+    top: calc(#{a.$alto-header} + #{a.$esp-4});
+  }
+}
+
+.carrito-envio__texto {
+  font-size: a.$txt-sm;
+  color: a.$color-texto-secundario;
+  margin-bottom: a.$esp-2;
+}
+
+.carrito-envio__texto--ok {
+  color: a.$marron;         // 7.03 sobre beige ✓
+  font-weight: a.$peso-semi;
+}
+
+.carrito-totales { display: grid; gap: a.$esp-2; }
+
+.carrito-totales__fila {
+  @include a.flex(row, space-between, baseline);
+  font-size: a.$txt-sm;
+  color: a.$color-texto-secundario;
+
+  dt, dd { margin: 0; }
+}
+
+.carrito-totales__fila--total {
+  padding-top: a.$esp-3;
+  border-top: 1px solid a.$color-borde;
+  font-size: a.$txt-lg;
+  font-weight: a.$peso-semi;
+  color: a.$color-texto;
+}
+
+// --- Datos opcionales (details/summary) -------------------------------------
+
+.carrito-datos { font-size: a.$txt-sm; }
+
+.carrito-datos__resumen {
+  cursor: pointer;
+  font-weight: a.$peso-medio;
+  color: a.$negro;
+  padding-block: a.$esp-1;
+  @include a.foco;
+
+  &::marker { color: a.$color-texto-secundario; }
+}
+
+.carrito-datos__campos {
+  display: grid;
+  gap: a.$esp-3;
+  margin-top: a.$esp-3;
+}
+
+.carrito-aclaracion {
+  font-size: a.$txt-xs;
+  color: a.$color-texto-secundario;
+  text-align: center;
+}

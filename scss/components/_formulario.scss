@@ -1,0 +1,54 @@
+// ===========================================================================
+// Formularios — campos reutilizables (carrito, contacto)
+// ===========================================================================
+
+@use "../abstracts" as a;
+
+.campo {
+  display: grid;
+  gap: a.$esp-1;
+  font-size: a.$txt-sm;
+}
+
+.campo__etiqueta {
+  font-weight: a.$peso-medio;
+  color: a.$color-texto;
+}
+
+.campo__input {
+  min-height: 44px;
+  padding: a.$esp-2 a.$esp-3;
+  border: 1px solid a.$color-borde-control;   // 3.45 → cumple WCAG 1.4.11
+  border-radius: a.$radio-md;
+  background-color: a.$blanco;
+  font-size: a.$txt-sm;
+  color: a.$color-texto;
+  font-family: inherit;
+
+  &::placeholder { color: a.$color-texto-secundario; }
+
+  &:focus-visible {
+    outline: 2px solid a.$negro;
+    outline-offset: 1px;
+    border-color: a.$negro;
+  }
+
+  &[aria-invalid="true"] {
+    border-color: a.$color-error;
+  }
+}
+
+textarea.campo__input {
+  min-height: auto;
+  resize: vertical;
+}
+
+.campo__error {
+  font-size: a.$txt-xs;
+  color: a.$color-error;
+}
+
+.campo__ayuda {
+  font-size: a.$txt-xs;
+  color: a.$color-texto-secundario;
+}

@@ -110,6 +110,10 @@ export function crearCardProducto(producto, { indice = 0, superficieClara = fals
         height: 1200,
         loading: "lazy",
         decoding: "async",
+        // Todavía no hay fotos reales (las sube el cliente, ver README).
+        // Si el archivo no existe, se saca el <img> en vez de dejar el ícono
+        // de imagen rota: el bloque de color + marca de agua queda como estaba.
+        onError: (e) => e.target.remove(),
       })
     );
   }

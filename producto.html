@@ -1,0 +1,202 @@
+<!DOCTYPE html>
+<html lang="es-AR">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Producto — Wo!</title>
+  <meta name="description" content="Accesorios para iPhone — Wo!">
+
+  <meta property="og:type" content="product">
+  <meta property="og:title" content="Producto — Wo!">
+  <meta property="og:description" content="Accesorios para iPhone — Wo!">
+  <meta property="og:locale" content="es_AR">
+
+  <link rel="stylesheet" href="css/main.css">
+</head>
+<body>
+  <a class="saltar-contenido" href="#contenido">Saltar al contenido</a>
+
+  <!-- ==================== HEADER ==================== -->
+  <header class="header" data-header>
+    <div class="header__interior">
+      <a class="logo" href="index.html">Wo!</a>
+
+      <nav class="nav" aria-label="Navegación principal" data-nav>
+        <ul class="nav__lista" role="list">
+          <li><a class="nav__link" href="tienda.html">Tienda</a></li>
+          <li><a class="nav__link" href="tienda.html?categoria=fundas">Fundas</a></li>
+          <li><a class="nav__link" href="tienda.html?categoria=cargadores">Cargadores</a></li>
+          <li><a class="nav__link" href="tienda.html?categoria=parlantes">Parlantes</a></li>
+          <li><a class="nav__link" href="contacto.html">Contacto</a></li>
+        </ul>
+      </nav>
+
+      <form class="busqueda" action="tienda.html" method="get" role="search" data-form-busqueda>
+        <label class="solo-lectores" for="busqueda-header">Buscar productos</label>
+        <input class="busqueda__campo" type="search" id="busqueda-header" name="q"
+               placeholder="Buscar accesorios…" autocomplete="off">
+        <div class="busqueda__sugerencias" data-sugerencias hidden></div>
+      </form>
+
+      <div class="header__acciones">
+        <button class="btn-icono header__carrito" type="button" data-abrir-carrito
+                aria-label="Carrito vacío">
+          <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8"
+               stroke-linecap="round" stroke-linejoin="round" aria-hidden="true">
+            <path d="M6 2 3 6v14a2 2 0 0 0 2 2h14a2 2 0 0 0 2-2V6l-3-4z"/>
+            <path d="M3 6h18M16 10a4 4 0 0 1-8 0"/>
+          </svg>
+          <span class="contador" data-contador-carrito hidden>0</span>
+        </button>
+
+        <button class="btn-icono header__menu-btn" type="button" data-abrir-menu
+                aria-expanded="false" aria-controls="menu-mobile" aria-label="Abrir menú">
+          <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8"
+               stroke-linecap="round" aria-hidden="true">
+            <path d="M3 6h18M3 12h18M3 18h18"/>
+          </svg>
+        </button>
+      </div>
+    </div>
+  </header>
+
+  <!-- ==================== MENÚ MOBILE ==================== -->
+  <div class="menu-mobile" id="menu-mobile" hidden>
+    <div class="menu-mobile__encabezado">
+      <span class="logo">Wo!</span>
+      <button class="btn-icono" type="button" data-cerrar-menu aria-label="Cerrar menú">
+        <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8"
+             stroke-linecap="round" aria-hidden="true">
+          <path d="M18 6 6 18M6 6l12 12"/>
+        </svg>
+      </button>
+    </div>
+
+    <form class="busqueda" style="display:block; max-width:none; margin-bottom:1.5rem;"
+          action="tienda.html" method="get" role="search" data-form-busqueda>
+      <label class="solo-lectores" for="busqueda-mobile">Buscar productos</label>
+      <input class="busqueda__campo" type="search" id="busqueda-mobile" name="q"
+             placeholder="Buscar accesorios…" autocomplete="off">
+      <div class="busqueda__sugerencias" data-sugerencias hidden></div>
+    </form>
+
+    <nav aria-label="Navegación">
+      <ul class="menu-mobile__lista" role="list">
+        <li><a class="menu-mobile__link" href="tienda.html">Toda la tienda</a></li>
+        <li><a class="menu-mobile__link" href="tienda.html?categoria=fundas">Fundas</a></li>
+        <li><a class="menu-mobile__link" href="tienda.html?categoria=cargadores">Cargadores</a></li>
+        <li><a class="menu-mobile__link" href="tienda.html?categoria=powerbanks">Power banks</a></li>
+        <li><a class="menu-mobile__link" href="tienda.html?categoria=protectores">Protectores</a></li>
+        <li><a class="menu-mobile__link" href="tienda.html?categoria=cables">Cables</a></li>
+        <li><a class="menu-mobile__link" href="tienda.html?categoria=parlantes">Parlantes</a></li>
+        <li><a class="menu-mobile__link" href="tienda.html?categoria=auriculares">Auriculares</a></li>
+        <li><a class="menu-mobile__link" href="contacto.html">Contacto</a></li>
+        <li><a class="menu-mobile__link" href="faq.html">Preguntas frecuentes</a></li>
+      </ul>
+    </nav>
+  </div>
+
+  <main id="contenido">
+    <div class="contenedor producto-pagina">
+
+      <nav class="breadcrumb" id="breadcrumb" aria-label="Ruta de navegación"></nav>
+
+      <div id="producto-contenido">
+        <div class="producto">
+          <div class="producto__galeria" id="galeria"></div>
+
+          <div class="producto__info">
+            <div id="producto-cuerpo"></div>
+            <div id="producto-variantes"></div>
+            <div id="producto-acciones" class="producto__acciones"></div>
+          </div>
+        </div>
+
+        <section class="producto__detalle" id="producto-specs"></section>
+
+        <section class="seccion" id="producto-relacionados"></section>
+      </div>
+
+    </div>
+  </main>
+
+  <!-- ==================== FOOTER ==================== -->
+  <footer class="footer">
+    <div class="footer__interior">
+      <div class="footer__grilla">
+        <div>
+          <a class="footer__marca" href="index.html">Wo!</a>
+          <p class="footer__descripcion">
+            Accesorios para iPhone en Rafaela, Santa Fe. Envíos a todo el país.
+          </p>
+          <div class="footer__redes">
+            <a class="footer__red" href="https://instagram.com/" target="_blank"
+               rel="noopener noreferrer" aria-label="Instagram de Wo!">
+              <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" aria-hidden="true">
+                <rect x="2" y="2" width="20" height="20" rx="5"/>
+                <circle cx="12" cy="12" r="4"/><circle cx="17.5" cy="6.5" r="1" fill="currentColor"/>
+              </svg>
+            </a>
+            <a class="footer__red" href="https://facebook.com/" target="_blank"
+               rel="noopener noreferrer" aria-label="Facebook de Wo!">
+              <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" aria-hidden="true">
+                <path d="M18 2h-3a5 5 0 0 0-5 5v3H7v4h3v8h4v-8h3l1-4h-4V7a1 1 0 0 1 1-1h3z"/>
+              </svg>
+            </a>
+          </div>
+        </div>
+
+        <div>
+          <h2 class="footer__titulo">Categorías</h2>
+          <ul class="footer__lista" role="list">
+            <li><a class="footer__link" href="tienda.html?categoria=fundas">Fundas</a></li>
+            <li><a class="footer__link" href="tienda.html?categoria=cargadores">Cargadores</a></li>
+            <li><a class="footer__link" href="tienda.html?categoria=powerbanks">Power banks</a></li>
+            <li><a class="footer__link" href="tienda.html?categoria=protectores">Protectores</a></li>
+            <li><a class="footer__link" href="tienda.html?categoria=cables">Cables</a></li>
+          </ul>
+        </div>
+
+        <div>
+          <h2 class="footer__titulo">Ayuda</h2>
+          <ul class="footer__lista" role="list">
+            <li><a class="footer__link" href="faq.html">Preguntas frecuentes</a></li>
+            <li><a class="footer__link" href="faq.html#envios">Envíos</a></li>
+            <li><a class="footer__link" href="faq.html#garantia">Garantía y cambios</a></li>
+            <li><a class="footer__link" href="contacto.html">Contacto</a></li>
+          </ul>
+        </div>
+
+        <div>
+          <h2 class="footer__titulo">Dónde estamos</h2>
+          <ul class="footer__lista" role="list">
+            <li class="footer__link">Rafaela, Santa Fe</li>
+            <li class="footer__link">Lun a vie 9–13 y 16:30–20:30</li>
+            <li class="footer__link">Sáb 9–13</li>
+          </ul>
+        </div>
+      </div>
+
+      <div class="footer__base">
+        <p>© <span data-anio>2026</span> Wo! Todos los derechos reservados.</p>
+        <div class="footer__pagos">
+          <span class="footer__pago">Efectivo</span>
+          <span class="footer__pago">Transferencia</span>
+          <span class="footer__pago">Débito</span>
+          <span class="footer__pago">Crédito</span>
+        </div>
+      </div>
+    </div>
+  </footer>
+
+  <a class="wsp-flotante" data-wsp href="#" target="_blank" rel="noopener noreferrer"
+     aria-label="Escribinos por WhatsApp">
+    <svg viewBox="0 0 24 24" fill="currentColor" aria-hidden="true">
+      <path d="M17.6 6.32A8 8 0 0 0 4.9 16l-1.2 4.4 4.5-1.2a8 8 0 0 0 11.9-6.9 7.9 7.9 0 0 0-2.5-5.98zM12 18.5a6.5 6.5 0 0 1-3.3-.9l-.24-.14-2.45.64.65-2.39-.16-.25a6.5 6.5 0 1 1 5.5 3.04zm3.6-4.9c-.2-.1-1.17-.58-1.35-.64-.18-.07-.31-.1-.44.1s-.5.63-.62.76c-.11.13-.22.15-.42.05a5.3 5.3 0 0 1-2.62-2.29c-.2-.34.2-.31.56-1.05.06-.13.03-.24-.02-.34s-.44-1.07-.6-1.46c-.16-.38-.32-.33-.44-.34h-.38a.72.72 0 0 0-.52.25 2.2 2.2 0 0 0-.68 1.63 3.8 3.8 0 0 0 .8 2.02 8.7 8.7 0 0 0 3.34 2.95c1.24.54 1.73.58 2.35.49.38-.06 1.17-.48 1.33-.94.17-.46.17-.86.12-.94-.05-.09-.18-.14-.38-.24z"/>
+    </svg>
+  </a>
+
+  <script type="module" src="js/main.js"></script>
+  <script type="module" src="js/paginas/producto.js"></script>
+</body>
+</html>

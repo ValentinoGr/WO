@@ -1,0 +1,114 @@
+// ===========================================================================
+// Filtros — panel, chips de categoría, chips de filtro activo
+// ===========================================================================
+
+@use "../abstracts" as a;
+
+// --- Chips de categoría (dentro del panel) ----------------------------------
+
+.chip-filtro {
+  display: inline-flex;
+  align-items: center;
+  padding: a.$esp-2 a.$esp-4;
+  margin: 0 a.$esp-2 a.$esp-2 0;
+  border-radius: a.$radio-full;
+  border: 1px solid a.$color-borde-control;
+  background-color: a.$blanco;
+  color: a.$color-texto;
+  font-size: a.$txt-sm;
+  transition: background-color a.$transicion-rapida, color a.$transicion-rapida,
+              border-color a.$transicion-rapida;
+  @include a.foco;
+
+  &:hover { border-color: a.$negro; }
+}
+
+.chip-filtro--activo {
+  background-color: a.$negro;
+  color: a.$blanco;           // 18.88 ✓
+  border-color: a.$negro;
+}
+
+// --- Chips de filtro activo (arriba de la grilla) ---------------------------
+
+.chip-activo {
+  display: inline-flex;
+  align-items: center;
+  gap: a.$esp-1;
+  padding: a.$esp-1 a.$esp-3;
+  border-radius: a.$radio-full;
+  background-color: a.$beige;
+  color: a.$color-texto;
+  font-size: a.$txt-xs;
+  font-weight: a.$peso-medio;
+  white-space: nowrap;
+  @include a.foco;
+
+  &:hover { background-color: a.$nude; }
+}
+
+.chip-activo--limpiar {
+  background-color: transparent;
+  color: a.$color-texto-secundario;
+  text-decoration: underline;
+  text-underline-offset: 0.2em;
+
+  &:hover { background-color: transparent; color: a.$negro; }
+}
+
+// --- Panel de filtros ---------------------------------------------------------
+
+.panel-filtros__grupo {
+  padding-block: a.$esp-4;
+  border-bottom: 1px solid a.$color-borde;
+
+  &:first-of-type { padding-top: 0; }
+}
+
+.panel-filtros__titulo {
+  font-size: a.$txt-sm;
+  font-weight: a.$peso-semi;
+  margin-bottom: a.$esp-3;
+}
+
+.panel-filtros__select {
+  width: 100%;
+  min-height: 44px;
+  padding: 0 a.$esp-3;
+  border: 1px solid a.$color-borde-control;
+  border-radius: a.$radio-md;
+  background-color: a.$blanco;
+  font-size: a.$txt-sm;
+  color: a.$color-texto;
+
+  &:focus-visible {
+    outline: 2px solid a.$negro;
+    outline-offset: 1px;
+  }
+}
+
+.panel-filtros__precio {
+  @include a.flex(row, flex-start, center, a.$esp-2);
+  color: a.$color-texto-secundario;
+}
+
+.panel-filtros__precio-input {
+  width: 100%;
+  min-width: 0;
+  min-height: 44px;
+  padding: 0 a.$esp-3;
+  border: 1px solid a.$color-borde-control;
+  border-radius: a.$radio-md;
+  font-size: a.$txt-sm;
+  color: a.$color-texto;
+
+  &:focus-visible {
+    outline: 2px solid a.$negro;
+    outline-offset: 1px;
+  }
+
+  // Sin flechitas de spinner: no aportan nada en un rango de precio.
+  &::-webkit-outer-spin-button,
+  &::-webkit-inner-spin-button { appearance: none; margin: 0; }
+  appearance: textfield;
+}

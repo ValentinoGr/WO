@@ -11,8 +11,12 @@ import { CONFIG } from "../config.js";
 import { crear, $ } from "../utils/dom.js";
 import { leerModeloElegido, guardarModeloElegido } from "../carrito/persistencia.js";
 
-/** Agrupa los modelos por generación para no mostrar una lista de 32 items. */
-function agruparModelos() {
+/**
+ * Agrupa los modelos por generación para no mostrar una lista de 32 items.
+ * Exportada porque los filtros del catálogo (tienda.html) reusan la misma
+ * agrupación en su <select> de modelo.
+ */
+export function agruparModelos() {
   const grupos = new Map();
 
   for (const modelo of CONFIG.modelosIphone) {

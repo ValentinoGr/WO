@@ -19,6 +19,9 @@
 @use "components/card-producto";
 @use "components/drawer";
 @use "components/toast";
+@use "components/filtros";
+@use "components/galeria";
+@use "components/formulario";
 @use "components/paleta-demo";
 
 // --- Layout -----------------------------------------------------------------
@@ -27,6 +30,7 @@
 
 // --- Páginas ----------------------------------------------------------------
 @use "pages/home";
-// @use "pages/tienda";
-// @use "pages/producto";
-// @use "pages/carrito";
+@use "pages/tienda";
+@use "pages/producto";
+@use "pages/carrito";
+@use "pages/paginas-info";

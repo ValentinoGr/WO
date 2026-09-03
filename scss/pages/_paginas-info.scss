@@ -1,0 +1,131 @@
+// ===========================================================================
+// Páginas informativas — contacto y FAQ
+// ===========================================================================
+
+@use "../abstracts" as a;
+
+.pagina-info { padding-block: a.$esp-6 a.$esp-9; }
+
+.pagina-info__titulo {
+  @include a.titulo(a.$txt-2xl);
+  margin-bottom: a.$esp-2;
+}
+
+.pagina-info__bajada {
+  color: a.$color-texto-secundario;
+  margin-bottom: a.$esp-7;
+}
+
+// --- Contacto -----------------------------------------------------------------
+
+.contacto-grilla {
+  display: grid;
+  gap: a.$esp-8;
+
+  @include a.desde("md") {
+    grid-template-columns: 1.4fr 1fr;
+  }
+}
+
+.contacto-form {
+  display: grid;
+  gap: a.$esp-4;
+  align-content: flex-start;
+}
+
+.contacto-info {
+  display: grid;
+  gap: a.$esp-6;
+  align-content: flex-start;
+}
+
+.contacto-info__bloque {
+  padding-bottom: a.$esp-5;
+  border-bottom: 1px solid a.$color-borde;
+
+  &:last-child { border-bottom: none; padding-bottom: 0; }
+
+  p { color: a.$color-texto-secundario; font-size: a.$txt-sm; line-height: 1.6; }
+}
+
+.contacto-info__titulo {
+  font-size: a.$txt-sm;
+  font-weight: a.$peso-semi;
+  text-transform: uppercase;
+  letter-spacing: 0.05em;
+  color: a.$color-texto;
+  margin-bottom: a.$esp-2;
+}
+
+.contacto-info__mapa {
+  display: inline-block;
+  margin-top: a.$esp-2;
+  font-size: a.$txt-sm;
+  font-weight: a.$peso-medio;
+  color: a.$negro;
+  text-decoration: underline;
+  text-underline-offset: 0.2em;
+  @include a.foco;
+}
+
+// Variante del ícono de red social sobre fondo claro (contacto.html).
+.footer__red--claro {
+  color: a.$negro;
+  border-color: a.$color-borde-control;
+
+  &:hover { background-color: a.$beige; }
+  @include a.foco;
+}
+
+// --- FAQ ------------------------------------------------------------------
+
+.faq-categoria { margin-bottom: a.$esp-7; }
+
+.faq-categoria__titulo {
+  font-size: a.$txt-lg;
+  font-weight: a.$peso-semi;
+  margin-bottom: a.$esp-3;
+  padding-bottom: a.$esp-2;
+  border-bottom: 1px solid a.$color-borde;
+}
+
+// Acordeón nativo <details>/<summary>: accesible y con teclado sin JS extra.
+.faq-item {
+  border-bottom: 1px solid a.$color-borde;
+
+  &[open] .faq-item__pregunta::after { rotate: 180deg; }
+}
+
+.faq-item__pregunta {
+  @include a.flex(row, space-between, center);
+  padding-block: a.$esp-4;
+  font-size: a.$txt-base;
+  font-weight: a.$peso-medio;
+  cursor: pointer;
+  list-style: none;
+  @include a.foco;
+
+  // Oculta el triángulo nativo del navegador; el propio ::after lo reemplaza.
+  &::-webkit-details-marker { display: none; }
+
+  &::after {
+    content: "";
+    flex-shrink: 0;
+    width: 10px;
+    height: 10px;
+    margin-left: a.$esp-3;
+    border-right: 2px solid a.$negro;
+    border-bottom: 2px solid a.$negro;
+    rotate: 45deg;
+    translate: 0 -3px;
+    transition: rotate a.$transicion-base;
+  }
+}
+
+.faq-item__respuesta {
+  padding-bottom: a.$esp-4;
+  color: a.$color-texto-secundario;
+  font-size: a.$txt-sm;
+  line-height: a.$alto-linea-base;
+  max-width: 65ch;
+}
