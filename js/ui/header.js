@@ -14,6 +14,11 @@ import { cargarProductos } from "../data/productos.js";
 let liberarFocoMenu = null;
 
 // --- Contador del carrito --------------------------------------------------
+// El contador arranca siempre en "0" en el HTML estático: la primera vez que
+// esta función corre en cada carga de página, cualquier carrito con algo
+// adentro dispararía el pulso solo por haber cargado la página, no porque
+// se haya agregado algo de verdad. Esta bandera evita ese falso pulso.
+let primeraLecturaContador = true;
 
 function actualizarContador() {
   const cantidad = carrito.cantidadTotal();
@@ -23,13 +28,16 @@ function actualizarContador() {
     el.textContent = String(cantidad);
     el.hidden = cantidad === 0;
 
-    // Pulso solo cuando sube: al restar no hace falta llamar la atención.
-    if (cantidad > previo) {
+    // Pulso solo cuando sube dentro de la misma página: al restar, o al
+    // recién cargar, no hace falta llamar la atención.
+    if (!primeraLecturaContador && cantidad > previo) {
       el.classList.remove("contador--pulso");
       void el.offsetWidth;
       el.classList.add("contador--pulso");
     }
   });
+
+  primeraLecturaContador = false;
 
   $$("[data-abrir-carrito]").forEach((el) => {
     el.setAttribute(
