@@ -128,9 +128,10 @@
   font-size: a.$txt-base;
   line-height: 1;
   color: a.$negro;
-  transition: background-color a.$transicion-rapida;
+  transition: background-color a.$transicion-rapida, transform a.$transicion-rapida;
 
   &:hover:not(:disabled) { background-color: a.$beige; }
+  &:active:not(:disabled) { transform: scale(0.92); }
 
   &:disabled {
     color: a.$color-texto-desactivado;   // deshabilitado: exento de contraste

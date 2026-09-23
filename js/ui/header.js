@@ -196,8 +196,20 @@ export function iniciarHeader() {
   // Marca el link de la sección actual. Incluye el nav de escritorio Y el
   // menú mobile: antes solo marcaba [data-nav], así que en mobile ningún
   // link se marcaba nunca.
+  //
+  // No alcanza con comparar el nombre de archivo: en tienda.html, "Tienda"
+  // y "Cargadores" apuntan al mismo archivo y solo se distinguen por
+  // ?categoria=. Comparando nomás el pathname, "Tienda" (sin query) quedaba
+  // siempre marcado porque es el único link cuyo href pelado coincide.
   const pagina = window.location.pathname.split("/").pop() || "index.html";
+  const categoriaActual = new URLSearchParams(window.location.search).get("categoria");
+
   $$("[data-nav] a, .menu-mobile__lista a").forEach((a) => {
-    if (a.getAttribute("href") === pagina) a.setAttribute("aria-current", "page");
+    const url = new URL(a.getAttribute("href"), window.location.href);
+    const archivo = url.pathname.split("/").pop() || "index.html";
+    if (archivo !== pagina) return;
+    if (url.searchParams.get("categoria") === categoriaActual) {
+      a.setAttribute("aria-current", "page");
+    }
   });
 }

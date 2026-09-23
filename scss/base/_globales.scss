@@ -39,6 +39,20 @@
 .seccion--beige { background-color: a.$color-fondo-alt; }
 .seccion--nude  { background-color: a.$nude; }
 
+// Entrada suave al aparecer en pantalla. La clase base la agrega JS
+// (js/ui/scrollReveal.js) recién antes de observar: si el script no corre,
+// el contenido queda visible por defecto en vez de escondido para siempre.
+.reveal {
+  opacity: 0;
+  transform: translateY(20px);
+  transition: opacity 600ms a.$curva-suave, transform 600ms a.$curva-suave;
+}
+
+.reveal--visible {
+  opacity: 1;
+  transform: none;
+}
+
 .seccion__encabezado {
   @include a.flex(row, space-between, baseline, a.$esp-4);
   margin-bottom: a.$esp-5;

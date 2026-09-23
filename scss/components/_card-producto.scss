@@ -25,6 +25,9 @@
   }
 
   .media { border-radius: a.$radio-lg a.$radio-lg 0 0; }
+
+  .media img { transition: transform a.$transicion-base a.$curva-suave; }
+  &:hover .media img { transform: scale(1.045); }
 }
 
 // Agotado: se apaga pero sigue siendo navegable. Ocultarlo sería peor —

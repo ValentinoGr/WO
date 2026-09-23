@@ -7,6 +7,7 @@
 
 import { iniciarHeader } from "./ui/header.js";
 import { iniciarDrawer } from "./ui/drawerCarrito.js";
+import { iniciarScrollReveal } from "./ui/scrollReveal.js";
 import { CONFIG } from "./config.js";
 import { $$ } from "./utils/dom.js";
 
@@ -40,3 +41,4 @@ iniciarDrawer();
 iniciarHeader();
 iniciarWhatsappFlotante();
 iniciarAnioFooter();
+iniciarScrollReveal();

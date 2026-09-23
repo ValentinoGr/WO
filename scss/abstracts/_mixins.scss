@@ -65,6 +65,22 @@
   }
 }
 
+// Foco para inputs tipo píldora (border-radius: full — selector de modelo,
+// buscador). Un outline duro alrededor de una forma tan redondeada se lee
+// como un óvalo pesado; un anillo sutil con box-shadow marca el foco sin eso.
+@mixin foco-pastilla($color: v.$negro) {
+  &:focus-visible {
+    outline: none;
+    border-color: $color;
+    box-shadow: 0 0 0 3px rgba(17, 17, 17, 0.12);
+  }
+}
+
+// Feedback táctil al presionar: un achique sutil que confirma el clic/tap.
+@mixin presion($escala: 0.97) {
+  &:active { transform: scale(#{$escala}); }
+}
+
 // Área táctil mínima de 44x44 (WCAG 2.5.5) sin agrandar el elemento visible.
 @mixin area-tactil($min: 44px) {
   position: relative;

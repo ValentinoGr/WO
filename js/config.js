@@ -55,13 +55,13 @@ export const CONFIG = {
   // Las claves tienen que coincidir con el campo `categoria` del JSON.
   // Agregar una categoría nueva = agregar una entrada acá y productos al JSON.
   categorias: [
-    { id: "fundas",      nombre: "Fundas",                 icono: "funda" },
-    { id: "cargadores",  nombre: "Cargadores",             icono: "cargador" },
-    { id: "powerbanks",  nombre: "Power banks",            icono: "bateria" },
-    { id: "protectores", nombre: "Protectores de pantalla", icono: "escudo" },
-    { id: "cables",      nombre: "Cables",                 icono: "cable" },
-    { id: "parlantes",   nombre: "Parlantes",              icono: "parlante" },
-    { id: "auriculares", nombre: "Auriculares",            icono: "auricular" },
+    { id: "fundas",        nombre: "Fundas",         icono: "funda" },
+    { id: "cargadores",    nombre: "Cargadores",     icono: "cargador" },
+    { id: "powerbanks",    nombre: "Power banks",    icono: "bateria" },
+    { id: "cables",        nombre: "Cables",         icono: "cable" },
+    { id: "parlantes",     nombre: "Parlantes",      icono: "parlante" },
+    { id: "auriculares",   nombre: "Auriculares",    icono: "auricular" },
+    { id: "smartwatches",  nombre: "Smartwatches",   icono: "reloj" },
   ],
 
   // --- Persistencia --------------------------------------------------------

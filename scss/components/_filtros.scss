@@ -17,7 +17,8 @@
   color: a.$color-texto;
   font-size: a.$txt-sm;
   transition: background-color a.$transicion-rapida, color a.$transicion-rapida,
-              border-color a.$transicion-rapida;
+              border-color a.$transicion-rapida, transform a.$transicion-rapida;
+  @include a.presion(0.96);
   @include a.foco;
 
   &:hover { border-color: a.$negro; }

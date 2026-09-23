@@ -1,170 +1,827 @@
 [
   {
-    "id": "funda-silicona-magsafe-15pro",
-    "slug": "funda-silicona-magsafe-iphone-15-pro",
-    "nombre": "Funda de Silicona con MagSafe",
+    "id": "auriculares-a6s",
+    "slug": "auriculares-bluetooth-a6s",
+    "nombre": "Auriculares Bluetooth A6S",
     "marca": "Generico",
-    "categoria": "fundas",
-    "subcategoria": "silicona",
-    "precio": 18500,
-    "precioAnterior": 22000,
-    "compatibilidad": ["iPhone 15 Pro", "iPhone 15 Pro Max"],
-    "descripcion": "Funda de silicona líquida con interior de microfibra y anillo MagSafe integrado. Los bordes elevados protegen la pantalla y el módulo de cámara al apoyar el equipo.",
+    "categoria": "auriculares",
+    "subcategoria": "inalambricos",
+    "precio": 10000,
+    "precioAnterior": null,
+    "compatibilidad": [],
+    "descripcion": "Auriculares inalámbricos con estuche de carga, conexión Bluetooth. Sirven con cualquier iPhone.",
     "especificaciones": {
-      "Material": "Silicona líquida",
-      "Interior": "Microfibra",
-      "MagSafe": "Sí",
-      "Protección de cámara": "Sí"
+      "Conexión": "Bluetooth",
+      "Tipo": "In-ear con estuche de carga"
     },
-    "variantes": [
-      { "tipo": "color", "nombre": "Negro", "hex": "#1d1d1f", "stock": 5, "imagen": "assets/img/productos/funda-silicona-magsafe-15pro-negro.webp" },
-      { "tipo": "color", "nombre": "Beige", "hex": "#d9c5b4", "stock": 3, "imagen": "assets/img/productos/funda-silicona-magsafe-15pro-beige.webp" },
-      { "tipo": "color", "nombre": "Azul", "hex": "#2f5d9e", "stock": 0, "imagen": "assets/img/productos/funda-silicona-magsafe-15pro-azul.webp" }
-    ],
+    "variantes": [],
     "imagenes": [
-      "assets/img/productos/funda-silicona-magsafe-15pro-negro.webp",
-      "assets/img/productos/funda-silicona-magsafe-15pro-detalle.webp"
+      "assets/img/productos/auriculares-a6s.webp"
     ],
-    "stock": 8,
-    "destacado": true,
+    "stock": 10,
+    "destacado": false,
     "nuevo": false,
     "envioGratis": false,
     "activo": true
   },
   {
-    "id": "funda-transparente-magsafe-16promax",
-    "slug": "funda-transparente-magsafe-iphone-16-pro-max",
-    "nombre": "Funda Transparente Antigolpes MagSafe",
-    "marca": "Spigen",
-    "categoria": "fundas",
-    "subcategoria": "transparente",
-    "precio": 24900,
+    "id": "auriculares-redmi-airdots",
+    "slug": "auriculares-redmi-airdots",
+    "nombre": "AirDots Redmi",
+    "marca": "Redmi",
+    "categoria": "auriculares",
+    "subcategoria": "inalambricos",
+    "precio": 15000,
     "precioAnterior": null,
-    "compatibilidad": ["iPhone 16 Pro Max", "iPhone 16 Pro"],
-    "descripcion": "Policarbonato rígido con marco de TPU y esquinas reforzadas con tecnología Air Cushion. Tratamiento anti amarillamiento que mantiene la transparencia con el uso.",
+    "compatibilidad": [],
+    "descripcion": "Auriculares inalámbricos Redmi con estuche de carga, conexión Bluetooth. Sirven con cualquier iPhone.",
     "especificaciones": {
-      "Material": "Policarbonato + TPU",
-      "MagSafe": "Sí",
-      "Anti amarillamiento": "Sí",
-      "Resistencia a caídas": "Hasta 2 metros"
+      "Conexión": "Bluetooth",
+      "Tipo": "In-ear con estuche de carga"
     },
     "variantes": [],
     "imagenes": [
-      "assets/img/productos/funda-transparente-magsafe-16promax.webp",
-      "assets/img/productos/funda-transparente-magsafe-16promax-detalle.webp"
+      "assets/img/productos/auriculares-redmi-airdots.webp"
     ],
-    "stock": 12,
-    "destacado": true,
+    "stock": 10,
+    "destacado": false,
     "nuevo": true,
     "envioGratis": false,
     "activo": true
   },
   {
-    "id": "funda-cuero-magsafe-14",
-    "slug": "funda-cuero-magsafe-iphone-14",
-    "nombre": "Funda de Cuero Sintético con MagSafe",
-    "marca": "Generico",
-    "categoria": "fundas",
-    "subcategoria": "cuero",
-    "precio": 21000,
-    "precioAnterior": 26500,
-    "compatibilidad": ["iPhone 14", "iPhone 14 Plus"],
-    "descripcion": "Cuero sintético de tacto suave con costura perimetral. Suma grosor mínimo y no interfiere con la carga inalámbrica.",
-    "especificaciones": {
-      "Material": "Cuero sintético (PU)",
-      "MagSafe": "Sí",
-      "Carga inalámbrica": "Compatible"
-    },
-    "variantes": [
-      { "tipo": "color", "nombre": "Marrón", "hex": "#5f4938", "stock": 4, "imagen": "assets/img/productos/funda-cuero-magsafe-14-marron.webp" },
-      { "tipo": "color", "nombre": "Negro", "hex": "#1d1d1f", "stock": 2, "imagen": "assets/img/productos/funda-cuero-magsafe-14-negro.webp" }
-    ],
-    "imagenes": [
-      "assets/img/productos/funda-cuero-magsafe-14-marron.webp"
-    ],
-    "stock": 6,
-    "destacado": false,
-    "nuevo": false,
-    "envioGratis": false,
-    "activo": true
-  },
-  {
-    "id": "cargador-pared-20w-usbc",
-    "slug": "cargador-de-pared-20w-usb-c",
-    "nombre": "Cargador de Pared 20W USB-C",
-    "marca": "Generico",
-    "categoria": "cargadores",
-    "subcategoria": "pared",
-    "precio": 12000,
+    "id": "auriculares-airpods-pro",
+    "slug": "airpods-pro",
+    "nombre": "AirPods Pro",
+    "marca": "Apple",
+    "categoria": "auriculares",
+    "subcategoria": "inalambricos",
+    "precio": 28000,
     "precioAnterior": null,
     "compatibilidad": [],
-    "descripcion": "Cargador de pared con puerto USB-C y Power Delivery. Carga un iPhone hasta el 50% en 30 minutos. Ficha argentina.",
+    "descripcion": "Auriculares inalámbricos con estuche de carga, conexión Bluetooth. Sirven con cualquier iPhone.",
     "especificaciones": {
-      "Potencia": "20W",
-      "Puerto": "USB-C",
-      "Tecnología": "Power Delivery (PD)",
-      "Ficha": "Argentina (tipo I)"
+      "Conexión": "Bluetooth",
+      "Tipo": "In-ear con estuche de carga"
     },
     "variantes": [],
     "imagenes": [
-      "assets/img/productos/cargador-pared-20w-usbc.webp"
+      "assets/img/productos/auriculares-airpods-pro.webp"
     ],
-    "stock": 25,
+    "stock": 10,
     "destacado": true,
     "nuevo": false,
     "envioGratis": false,
     "activo": true
   },
   {
-    "id": "cargador-auto-30w-dual",
-    "slug": "cargador-de-auto-30w-dual",
-    "nombre": "Cargador de Auto 30W Doble Puerto",
-    "marca": "Baseus",
-    "categoria": "cargadores",
-    "subcategoria": "auto",
-    "precio": 15800,
-    "precioAnterior": 19500,
-    "compatibilidad": [],
-    "descripcion": "Cargador para encendedor de auto con un puerto USB-C de 30W y uno USB-A de 12W. Permite cargar dos equipos en simultáneo.",
+    "id": "cable-usbc-usbc-apple",
+    "slug": "cable-usb-c-a-usb-c-apple",
+    "nombre": "Cable USB-C a USB-C Apple",
+    "marca": "Apple",
+    "categoria": "cables",
+    "subcategoria": "usb-c",
+    "precio": 6000,
+    "precioAnterior": null,
+    "compatibilidad": [
+      "iPhone 17 Pro Max",
+      "iPhone 17 Pro",
+      "iPhone 17",
+      "iPhone 16 Pro Max",
+      "iPhone 16 Pro",
+      "iPhone 16 Plus",
+      "iPhone 16",
+      "iPhone 15 Pro Max",
+      "iPhone 15 Pro",
+      "iPhone 15 Plus",
+      "iPhone 15"
+    ],
+    "descripcion": "Cable USB-C a USB-C. Para los iPhone que ya vienen con puerto USB-C (iPhone 15 en adelante).",
     "especificaciones": {
-      "Potencia total": "30W",
-      "Puertos": "1x USB-C + 1x USB-A",
-      "Protecciones": "Sobrecarga y sobrecalentamiento"
+      "Conector": "USB-C a USB-C"
     },
     "variantes": [],
     "imagenes": [
-      "assets/img/productos/cargador-auto-30w-dual.webp"
+      "assets/img/productos/cable-usbc-usbc-apple.webp"
     ],
-    "stock": 14,
+    "stock": 10,
     "destacado": false,
     "nuevo": false,
     "envioGratis": false,
     "activo": true
   },
   {
-    "id": "powerbank-magsafe-5000",
-    "slug": "power-bank-magsafe-5000mah",
-    "nombre": "Power Bank Magnética 5000mAh",
-    "marca": "Baseus",
+    "id": "cable-usbc-lightning",
+    "slug": "cable-usb-c-a-lightning",
+    "nombre": "Cable USB-C a Lightning",
+    "marca": "Generico",
+    "categoria": "cables",
+    "subcategoria": "lightning",
+    "precio": 6000,
+    "precioAnterior": null,
+    "compatibilidad": [
+      "iPhone 14 Pro Max",
+      "iPhone 14 Pro",
+      "iPhone 14 Plus",
+      "iPhone 14",
+      "iPhone 13 Pro Max",
+      "iPhone 13 Pro",
+      "iPhone 13",
+      "iPhone 13 mini",
+      "iPhone 12 Pro Max",
+      "iPhone 12 Pro",
+      "iPhone 12",
+      "iPhone 12 mini",
+      "iPhone 11 Pro Max",
+      "iPhone 11 Pro",
+      "iPhone 11",
+      "iPhone XR",
+      "iPhone XS Max",
+      "iPhone XS",
+      "iPhone X",
+      "iPhone SE (2022)",
+      "iPhone SE (2020)"
+    ],
+    "descripcion": "Cable USB-C a Lightning. Para los iPhone con puerto Lightning (iPhone 14 y anteriores).",
+    "especificaciones": {
+      "Conector": "USB-C a Lightning"
+    },
+    "variantes": [],
+    "imagenes": [
+      "assets/img/productos/cable-usbc-lightning.webp"
+    ],
+    "stock": 10,
+    "destacado": false,
+    "nuevo": false,
+    "envioGratis": false,
+    "activo": true
+  },
+  {
+    "id": "powerbank-10000mah",
+    "slug": "bateria-portatil-10000mah",
+    "nombre": "Batería Portátil 10.000mAh",
+    "marca": "Generico",
     "categoria": "powerbanks",
-    "subcategoria": "magsafe",
-    "precio": 38900,
+    "subcategoria": "cable",
+    "precio": 24000,
     "precioAnterior": null,
     "compatibilidad": [],
-    "descripcion": "Batería externa magnética que se adhiere al dorso del iPhone y carga sin cables. Incluye puerto USB-C para carga por cable.",
+    "descripcion": "Batería externa de 10.000mAh con carga por cable. Sirve para cualquier iPhone.",
     "especificaciones": {
-      "Capacidad": "5000mAh",
-      "Carga magnética": "15W",
-      "Carga por cable": "20W USB-C",
-      "Compatible con": "iPhone 12 en adelante"
+      "Capacidad": "10.000mAh"
     },
-    "variantes": [
-      { "tipo": "color", "nombre": "Negro", "hex": "#1d1d1f", "stock": 6, "imagen": "assets/img/productos/powerbank-magsafe-5000-negro.webp" },
-      { "tipo": "color", "nombre": "Blanco", "hex": "#f5f5f7", "stock": 4, "imagen": "assets/img/productos/powerbank-magsafe-5000-blanco.webp" }
-    ],
+    "variantes": [],
     "imagenes": [
-      "assets/img/productos/powerbank-magsafe-5000-negro.webp",
-      "assets/img/productos/powerbank-magsafe-5000-uso.webp"
+      "assets/img/productos/powerbank-10000mah.webp"
+    ],
+    "stock": 10,
+    "destacado": true,
+    "nuevo": false,
+    "envioGratis": false,
+    "activo": true
+  },
+  {
+    "id": "cargador-pared-usbc-apple",
+    "slug": "cargador-tipo-c-apple",
+    "nombre": "Cargador Tipo C Apple",
+    "marca": "Apple",
+    "categoria": "cargadores",
+    "subcategoria": "pared",
+    "precio": 20000,
+    "precioAnterior": null,
+    "compatibilidad": [],
+    "descripcion": "Cargador de pared con puerto USB tipo C. Sirve para cualquier iPhone con el cable correspondiente.",
+    "especificaciones": {
+      "Puerto": "USB-C"
+    },
+    "variantes": [],
+    "imagenes": [
+      "assets/img/productos/cargador-pared-usbc-apple.webp"
+    ],
+    "stock": 10,
+    "destacado": false,
+    "nuevo": false,
+    "envioGratis": false,
+    "activo": true
+  },
+  {
+    "id": "cargador-pared-samsung-45w",
+    "slug": "cargador-samsung-45w",
+    "nombre": "Cargador Samsung 45W",
+    "marca": "Samsung",
+    "categoria": "cargadores",
+    "subcategoria": "pared",
+    "precio": 20000,
+    "precioAnterior": null,
+    "compatibilidad": [],
+    "descripcion": "Cargador de pared Samsung de 45W con puerto USB tipo C. Sirve para cualquier iPhone con el cable correspondiente.",
+    "especificaciones": {
+      "Potencia": "45W",
+      "Puerto": "USB-C"
+    },
+    "variantes": [],
+    "imagenes": [
+      "assets/img/productos/cargador-pared-samsung-45w.webp"
+    ],
+    "stock": 10,
+    "destacado": false,
+    "nuevo": false,
+    "envioGratis": false,
+    "activo": true
+  },
+  {
+    "id": "funda-iphone-11",
+    "slug": "funda-iphone-11",
+    "nombre": "Funda iPhone 11",
+    "marca": "Generico",
+    "categoria": "fundas",
+    "subcategoria": "estandar",
+    "precio": 6000,
+    "precioAnterior": null,
+    "compatibilidad": [
+      "iPhone 11"
+    ],
+    "descripcion": "Funda para iPhone 11.",
+    "especificaciones": {},
+    "variantes": [],
+    "imagenes": [
+      "assets/img/productos/funda-iphone-11.webp"
+    ],
+    "stock": 10,
+    "destacado": false,
+    "nuevo": false,
+    "envioGratis": false,
+    "activo": true
+  },
+  {
+    "id": "funda-iphone-12-mini",
+    "slug": "funda-iphone-12-mini",
+    "nombre": "Funda iPhone 12 mini",
+    "marca": "Generico",
+    "categoria": "fundas",
+    "subcategoria": "estandar",
+    "precio": 8000,
+    "precioAnterior": null,
+    "compatibilidad": [
+      "iPhone 12 mini"
+    ],
+    "descripcion": "Funda para iPhone 12 mini.",
+    "especificaciones": {},
+    "variantes": [],
+    "imagenes": [
+      "assets/img/productos/funda-iphone-12-mini.webp"
+    ],
+    "stock": 10,
+    "destacado": false,
+    "nuevo": false,
+    "envioGratis": false,
+    "activo": true
+  },
+  {
+    "id": "funda-iphone-12",
+    "slug": "funda-iphone-12",
+    "nombre": "Funda iPhone 12",
+    "marca": "Generico",
+    "categoria": "fundas",
+    "subcategoria": "estandar",
+    "precio": 8000,
+    "precioAnterior": null,
+    "compatibilidad": [
+      "iPhone 12"
+    ],
+    "descripcion": "Funda para iPhone 12.",
+    "especificaciones": {},
+    "variantes": [],
+    "imagenes": [
+      "assets/img/productos/funda-iphone-12.webp"
+    ],
+    "stock": 10,
+    "destacado": false,
+    "nuevo": false,
+    "envioGratis": false,
+    "activo": true
+  },
+  {
+    "id": "funda-iphone-12-pro",
+    "slug": "funda-iphone-12-pro",
+    "nombre": "Funda iPhone 12 Pro",
+    "marca": "Generico",
+    "categoria": "fundas",
+    "subcategoria": "estandar",
+    "precio": 8000,
+    "precioAnterior": null,
+    "compatibilidad": [
+      "iPhone 12 Pro"
+    ],
+    "descripcion": "Funda para iPhone 12 Pro.",
+    "especificaciones": {},
+    "variantes": [],
+    "imagenes": [
+      "assets/img/productos/funda-iphone-12-pro.webp"
+    ],
+    "stock": 10,
+    "destacado": false,
+    "nuevo": false,
+    "envioGratis": false,
+    "activo": true
+  },
+  {
+    "id": "funda-iphone-12-pro-max",
+    "slug": "funda-iphone-12-pro-max",
+    "nombre": "Funda iPhone 12 Pro Max",
+    "marca": "Generico",
+    "categoria": "fundas",
+    "subcategoria": "estandar",
+    "precio": 8000,
+    "precioAnterior": null,
+    "compatibilidad": [
+      "iPhone 12 Pro Max"
+    ],
+    "descripcion": "Funda para iPhone 12 Pro Max.",
+    "especificaciones": {},
+    "variantes": [],
+    "imagenes": [
+      "assets/img/productos/funda-iphone-12-pro-max.webp"
+    ],
+    "stock": 10,
+    "destacado": false,
+    "nuevo": false,
+    "envioGratis": false,
+    "activo": true
+  },
+  {
+    "id": "funda-iphone-13-mini",
+    "slug": "funda-iphone-13-mini",
+    "nombre": "Funda iPhone 13 mini",
+    "marca": "Generico",
+    "categoria": "fundas",
+    "subcategoria": "estandar",
+    "precio": 8000,
+    "precioAnterior": null,
+    "compatibilidad": [
+      "iPhone 13 mini"
+    ],
+    "descripcion": "Funda para iPhone 13 mini.",
+    "especificaciones": {},
+    "variantes": [],
+    "imagenes": [
+      "assets/img/productos/funda-iphone-13-mini.webp"
+    ],
+    "stock": 10,
+    "destacado": false,
+    "nuevo": false,
+    "envioGratis": false,
+    "activo": true
+  },
+  {
+    "id": "funda-iphone-13",
+    "slug": "funda-iphone-13",
+    "nombre": "Funda iPhone 13",
+    "marca": "Generico",
+    "categoria": "fundas",
+    "subcategoria": "estandar",
+    "precio": 8000,
+    "precioAnterior": null,
+    "compatibilidad": [
+      "iPhone 13"
+    ],
+    "descripcion": "Funda para iPhone 13.",
+    "especificaciones": {},
+    "variantes": [],
+    "imagenes": [
+      "assets/img/productos/funda-iphone-13.webp"
+    ],
+    "stock": 10,
+    "destacado": false,
+    "nuevo": false,
+    "envioGratis": false,
+    "activo": true
+  },
+  {
+    "id": "funda-iphone-13-pro",
+    "slug": "funda-iphone-13-pro",
+    "nombre": "Funda iPhone 13 Pro",
+    "marca": "Generico",
+    "categoria": "fundas",
+    "subcategoria": "estandar",
+    "precio": 8000,
+    "precioAnterior": null,
+    "compatibilidad": [
+      "iPhone 13 Pro"
+    ],
+    "descripcion": "Funda para iPhone 13 Pro.",
+    "especificaciones": {},
+    "variantes": [],
+    "imagenes": [
+      "assets/img/productos/funda-iphone-13-pro.webp"
+    ],
+    "stock": 10,
+    "destacado": false,
+    "nuevo": false,
+    "envioGratis": false,
+    "activo": true
+  },
+  {
+    "id": "funda-iphone-13-pro-max",
+    "slug": "funda-iphone-13-pro-max",
+    "nombre": "Funda iPhone 13 Pro Max",
+    "marca": "Generico",
+    "categoria": "fundas",
+    "subcategoria": "estandar",
+    "precio": 8000,
+    "precioAnterior": null,
+    "compatibilidad": [
+      "iPhone 13 Pro Max"
+    ],
+    "descripcion": "Funda para iPhone 13 Pro Max.",
+    "especificaciones": {},
+    "variantes": [],
+    "imagenes": [
+      "assets/img/productos/funda-iphone-13-pro-max.webp"
+    ],
+    "stock": 10,
+    "destacado": false,
+    "nuevo": false,
+    "envioGratis": false,
+    "activo": true
+  },
+  {
+    "id": "funda-iphone-14",
+    "slug": "funda-iphone-14",
+    "nombre": "Funda iPhone 14",
+    "marca": "Generico",
+    "categoria": "fundas",
+    "subcategoria": "estandar",
+    "precio": 8000,
+    "precioAnterior": null,
+    "compatibilidad": [
+      "iPhone 14"
+    ],
+    "descripcion": "Funda para iPhone 14.",
+    "especificaciones": {},
+    "variantes": [],
+    "imagenes": [
+      "assets/img/productos/funda-iphone-14.webp"
+    ],
+    "stock": 10,
+    "destacado": false,
+    "nuevo": false,
+    "envioGratis": false,
+    "activo": true
+  },
+  {
+    "id": "funda-iphone-14-plus",
+    "slug": "funda-iphone-14-plus",
+    "nombre": "Funda iPhone 14 Plus",
+    "marca": "Generico",
+    "categoria": "fundas",
+    "subcategoria": "estandar",
+    "precio": 8000,
+    "precioAnterior": null,
+    "compatibilidad": [
+      "iPhone 14 Plus"
+    ],
+    "descripcion": "Funda para iPhone 14 Plus.",
+    "especificaciones": {},
+    "variantes": [],
+    "imagenes": [
+      "assets/img/productos/funda-iphone-14-plus.webp"
+    ],
+    "stock": 10,
+    "destacado": false,
+    "nuevo": false,
+    "envioGratis": false,
+    "activo": true
+  },
+  {
+    "id": "funda-iphone-14-pro",
+    "slug": "funda-iphone-14-pro",
+    "nombre": "Funda iPhone 14 Pro",
+    "marca": "Generico",
+    "categoria": "fundas",
+    "subcategoria": "estandar",
+    "precio": 8000,
+    "precioAnterior": null,
+    "compatibilidad": [
+      "iPhone 14 Pro"
+    ],
+    "descripcion": "Funda para iPhone 14 Pro.",
+    "especificaciones": {},
+    "variantes": [],
+    "imagenes": [
+      "assets/img/productos/funda-iphone-14-pro.webp"
+    ],
+    "stock": 10,
+    "destacado": false,
+    "nuevo": false,
+    "envioGratis": false,
+    "activo": true
+  },
+  {
+    "id": "funda-iphone-14-pro-max",
+    "slug": "funda-iphone-14-pro-max",
+    "nombre": "Funda iPhone 14 Pro Max",
+    "marca": "Generico",
+    "categoria": "fundas",
+    "subcategoria": "estandar",
+    "precio": 8000,
+    "precioAnterior": null,
+    "compatibilidad": [
+      "iPhone 14 Pro Max"
+    ],
+    "descripcion": "Funda para iPhone 14 Pro Max.",
+    "especificaciones": {},
+    "variantes": [],
+    "imagenes": [
+      "assets/img/productos/funda-iphone-14-pro-max.webp"
+    ],
+    "stock": 10,
+    "destacado": false,
+    "nuevo": false,
+    "envioGratis": false,
+    "activo": true
+  },
+  {
+    "id": "funda-iphone-15",
+    "slug": "funda-iphone-15",
+    "nombre": "Funda iPhone 15",
+    "marca": "Generico",
+    "categoria": "fundas",
+    "subcategoria": "estandar",
+    "precio": 8000,
+    "precioAnterior": null,
+    "compatibilidad": [
+      "iPhone 15"
+    ],
+    "descripcion": "Funda para iPhone 15.",
+    "especificaciones": {},
+    "variantes": [],
+    "imagenes": [
+      "assets/img/productos/funda-iphone-15.webp"
+    ],
+    "stock": 10,
+    "destacado": false,
+    "nuevo": false,
+    "envioGratis": false,
+    "activo": true
+  },
+  {
+    "id": "funda-iphone-15-plus",
+    "slug": "funda-iphone-15-plus",
+    "nombre": "Funda iPhone 15 Plus",
+    "marca": "Generico",
+    "categoria": "fundas",
+    "subcategoria": "estandar",
+    "precio": 8000,
+    "precioAnterior": null,
+    "compatibilidad": [
+      "iPhone 15 Plus"
+    ],
+    "descripcion": "Funda para iPhone 15 Plus.",
+    "especificaciones": {},
+    "variantes": [],
+    "imagenes": [
+      "assets/img/productos/funda-iphone-15-plus.webp"
+    ],
+    "stock": 10,
+    "destacado": false,
+    "nuevo": false,
+    "envioGratis": false,
+    "activo": true
+  },
+  {
+    "id": "funda-iphone-15-pro",
+    "slug": "funda-iphone-15-pro",
+    "nombre": "Funda iPhone 15 Pro",
+    "marca": "Generico",
+    "categoria": "fundas",
+    "subcategoria": "estandar",
+    "precio": 8000,
+    "precioAnterior": null,
+    "compatibilidad": [
+      "iPhone 15 Pro"
+    ],
+    "descripcion": "Funda para iPhone 15 Pro.",
+    "especificaciones": {},
+    "variantes": [],
+    "imagenes": [
+      "assets/img/productos/funda-iphone-15-pro.webp"
+    ],
+    "stock": 10,
+    "destacado": false,
+    "nuevo": false,
+    "envioGratis": false,
+    "activo": true
+  },
+  {
+    "id": "funda-iphone-15-pro-max",
+    "slug": "funda-iphone-15-pro-max",
+    "nombre": "Funda iPhone 15 Pro Max",
+    "marca": "Generico",
+    "categoria": "fundas",
+    "subcategoria": "estandar",
+    "precio": 8000,
+    "precioAnterior": null,
+    "compatibilidad": [
+      "iPhone 15 Pro Max"
+    ],
+    "descripcion": "Funda para iPhone 15 Pro Max.",
+    "especificaciones": {},
+    "variantes": [],
+    "imagenes": [
+      "assets/img/productos/funda-iphone-15-pro-max.webp"
+    ],
+    "stock": 10,
+    "destacado": false,
+    "nuevo": false,
+    "envioGratis": false,
+    "activo": true
+  },
+  {
+    "id": "funda-iphone-16",
+    "slug": "funda-iphone-16",
+    "nombre": "Funda iPhone 16",
+    "marca": "Generico",
+    "categoria": "fundas",
+    "subcategoria": "estandar",
+    "precio": 8000,
+    "precioAnterior": null,
+    "compatibilidad": [
+      "iPhone 16"
+    ],
+    "descripcion": "Funda para iPhone 16.",
+    "especificaciones": {},
+    "variantes": [],
+    "imagenes": [
+      "assets/img/productos/funda-iphone-16.webp"
+    ],
+    "stock": 10,
+    "destacado": false,
+    "nuevo": false,
+    "envioGratis": false,
+    "activo": true
+  },
+  {
+    "id": "funda-iphone-16-plus",
+    "slug": "funda-iphone-16-plus",
+    "nombre": "Funda iPhone 16 Plus",
+    "marca": "Generico",
+    "categoria": "fundas",
+    "subcategoria": "estandar",
+    "precio": 8000,
+    "precioAnterior": null,
+    "compatibilidad": [
+      "iPhone 16 Plus"
+    ],
+    "descripcion": "Funda para iPhone 16 Plus.",
+    "especificaciones": {},
+    "variantes": [],
+    "imagenes": [
+      "assets/img/productos/funda-iphone-16-plus.webp"
+    ],
+    "stock": 10,
+    "destacado": false,
+    "nuevo": false,
+    "envioGratis": false,
+    "activo": true
+  },
+  {
+    "id": "funda-iphone-16-pro",
+    "slug": "funda-iphone-16-pro",
+    "nombre": "Funda iPhone 16 Pro",
+    "marca": "Generico",
+    "categoria": "fundas",
+    "subcategoria": "estandar",
+    "precio": 8000,
+    "precioAnterior": null,
+    "compatibilidad": [
+      "iPhone 16 Pro"
+    ],
+    "descripcion": "Funda para iPhone 16 Pro.",
+    "especificaciones": {},
+    "variantes": [],
+    "imagenes": [
+      "assets/img/productos/funda-iphone-16-pro.webp"
+    ],
+    "stock": 10,
+    "destacado": false,
+    "nuevo": false,
+    "envioGratis": false,
+    "activo": true
+  },
+  {
+    "id": "funda-iphone-16-pro-max",
+    "slug": "funda-iphone-16-pro-max",
+    "nombre": "Funda iPhone 16 Pro Max",
+    "marca": "Generico",
+    "categoria": "fundas",
+    "subcategoria": "estandar",
+    "precio": 8000,
+    "precioAnterior": null,
+    "compatibilidad": [
+      "iPhone 16 Pro Max"
+    ],
+    "descripcion": "Funda para iPhone 16 Pro Max.",
+    "especificaciones": {},
+    "variantes": [],
+    "imagenes": [
+      "assets/img/productos/funda-iphone-16-pro-max.webp"
+    ],
+    "stock": 10,
+    "destacado": false,
+    "nuevo": false,
+    "envioGratis": false,
+    "activo": true
+  },
+  {
+    "id": "funda-iphone-17",
+    "slug": "funda-iphone-17",
+    "nombre": "Funda iPhone 17",
+    "marca": "Generico",
+    "categoria": "fundas",
+    "subcategoria": "estandar",
+    "precio": 8000,
+    "precioAnterior": null,
+    "compatibilidad": [
+      "iPhone 17"
+    ],
+    "descripcion": "Funda para iPhone 17.",
+    "especificaciones": {},
+    "variantes": [],
+    "imagenes": [
+      "assets/img/productos/funda-iphone-17.webp"
+    ],
+    "stock": 10,
+    "destacado": false,
+    "nuevo": false,
+    "envioGratis": false,
+    "activo": true
+  },
+  {
+    "id": "funda-iphone-17-pro",
+    "slug": "funda-iphone-17-pro",
+    "nombre": "Funda iPhone 17 Pro",
+    "marca": "Generico",
+    "categoria": "fundas",
+    "subcategoria": "estandar",
+    "precio": 8000,
+    "precioAnterior": null,
+    "compatibilidad": [
+      "iPhone 17 Pro"
+    ],
+    "descripcion": "Funda para iPhone 17 Pro.",
+    "especificaciones": {},
+    "variantes": [],
+    "imagenes": [
+      "assets/img/productos/funda-iphone-17-pro.webp"
+    ],
+    "stock": 10,
+    "destacado": false,
+    "nuevo": false,
+    "envioGratis": false,
+    "activo": true
+  },
+  {
+    "id": "funda-iphone-17-pro-max",
+    "slug": "funda-iphone-17-pro-max",
+    "nombre": "Funda iPhone 17 Pro Max",
+    "marca": "Generico",
+    "categoria": "fundas",
+    "subcategoria": "estandar",
+    "precio": 8000,
+    "precioAnterior": null,
+    "compatibilidad": [
+      "iPhone 17 Pro Max"
+    ],
+    "descripcion": "Funda para iPhone 17 Pro Max.",
+    "especificaciones": {},
+    "variantes": [],
+    "imagenes": [
+      "assets/img/productos/funda-iphone-17-pro-max.webp"
+    ],
+    "stock": 10,
+    "destacado": false,
+    "nuevo": false,
+    "envioGratis": false,
+    "activo": true
+  },
+  {
+    "id": "smartwatch-apple-watch-ultra-2",
+    "slug": "apple-watch-ultra-2",
+    "nombre": "Apple Watch Ultra 2",
+    "marca": "Apple",
+    "categoria": "smartwatches",
+    "subcategoria": "estandar",
+    "precio": 60000,
+    "precioAnterior": null,
+    "compatibilidad": [],
+    "descripcion": "Smartwatch con conexión Bluetooth. Sirve con cualquier iPhone.",
+    "especificaciones": {
+      "Conexión": "Bluetooth"
+    },
+    "variantes": [],
+    "imagenes": [
+      "assets/img/productos/smartwatch-apple-watch-ultra-2.webp"
     ],
     "stock": 10,
     "destacado": true,
@@ -173,278 +830,52 @@
     "activo": true
   },
   {
-    "id": "powerbank-10000-pd",
-    "slug": "power-bank-10000mah-power-delivery",
-    "nombre": "Power Bank 10000mAh Power Delivery",
-    "marca": "Anker",
-    "categoria": "powerbanks",
-    "subcategoria": "cable",
-    "precio": 52000,
-    "precioAnterior": 64000,
-    "compatibilidad": [],
-    "descripcion": "Batería externa de 10000mAh con carga rápida de 22.5W. Carga completa un iPhone dos veces. Display digital con porcentaje restante.",
-    "especificaciones": {
-      "Capacidad": "10000mAh",
-      "Potencia": "22.5W",
-      "Puertos": "USB-C + USB-A",
-      "Display": "Digital"
-    },
-    "variantes": [],
-    "imagenes": [
-      "assets/img/productos/powerbank-10000-pd.webp"
-    ],
-    "stock": 7,
-    "destacado": false,
-    "nuevo": false,
-    "envioGratis": true,
-    "activo": true
-  },
-  {
-    "id": "vidrio-templado-15-15pro",
-    "slug": "vidrio-templado-iphone-15-15-pro",
-    "nombre": "Vidrio Templado 9H con Marco de Instalación",
-    "marca": "Generico",
-    "categoria": "protectores",
-    "subcategoria": "vidrio",
-    "precio": 6500,
-    "precioAnterior": null,
-    "compatibilidad": ["iPhone 15", "iPhone 15 Pro", "iPhone 14 Pro"],
-    "descripcion": "Vidrio templado de dureza 9H con tratamiento oleofóbico. Incluye marco guía que permite colocarlo derecho y sin burbujas en el primer intento.",
-    "especificaciones": {
-      "Dureza": "9H",
-      "Espesor": "0.33mm",
-      "Tratamiento": "Oleofóbico antihuellas",
-      "Incluye": "Marco de instalación y kit de limpieza"
-    },
-    "variantes": [],
-    "imagenes": [
-      "assets/img/productos/vidrio-templado-15-15pro.webp"
-    ],
-    "stock": 40,
-    "destacado": false,
-    "nuevo": false,
-    "envioGratis": false,
-    "activo": true
-  },
-  {
-    "id": "hidrogel-13-14",
-    "slug": "protector-hidrogel-iphone-13-14",
-    "nombre": "Protector de Hidrogel Autoreparable",
-    "marca": "Generico",
-    "categoria": "protectores",
-    "subcategoria": "hidrogel",
-    "precio": 4200,
-    "precioAnterior": 5800,
-    "compatibilidad": ["iPhone 13", "iPhone 13 Pro", "iPhone 14"],
-    "descripcion": "Film de hidrogel flexible que cubre la pantalla de borde a borde. Las microrayaduras superficiales se reparan solas con el calor del uso.",
-    "especificaciones": {
-      "Material": "Hidrogel TPU",
-      "Cobertura": "Borde a borde",
-      "Autoreparable": "Sí",
-      "Compatible con funda": "Sí"
-    },
-    "variantes": [],
-    "imagenes": [
-      "assets/img/productos/hidrogel-13-14.webp"
-    ],
-    "stock": 0,
-    "destacado": false,
-    "nuevo": false,
-    "envioGratis": false,
-    "activo": true
-  },
-  {
-    "id": "cable-usbc-lightning-1m",
-    "slug": "cable-usb-c-a-lightning-1m",
-    "nombre": "Cable USB-C a Lightning 1m Certificado MFi",
-    "marca": "Generico",
-    "categoria": "cables",
-    "subcategoria": "lightning",
-    "precio": 9800,
-    "precioAnterior": null,
-    "compatibilidad": [],
-    "descripcion": "Cable certificado MFi por Apple, compatible con carga rápida. Malla de nylon trenzado que resiste el doblado en la zona de la ficha.",
-    "especificaciones": {
-      "Largo": "1 metro",
-      "Certificación": "MFi",
-      "Revestimiento": "Nylon trenzado",
-      "Carga rápida": "Sí"
-    },
-    "variantes": [],
-    "imagenes": [
-      "assets/img/productos/cable-usbc-lightning-1m.webp"
-    ],
-    "stock": 30,
-    "destacado": false,
-    "nuevo": false,
-    "envioGratis": false,
-    "activo": true
-  },
-  {
-    "id": "cable-usbc-usbc-2m-60w",
-    "slug": "cable-usb-c-a-usb-c-2m-60w",
-    "nombre": "Cable USB-C a USB-C 2m 60W",
-    "marca": "Baseus",
-    "categoria": "cables",
-    "subcategoria": "usb-c",
-    "precio": 11500,
-    "precioAnterior": null,
-    "compatibilidad": [],
-    "descripcion": "Cable de 2 metros para iPhone 15 en adelante. Soporta hasta 60W de carga y transferencia de datos a 480Mbps.",
-    "especificaciones": {
-      "Largo": "2 metros",
-      "Potencia": "60W",
-      "Transferencia": "480Mbps",
-      "Revestimiento": "Nylon trenzado"
-    },
-    "variantes": [
-      { "tipo": "color", "nombre": "Negro", "hex": "#1d1d1f", "stock": 18, "imagen": "assets/img/productos/cable-usbc-usbc-2m-negro.webp" },
-      { "tipo": "color", "nombre": "Blanco", "hex": "#f5f5f7", "stock": 0, "imagen": "assets/img/productos/cable-usbc-usbc-2m-blanco.webp" }
-    ],
-    "imagenes": [
-      "assets/img/productos/cable-usbc-usbc-2m-negro.webp"
-    ],
-    "stock": 18,
-    "destacado": false,
-    "nuevo": true,
-    "envioGratis": false,
-    "activo": true
-  },
-  {
-    "id": "jbl-go-4",
-    "slug": "parlante-jbl-go-4",
-    "nombre": "Parlante JBL Go 4 Bluetooth",
+    "id": "parlante-jbl-go4-rgb",
+    "slug": "parlante-jbl-go4-rgb",
+    "nombre": "Parlante JBL Go4 RGB",
     "marca": "JBL",
     "categoria": "parlantes",
     "subcategoria": "portatil",
-    "precio": 64900,
-    "precioAnterior": 79900,
+    "precio": 28000,
+    "precioAnterior": null,
     "compatibilidad": [],
-    "descripcion": "Parlante portátil con sonido JBL Pro, 7 horas de batería y certificación IP67 contra agua y polvo. Entra en el bolsillo.",
+    "descripcion": "Parlante portátil JBL Go4 con luces RGB. Sirve con cualquier iPhone por Bluetooth.",
     "especificaciones": {
-      "Batería": "7 horas",
-      "Resistencia": "IP67 (agua y polvo)",
-      "Bluetooth": "5.3",
-      "Peso": "190g"
+      "Conexión": "Bluetooth",
+      "Luces": "RGB"
     },
-    "variantes": [
-      { "tipo": "color", "nombre": "Negro", "hex": "#1d1d1f", "stock": 5, "imagen": "assets/img/productos/jbl-go-4-negro.webp" },
-      { "tipo": "color", "nombre": "Azul", "hex": "#2f5d9e", "stock": 3, "imagen": "assets/img/productos/jbl-go-4-azul.webp" },
-      { "tipo": "color", "nombre": "Beige", "hex": "#d9c5b4", "stock": 0, "imagen": "assets/img/productos/jbl-go-4-beige.webp" }
-    ],
+    "variantes": [],
     "imagenes": [
-      "assets/img/productos/jbl-go-4-negro.webp",
-      "assets/img/productos/jbl-go-4-detalle.webp"
+      "assets/img/productos/parlante-jbl-go4-rgb.webp"
     ],
-    "stock": 8,
+    "stock": 10,
+    "destacado": false,
+    "nuevo": false,
+    "envioGratis": false,
+    "activo": true
+  },
+  {
+    "id": "parlante-jbl-go4",
+    "slug": "parlante-jbl-go4",
+    "nombre": "Parlante JBL Go4",
+    "marca": "JBL",
+    "categoria": "parlantes",
+    "subcategoria": "portatil",
+    "precio": 30000,
+    "precioAnterior": null,
+    "compatibilidad": [],
+    "descripcion": "Parlante portátil JBL Go4. Sirve con cualquier iPhone por Bluetooth.",
+    "especificaciones": {
+      "Conexión": "Bluetooth"
+    },
+    "variantes": [],
+    "imagenes": [
+      "assets/img/productos/parlante-jbl-go4.webp"
+    ],
+    "stock": 10,
     "destacado": true,
     "nuevo": false,
-    "envioGratis": true,
-    "activo": true
-  },
-  {
-    "id": "jbl-flip-6",
-    "slug": "parlante-jbl-flip-6",
-    "nombre": "Parlante JBL Flip 6 Bluetooth",
-    "marca": "JBL",
-    "categoria": "parlantes",
-    "subcategoria": "portatil",
-    "precio": 149900,
-    "precioAnterior": null,
-    "compatibilidad": [],
-    "descripcion": "Parlante portátil con radiador de graves y transductor de rango completo. 12 horas de batería y certificación IP67.",
-    "especificaciones": {
-      "Batería": "12 horas",
-      "Resistencia": "IP67 (agua y polvo)",
-      "Bluetooth": "5.1",
-      "Potencia": "30W"
-    },
-    "variantes": [],
-    "imagenes": [
-      "assets/img/productos/jbl-flip-6.webp"
-    ],
-    "stock": 4,
-    "destacado": false,
-    "nuevo": false,
-    "envioGratis": true,
-    "activo": true
-  },
-  {
-    "id": "auriculares-inear-lightning",
-    "slug": "auriculares-in-ear-lightning",
-    "nombre": "Auriculares In-Ear con Ficha Lightning",
-    "marca": "Generico",
-    "categoria": "auriculares",
-    "subcategoria": "con-cable",
-    "precio": 13500,
-    "precioAnterior": null,
-    "compatibilidad": [],
-    "descripcion": "Auriculares con cable y ficha Lightning para iPhone sin puerto de 3.5mm. Control de volumen y micrófono integrados.",
-    "especificaciones": {
-      "Conector": "Lightning",
-      "Micrófono": "Sí",
-      "Control": "Volumen y llamadas",
-      "Largo del cable": "1.2m"
-    },
-    "variantes": [],
-    "imagenes": [
-      "assets/img/productos/auriculares-inear-lightning.webp"
-    ],
-    "stock": 16,
-    "destacado": false,
-    "nuevo": false,
     "envioGratis": false,
     "activo": true
-  },
-  {
-    "id": "auriculares-bt-tws-basicos",
-    "slug": "auriculares-bluetooth-tws",
-    "nombre": "Auriculares Bluetooth TWS con Estuche",
-    "marca": "Generico",
-    "categoria": "auriculares",
-    "subcategoria": "inalambricos",
-    "precio": 29900,
-    "precioAnterior": 37000,
-    "compatibilidad": [],
-    "descripcion": "Auriculares inalámbricos con estuche de carga. 5 horas de reproducción por carga y hasta 20 horas con el estuche.",
-    "especificaciones": {
-      "Batería": "5h + 15h con estuche",
-      "Bluetooth": "5.3",
-      "Controles": "Táctiles",
-      "Carga del estuche": "USB-C"
-    },
-    "variantes": [],
-    "imagenes": [
-      "assets/img/productos/auriculares-bt-tws-basicos.webp"
-    ],
-    "stock": 9,
-    "destacado": false,
-    "nuevo": true,
-    "envioGratis": false,
-    "activo": true
-  },
-  {
-    "id": "funda-silicona-12-discontinuada",
-    "slug": "funda-silicona-iphone-12-discontinuada",
-    "nombre": "Funda de Silicona iPhone 12 (discontinuada)",
-    "marca": "Generico",
-    "categoria": "fundas",
-    "subcategoria": "silicona",
-    "precio": 14000,
-    "precioAnterior": null,
-    "compatibilidad": ["iPhone 12", "iPhone 12 Pro"],
-    "descripcion": "Producto dado de baja del catálogo. Existe en el JSON con activo:false para no perder el historial ni romper links viejos.",
-    "especificaciones": {
-      "Material": "Silicona"
-    },
-    "variantes": [],
-    "imagenes": [
-      "assets/img/productos/funda-silicona-12.webp"
-    ],
-    "stock": 0,
-    "destacado": false,
-    "nuevo": false,
-    "envioGratis": false,
-    "activo": false
   }
 ]

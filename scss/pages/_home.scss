@@ -7,13 +7,93 @@
 // --- Hero -------------------------------------------------------------------
 
 .hero {
-  background-color: a.$beige;
+  position: relative;
+  overflow: hidden;
+  background-color: a.$beige;   // fallback si las imágenes no cargan
   padding-block: a.$esp-8;
 
   @include a.desde("md") { padding-block: a.$esp-10; }
 }
 
+// --- Fondo — gradiente mesh ---------------------------------------------------
+// Manchas grandes y difuminadas de la propia paleta de neutros, flotando muy
+// lento e independientes entre sí. Sin fotos ni video: cero riesgo de marca,
+// nada que descargar, y como son todos tonos de "superficie" ya verificados
+// contra AA (sección 8.2), el texto queda legible sin necesitar un velo.
+.hero__fondo {
+  position: absolute;
+  inset: 0;
+  z-index: 0;
+  overflow: hidden;
+  background-color: a.$beige;
+}
+
+.hero__blob {
+  position: absolute;
+  aspect-ratio: 1;
+  border-radius: 50%;
+  filter: blur(70px);
+  will-change: transform;
+}
+
+.hero__blob--1 {
+  top: -15%;
+  left: -8%;
+  width: 55%;
+  background-color: a.$nude;
+  opacity: 0.65;
+  animation: hero-flotar-a 26s infinite ease-in-out alternate;
+}
+
+.hero__blob--2 {
+  top: -5%;
+  right: -12%;
+  width: 48%;
+  background-color: a.$gris-claro;
+  opacity: 0.6;
+  animation: hero-flotar-b 32s infinite ease-in-out alternate;
+}
+
+.hero__blob--3 {
+  bottom: -25%;
+  left: 22%;
+  width: 42%;
+  background-color: a.$marron;
+  opacity: 0.1;
+  animation: hero-flotar-c 38s infinite ease-in-out alternate;
+}
+
+.hero__blob--4 {
+  bottom: -18%;
+  right: 8%;
+  width: 38%;
+  background-color: a.$blanco;
+  opacity: 0.55;
+  animation: hero-flotar-a 22s infinite ease-in-out alternate-reverse;
+}
+
+@keyframes hero-flotar-a {
+  0%   { transform: translate(0, 0) scale(1); }
+  100% { transform: translate(6%, 8%) scale(1.12); }
+}
+
+@keyframes hero-flotar-b {
+  0%   { transform: translate(0, 0) scale(1); }
+  100% { transform: translate(-8%, 6%) scale(0.92); }
+}
+
+@keyframes hero-flotar-c {
+  0%   { transform: translate(4%, -4%) scale(1); }
+  100% { transform: translate(-4%, 4%) scale(1.1); }
+}
+
+@media (prefers-reduced-motion: reduce) {
+  .hero__blob { animation: none !important; }
+}
+
 .hero__interior {
+  position: relative;
+  z-index: 1;
   @include a.contenedor;
   display: grid;
   gap: a.$esp-6;
@@ -110,11 +190,8 @@
   background-position: right a.$esp-4 center;
   padding-right: a.$esp-7;
 
-  &:focus-visible {
-    outline: 2px solid a.$negro;
-    outline-offset: 1px;
-    border-color: a.$negro;
-  }
+  transition: border-color a.$transicion-rapida, box-shadow a.$transicion-rapida;
+  @include a.foco-pastilla;
 }
 
 .selector-modelo__btn { white-space: nowrap; }
@@ -157,6 +234,7 @@
   transition: transform a.$transicion-base a.$curva-suave;
 
   &:hover { transform: translateY(-2px); }
+  @include a.presion(0.98);
   @include a.foco;
 }
 

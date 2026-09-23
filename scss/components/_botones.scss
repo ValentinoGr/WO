@@ -17,7 +17,9 @@
   cursor: pointer;
   transition: background-color a.$transicion-base,
               color a.$transicion-base,
-              border-color a.$transicion-base;
+              border-color a.$transicion-base,
+              transform a.$transicion-rapida;
+  @include a.presion;
   @include a.foco;
 
   &[disabled],
@@ -83,7 +85,8 @@
   border-radius: a.$radio-full;
   color: a.$negro;
   background-color: transparent;
-  transition: background-color a.$transicion-rapida;
+  transition: background-color a.$transicion-rapida, transform a.$transicion-rapida;
+  @include a.presion;
   @include a.foco;
 
   &:hover { background-color: a.$beige; }

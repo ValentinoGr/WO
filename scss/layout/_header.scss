@@ -66,12 +66,31 @@
 
   &:hover { color: a.$negro; }
 
+  // Subrayado que crece desde el centro al pasar el mouse — un preview sutil
+  // del mismo trazo que usa el estado activo, pero transitorio.
+  &::before {
+    content: "";
+    position: absolute;
+    left: 0;
+    right: 0;
+    bottom: -2px;
+    height: 2px;
+    border-radius: a.$radio-full;
+    background-color: a.$gris-medio;
+    scale: 0 1;
+    transition: scale a.$transicion-base a.$curva-suave;
+  }
+
+  &:hover::before { scale: 1 1; }
+
   // El subrayado es lo que distingue "activo" de "hover": ambos usan el
   // mismo color, así que solo el color no alcanzaba para notar cuál sección
   // era la actual.
   &[aria-current="page"] {
     color: a.$negro;
     font-weight: a.$peso-medio;
+
+    &::before { content: none; }
 
     &::after {
       content: "";
@@ -143,11 +162,8 @@
 
   &::placeholder { color: a.$color-texto-secundario; }
 
-  &:focus-visible {
-    outline: 2px solid a.$negro;
-    outline-offset: 1px;
-    border-color: a.$negro;
-  }
+  transition: border-color a.$transicion-rapida, box-shadow a.$transicion-rapida;
+  @include a.foco-pastilla;
 }
 
 .busqueda__sugerencias {
@@ -192,12 +208,13 @@
   padding: a.$esp-4;
   overflow-y: auto;
   opacity: 0;
-  transition: opacity a.$transicion-base;
+  scale: 0.98;
+  transition: opacity a.$transicion-base, scale a.$transicion-base a.$curva-suave;
 
   @include a.desde("lg") { display: none; }
 }
 
-.menu-mobile--abierto { opacity: 1; }
+.menu-mobile--abierto { opacity: 1; scale: 1; }
 
 .menu-mobile__encabezado {
   @include a.flex(row, space-between, center);
@@ -219,6 +236,7 @@
   text-decoration: none;
   border-radius: a.$radio-md;
   border-bottom: 1px solid a.$color-borde;
+  transition: background-color a.$transicion-rapida;
 
   &:hover { background-color: a.$beige; }
   @include a.foco;
