@@ -70,6 +70,7 @@ export const CONFIG = {
   storage: {
     claveCarrito: "wo.carrito",
     claveModelo: "wo.modelo-elegido",
+    claveIntroVista: "wo.intro-vista",
     version: 1,
   },
 };

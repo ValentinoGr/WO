@@ -1,0 +1,172 @@
+// ===========================================================================
+// Intro de marca — pantalla de apertura del home
+// ===========================================================================
+// Una sola vez por sesión (sessionStorage, ver js/ui/introMarca.js).
+// Comparte el mismo lenguaje visual que el hero real (blobs, logo, texto)
+// para que la transformación final se sienta continua en vez de un corte:
+// el overlay "se abre" con un clip-path y revela el hero, que ya está
+// renderizado y estático debajo — no hay nada que esperar ni cargar.
+//
+// La composición se arma y se queda quieta: no hay timer ni botón de
+// saltar. Se revela recién cuando el usuario scrollea o clickea el <a>
+// "Ver toda la tienda" (ver js/ui/introMarca.js).
+//
+// Todo animado con transform/opacity/scale/clip-path: cero layout, cero CLS.
+// Si prefers-reduced-motion o ya se vio esta sesión, index.html nunca la
+// pinta (ver el script inline en <head>): esto de acá no corre.
+
+@use "../abstracts" as a;
+
+// El script inline en <head> de index.html agrega esta clase a <html> ANTES
+// del primer paint cuando corresponde saltear (ya vista esta sesión, o
+// prefers-reduced-motion) — así el overlay ni se pinta un frame.
+html.sin-intro .intro-marca {
+  display: none;
+}
+
+.intro-marca {
+  position: fixed;
+  inset: 0;
+  z-index: a.$z-intro;
+  display: grid;
+  place-items: center;
+  overflow: hidden;
+  background-color: a.$beige;
+}
+
+// --- Fondo: mismos blobs que el hero real ------------------------------------
+
+.intro-marca__fondo {
+  position: absolute;
+  inset: 0;
+  z-index: 0;
+  overflow: hidden;
+  clip-path: circle(150% at 50% 45%);
+}
+
+.intro-marca__blob {
+  position: absolute;
+  aspect-ratio: 1;
+  border-radius: 50%;
+  filter: blur(70px);
+  opacity: 0;
+  scale: 0.7;
+}
+
+.intro-marca__blob--1 {
+  top: -10%;
+  left: -10%;
+  width: 60%;
+  background-color: a.$nude;
+}
+
+.intro-marca__blob--2 {
+  top: -5%;
+  right: -15%;
+  width: 55%;
+  background-color: a.$gris-claro;
+}
+
+.intro-marca__blob--3 {
+  bottom: -20%;
+  left: 15%;
+  width: 50%;
+  background-color: a.$marron;   // el keyframe la lleva a 0.12 de opacidad — igual de sutil que en el hero
+}
+
+// --- Contenido: logo → título → bajada → cta ---------------------------------
+
+.intro-marca__contenido {
+  position: relative;
+  z-index: 1;
+  display: grid;
+  justify-items: center;
+  gap: a.$esp-4;
+  padding: a.$esp-5;
+  text-align: center;
+}
+
+.intro-marca__logo {
+  width: clamp(140px, 34vw, 280px);
+  height: auto;
+  opacity: 0;
+  scale: 0.9;
+  clip-path: inset(0 50% 0 50%);
+}
+
+.intro-marca__titulo {
+  @include a.titulo(a.$txt-3xl);
+  max-width: 18ch;
+  opacity: 0;
+  translate: 0 16px;
+}
+
+.intro-marca__bajada {
+  font-size: a.$txt-lg;
+  color: a.$color-texto-secundario;
+  max-width: 34ch;
+  opacity: 0;
+  translate: 0 14px;
+}
+
+// A diferencia del logo/título/bajada, este SÍ es un <a> real a la tienda
+// (ver index.html) — nada de pointer-events:none acá.
+.intro-marca__cta {
+  opacity: 0;
+  translate: 0 12px;
+}
+
+// --- Secuencia de entrada, disparada por JS con .intro-marca--activa --------
+
+.intro-marca--activa {
+  .intro-marca__blob--1 { animation: intro-blob-1 500ms a.$curva-suave 300ms forwards; }
+  .intro-marca__blob--2 { animation: intro-blob-2 500ms a.$curva-suave 420ms forwards; }
+  .intro-marca__blob--3 { animation: intro-blob-3 500ms a.$curva-suave 540ms forwards; }
+
+  .intro-marca__logo    { animation: intro-logo-entrada 550ms a.$curva-suave forwards; }
+  .intro-marca__titulo  { animation: intro-fade-up 400ms a.$curva-suave 550ms forwards; }
+  .intro-marca__bajada  { animation: intro-fade-up 400ms a.$curva-suave 750ms forwards; }
+  .intro-marca__cta     { animation: intro-fade-up 400ms a.$curva-suave 950ms forwards; }
+}
+
+@keyframes intro-blob-1 { to { opacity: 0.65; scale: 1; } }
+@keyframes intro-blob-2 { to { opacity: 0.55; scale: 1; } }
+@keyframes intro-blob-3 { to { opacity: 0.12; scale: 1; } }
+
+@keyframes intro-logo-entrada {
+  to { opacity: 1; scale: 1; clip-path: inset(0 0 0 0); }
+}
+
+@keyframes intro-fade-up {
+  to { opacity: 1; translate: 0 0; }
+}
+
+// --- Transformación de salida, disparada por JS con .intro-marca--saliendo --
+// El grupo de contenido se achica y se desvanece MIENTRAS el clip-path del
+// fondo se cierra sobre el mismo punto donde vive el logo real del hero:
+// la marca "se abre" y revela la página de verdad, ya renderizada debajo.
+
+.intro-marca--saliendo {
+  .intro-marca__contenido { animation: intro-salida-contenido 500ms a.$curva-suave forwards; }
+  .intro-marca__fondo     { animation: intro-salida-fondo 550ms a.$curva-suave forwards; }
+}
+
+@keyframes intro-salida-contenido {
+  to { opacity: 0; scale: 0.92; translate: 0 -20px; }
+}
+
+@keyframes intro-salida-fondo {
+  to { clip-path: circle(0% at 50% 45%); }
+}
+
+// --- Responsive ---------------------------------------------------------------
+
+@include a.desde("md") {
+  .intro-marca__contenido { gap: a.$esp-5; }
+}
+
+// --- Reduced motion: red de seguridad si por lo que sea el script inline
+// de <head> no llegó a correr (JS bloqueado a mitad de carga, etc.) -----------
+@media (prefers-reduced-motion: reduce) {
+  .intro-marca { display: none !important; }
+}

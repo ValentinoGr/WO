@@ -14,8 +14,47 @@
   <meta property="og:locale" content="es_AR">
 
   <link rel="stylesheet" href="css/main.css">
+
+  <!-- Anti-flash: decide ANTES del primer paint si esta sesión ya vio la
+       intro o si el sistema pide menos movimiento. Si corresponde saltear,
+       marca <html> para que el CSS oculte el overlay sin que llegue a
+       pintarse ni un frame. La clave hardcodeada tiene que coincidir con
+       CONFIG.storage.claveIntroVista (js/config.js) — no se puede importar
+       un módulo acá y mantener esto síncrono. -->
+  <script>
+    (function () {
+      try {
+        var vista = sessionStorage.getItem("wo.intro-vista");
+        var sinMovimiento = window.matchMedia("(prefers-reduced-motion: reduce)").matches;
+        if (vista || sinMovimiento) {
+          document.documentElement.classList.add("sin-intro");
+        }
+      } catch (error) {
+        document.documentElement.classList.add("sin-intro");
+      }
+    })();
+  </script>
 </head>
 <body>
+  <!-- ==================== INTRO DE MARCA ====================
+       Una sola vez por sesión (js/ui/introMarca.js). Comparte el logo, los
+       blobs y el copy del hero real de abajo para que la transformación se
+       sienta continua. Si no corresponde mostrarla, el script de <head> ya
+       agregó .sin-intro a <html> y esto no se pinta. -->
+  <div class="intro-marca" id="intro-marca">
+    <div class="intro-marca__fondo" aria-hidden="true">
+      <span class="intro-marca__blob intro-marca__blob--1"></span>
+      <span class="intro-marca__blob intro-marca__blob--2"></span>
+      <span class="intro-marca__blob intro-marca__blob--3"></span>
+    </div>
+    <div class="intro-marca__contenido">
+      <img class="intro-marca__logo" src="assets/img/marca/logo-wo.webp" alt="" aria-hidden="true" width="870" height="641">
+      <p class="intro-marca__titulo" aria-hidden="true">Todo para tu iPhone, en un solo lugar</p>
+      <p class="intro-marca__bajada" aria-hidden="true">Rafaela y Sunchales, Santa Fe. Envíos a todo el país.</p>
+      <a class="btn btn--primario btn--lg intro-marca__cta" href="tienda.html">Ver toda la tienda</a>
+    </div>
+  </div>
+
   <a class="saltar-contenido" href="#contenido">Saltar al contenido</a>
 
   <!-- ==================== HEADER ==================== -->

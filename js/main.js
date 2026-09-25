@@ -8,6 +8,7 @@
 import { iniciarHeader } from "./ui/header.js";
 import { iniciarDrawer } from "./ui/drawerCarrito.js";
 import { iniciarScrollReveal } from "./ui/scrollReveal.js";
+import { iniciarIntroMarca } from "./ui/introMarca.js";
 import { CONFIG } from "./config.js";
 import { $$ } from "./utils/dom.js";
 
@@ -37,6 +38,7 @@ function iniciarAnioFooter() {
   });
 }
 
+iniciarIntroMarca();
 iniciarDrawer();
 iniciarHeader();
 iniciarWhatsappFlotante();

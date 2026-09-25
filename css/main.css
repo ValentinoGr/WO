@@ -1344,6 +1344,183 @@ textarea.campo__input {
   color: #A33A2B;
 }
 
+html.sin-intro .intro-marca {
+  display: none;
+}
+
+.intro-marca {
+  position: fixed;
+  inset: 0;
+  z-index: 1000;
+  display: grid;
+  place-items: center;
+  overflow: hidden;
+  background-color: #EFEAE3;
+}
+
+.intro-marca__fondo {
+  position: absolute;
+  inset: 0;
+  z-index: 0;
+  overflow: hidden;
+  clip-path: circle(150% at 50% 45%);
+}
+
+.intro-marca__blob {
+  position: absolute;
+  aspect-ratio: 1;
+  border-radius: 50%;
+  filter: blur(70px);
+  opacity: 0;
+  scale: 0.7;
+}
+
+.intro-marca__blob--1 {
+  top: -10%;
+  left: -10%;
+  width: 60%;
+  background-color: #D9C5B4;
+}
+
+.intro-marca__blob--2 {
+  top: -5%;
+  right: -15%;
+  width: 55%;
+  background-color: #E5E3E0;
+}
+
+.intro-marca__blob--3 {
+  bottom: -20%;
+  left: 15%;
+  width: 50%;
+  background-color: #5F4938;
+}
+
+.intro-marca__contenido {
+  position: relative;
+  z-index: 1;
+  display: grid;
+  justify-items: center;
+  gap: 1rem;
+  padding: 1.5rem;
+  text-align: center;
+}
+
+.intro-marca__logo {
+  width: clamp(140px, 34vw, 280px);
+  height: auto;
+  opacity: 0;
+  scale: 0.9;
+  clip-path: inset(0 50% 0 50%);
+}
+
+.intro-marca__titulo {
+  font-size: clamp(1.875rem, 1.5rem + 1.8vw, 2.75rem);
+  font-weight: 600;
+  line-height: 1.15;
+  letter-spacing: -0.02em;
+  color: #111111;
+  text-wrap: balance;
+  max-width: 18ch;
+  opacity: 0;
+  translate: 0 16px;
+}
+
+.intro-marca__bajada {
+  font-size: clamp(1.0625rem, 1rem + 0.3vw, 1.1875rem);
+  color: #4A4A4A;
+  max-width: 34ch;
+  opacity: 0;
+  translate: 0 14px;
+}
+
+.intro-marca__cta {
+  opacity: 0;
+  translate: 0 12px;
+}
+
+.intro-marca--activa .intro-marca__blob--1 {
+  animation: intro-blob-1 500ms cubic-bezier(0.4, 0, 0.2, 1) 300ms forwards;
+}
+.intro-marca--activa .intro-marca__blob--2 {
+  animation: intro-blob-2 500ms cubic-bezier(0.4, 0, 0.2, 1) 420ms forwards;
+}
+.intro-marca--activa .intro-marca__blob--3 {
+  animation: intro-blob-3 500ms cubic-bezier(0.4, 0, 0.2, 1) 540ms forwards;
+}
+.intro-marca--activa .intro-marca__logo {
+  animation: intro-logo-entrada 550ms cubic-bezier(0.4, 0, 0.2, 1) forwards;
+}
+.intro-marca--activa .intro-marca__titulo {
+  animation: intro-fade-up 400ms cubic-bezier(0.4, 0, 0.2, 1) 550ms forwards;
+}
+.intro-marca--activa .intro-marca__bajada {
+  animation: intro-fade-up 400ms cubic-bezier(0.4, 0, 0.2, 1) 750ms forwards;
+}
+.intro-marca--activa .intro-marca__cta {
+  animation: intro-fade-up 400ms cubic-bezier(0.4, 0, 0.2, 1) 950ms forwards;
+}
+
+@keyframes intro-blob-1 {
+  to {
+    opacity: 0.65;
+    scale: 1;
+  }
+}
+@keyframes intro-blob-2 {
+  to {
+    opacity: 0.55;
+    scale: 1;
+  }
+}
+@keyframes intro-blob-3 {
+  to {
+    opacity: 0.12;
+    scale: 1;
+  }
+}
+@keyframes intro-logo-entrada {
+  to {
+    opacity: 1;
+    scale: 1;
+    clip-path: inset(0 0 0 0);
+  }
+}
+@keyframes intro-fade-up {
+  to {
+    opacity: 1;
+    translate: 0 0;
+  }
+}
+.intro-marca--saliendo .intro-marca__contenido {
+  animation: intro-salida-contenido 500ms cubic-bezier(0.4, 0, 0.2, 1) forwards;
+}
+.intro-marca--saliendo .intro-marca__fondo {
+  animation: intro-salida-fondo 550ms cubic-bezier(0.4, 0, 0.2, 1) forwards;
+}
+
+@keyframes intro-salida-contenido {
+  to {
+    opacity: 0;
+    scale: 0.92;
+    translate: 0 -20px;
+  }
+}
+@keyframes intro-salida-fondo {
+  to {
+    clip-path: circle(0% at 50% 45%);
+  }
+}
+@media (min-width: 768px) {
+  .intro-marca__contenido {
+    gap: 1.5rem;
+  }
+}
+@media (prefers-reduced-motion: reduce) {
+  .intro-marca {
+    display: none !important;
+  }
+}
 .header {
   position: sticky;
   top: 0;
