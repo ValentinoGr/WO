@@ -84,6 +84,9 @@
     "precio": 6000,
     "precioAnterior": null,
     "compatibilidad": [
+      "iPhone 18 Pro Max",
+      "iPhone 18 Pro",
+      "iPhone 18 Duo",
       "iPhone 17 Pro Max",
       "iPhone 17 Pro",
       "iPhone 17",
@@ -159,16 +162,17 @@
   {
     "id": "powerbank-10000mah",
     "slug": "bateria-portatil-10000mah",
-    "nombre": "Batería Portátil 10.000mAh",
-    "marca": "Generico",
+    "nombre": "Batería Portátil MagSafe 10.000mAh",
+    "marca": "Apple",
     "categoria": "powerbanks",
-    "subcategoria": "cable",
+    "subcategoria": "magsafe",
     "precio": 24000,
     "precioAnterior": null,
     "compatibilidad": [],
-    "descripcion": "Batería externa de 10.000mAh con carga por cable. Sirve para cualquier iPhone.",
+    "descripcion": "Batería externa magnética MagSafe de 10.000mAh. Se adhiere al dorso del iPhone y carga sin cables.",
     "especificaciones": {
-      "Capacidad": "10.000mAh"
+      "Capacidad": "10.000mAh",
+      "Carga": "Magnética (MagSafe)"
     },
     "variantes": [],
     "imagenes": [
@@ -254,22 +258,46 @@
     "activo": true
   },
   {
-    "id": "funda-iphone-12-mini",
-    "slug": "funda-iphone-12-mini",
-    "nombre": "Funda iPhone 12 mini",
+    "id": "funda-iphone-11-pro",
+    "slug": "funda-iphone-11-pro",
+    "nombre": "Funda iPhone 11 Pro",
     "marca": "Generico",
     "categoria": "fundas",
     "subcategoria": "estandar",
-    "precio": 8000,
+    "precio": 6000,
     "precioAnterior": null,
     "compatibilidad": [
-      "iPhone 12 mini"
+      "iPhone 11 Pro"
     ],
-    "descripcion": "Funda para iPhone 12 mini.",
+    "descripcion": "Funda para iPhone 11 Pro.",
     "especificaciones": {},
     "variantes": [],
     "imagenes": [
-      "assets/img/productos/funda-iphone-12-mini.webp"
+      "assets/img/productos/funda-iphone-11-pro.webp"
+    ],
+    "stock": 10,
+    "destacado": false,
+    "nuevo": false,
+    "envioGratis": false,
+    "activo": true
+  },
+  {
+    "id": "funda-iphone-11-pro-max",
+    "slug": "funda-iphone-11-pro-max",
+    "nombre": "Funda iPhone 11 Pro Max",
+    "marca": "Generico",
+    "categoria": "fundas",
+    "subcategoria": "estandar",
+    "precio": 6000,
+    "precioAnterior": null,
+    "compatibilidad": [
+      "iPhone 11 Pro Max"
+    ],
+    "descripcion": "Funda para iPhone 11 Pro Max.",
+    "especificaciones": {},
+    "variantes": [],
+    "imagenes": [
+      "assets/img/productos/funda-iphone-11-pro-max.webp"
     ],
     "stock": 10,
     "destacado": false,
@@ -293,7 +321,7 @@
     "especificaciones": {},
     "variantes": [],
     "imagenes": [
-      "assets/img/productos/funda-iphone-12.webp"
+      "assets/img/productos/funda-iphone-12-12pro.webp"
     ],
     "stock": 10,
     "destacado": false,
@@ -317,7 +345,7 @@
     "especificaciones": {},
     "variantes": [],
     "imagenes": [
-      "assets/img/productos/funda-iphone-12-pro.webp"
+      "assets/img/productos/funda-iphone-12-12pro.webp"
     ],
     "stock": 10,
     "destacado": false,
@@ -342,30 +370,6 @@
     "variantes": [],
     "imagenes": [
       "assets/img/productos/funda-iphone-12-pro-max.webp"
-    ],
-    "stock": 10,
-    "destacado": false,
-    "nuevo": false,
-    "envioGratis": false,
-    "activo": true
-  },
-  {
-    "id": "funda-iphone-13-mini",
-    "slug": "funda-iphone-13-mini",
-    "nombre": "Funda iPhone 13 mini",
-    "marca": "Generico",
-    "categoria": "fundas",
-    "subcategoria": "estandar",
-    "precio": 8000,
-    "precioAnterior": null,
-    "compatibilidad": [
-      "iPhone 13 mini"
-    ],
-    "descripcion": "Funda para iPhone 13 mini.",
-    "especificaciones": {},
-    "variantes": [],
-    "imagenes": [
-      "assets/img/productos/funda-iphone-13-mini.webp"
     ],
     "stock": 10,
     "destacado": false,
@@ -470,30 +474,6 @@
     "activo": true
   },
   {
-    "id": "funda-iphone-14-plus",
-    "slug": "funda-iphone-14-plus",
-    "nombre": "Funda iPhone 14 Plus",
-    "marca": "Generico",
-    "categoria": "fundas",
-    "subcategoria": "estandar",
-    "precio": 8000,
-    "precioAnterior": null,
-    "compatibilidad": [
-      "iPhone 14 Plus"
-    ],
-    "descripcion": "Funda para iPhone 14 Plus.",
-    "especificaciones": {},
-    "variantes": [],
-    "imagenes": [
-      "assets/img/productos/funda-iphone-14-plus.webp"
-    ],
-    "stock": 10,
-    "destacado": false,
-    "nuevo": false,
-    "envioGratis": false,
-    "activo": true
-  },
-  {
     "id": "funda-iphone-14-pro",
     "slug": "funda-iphone-14-pro",
     "nombre": "Funda iPhone 14 Pro",
@@ -566,30 +546,6 @@
     "activo": true
   },
   {
-    "id": "funda-iphone-15-plus",
-    "slug": "funda-iphone-15-plus",
-    "nombre": "Funda iPhone 15 Plus",
-    "marca": "Generico",
-    "categoria": "fundas",
-    "subcategoria": "estandar",
-    "precio": 8000,
-    "precioAnterior": null,
-    "compatibilidad": [
-      "iPhone 15 Plus"
-    ],
-    "descripcion": "Funda para iPhone 15 Plus.",
-    "especificaciones": {},
-    "variantes": [],
-    "imagenes": [
-      "assets/img/productos/funda-iphone-15-plus.webp"
-    ],
-    "stock": 10,
-    "destacado": false,
-    "nuevo": false,
-    "envioGratis": false,
-    "activo": true
-  },
-  {
     "id": "funda-iphone-15-pro",
     "slug": "funda-iphone-15-pro",
     "nombre": "Funda iPhone 15 Pro",
@@ -654,30 +610,6 @@
     "variantes": [],
     "imagenes": [
       "assets/img/productos/funda-iphone-16.webp"
-    ],
-    "stock": 10,
-    "destacado": false,
-    "nuevo": false,
-    "envioGratis": false,
-    "activo": true
-  },
-  {
-    "id": "funda-iphone-16-plus",
-    "slug": "funda-iphone-16-plus",
-    "nombre": "Funda iPhone 16 Plus",
-    "marca": "Generico",
-    "categoria": "fundas",
-    "subcategoria": "estandar",
-    "precio": 8000,
-    "precioAnterior": null,
-    "compatibilidad": [
-      "iPhone 16 Plus"
-    ],
-    "descripcion": "Funda para iPhone 16 Plus.",
-    "especificaciones": {},
-    "variantes": [],
-    "imagenes": [
-      "assets/img/productos/funda-iphone-16-plus.webp"
     ],
     "stock": 10,
     "destacado": false,
@@ -875,6 +807,30 @@
     "stock": 10,
     "destacado": true,
     "nuevo": false,
+    "envioGratis": false,
+    "activo": true
+  },
+  {
+    "id": "parlante-jbl-flip-7",
+    "slug": "parlante-jbl-flip-7",
+    "nombre": "Parlante JBL Flip 7",
+    "marca": "JBL",
+    "categoria": "parlantes",
+    "subcategoria": "portatil",
+    "precio": 120000,
+    "precioAnterior": null,
+    "compatibilidad": [],
+    "descripcion": "Parlante portátil JBL Flip 7, stock original. Sirve con cualquier iPhone por Bluetooth.",
+    "especificaciones": {
+      "Conexión": "Bluetooth"
+    },
+    "variantes": [],
+    "imagenes": [
+      "assets/img/productos/parlante-jbl-flip-7.webp"
+    ],
+    "stock": 10,
+    "destacado": true,
+    "nuevo": true,
     "envioGratis": false,
     "activo": true
   }
