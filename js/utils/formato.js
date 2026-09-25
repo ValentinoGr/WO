@@ -1,5 +1,5 @@
 // ===========================================================================
-// Formato — precios, cuotas, descuentos
+// Formato — precios, descuentos
 // ===========================================================================
 
 import { CONFIG } from "../config.js";
@@ -11,13 +11,6 @@ const fmtMoneda = new Intl.NumberFormat(CONFIG.locale, {
   maximumFractionDigits: 0,
 });
 
-const fmtMonedaDecimales = new Intl.NumberFormat(CONFIG.locale, {
-  style: "currency",
-  currency: CONFIG.moneda,
-  minimumFractionDigits: 2,
-  maximumFractionDigits: 2,
-});
-
 /**
  * Formatea un precio entero en pesos. 18500 → "$ 18.500"
  * Intl devuelve "$ 18.500" con NBSP; lo dejamos así, es lo correcto
@@ -26,12 +19,6 @@ const fmtMonedaDecimales = new Intl.NumberFormat(CONFIG.locale, {
 export function precio(valor) {
   if (!Number.isFinite(valor)) return fmtMoneda.format(0);
   return fmtMoneda.format(valor);
-}
-
-/** Para montos de cuota, donde los centavos importan. 6166.67 → "$ 6.166,67" */
-export function precioConDecimales(valor) {
-  if (!Number.isFinite(valor)) return fmtMonedaDecimales.format(0);
-  return fmtMonedaDecimales.format(valor);
 }
 
 /**
@@ -46,38 +33,6 @@ export function porcentajeDescuento(precioActual, precioAnterior) {
 
 export function tieneDescuento(producto) {
   return porcentajeDescuento(producto.precio, producto.precioAnterior) > 0;
-}
-
-/**
- * Cuota sin interés más conveniente para mostrar debajo del precio.
- * Devuelve la de mayor cantidad de cuotas: "6 cuotas sin interés de $ 3.083,33"
- * vende mejor que "3 cuotas de $ 6.166,67".
- * @returns {{cantidad: number, monto: number, texto: string} | null}
- */
-export function cuotas(monto) {
-  const planes = CONFIG.cuotasSinInteres;
-  if (!Array.isArray(planes) || planes.length === 0 || !monto) return null;
-
-  const cantidad = Math.max(...planes);
-  const valorCuota = monto / cantidad;
-
-  return {
-    cantidad,
-    monto: valorCuota,
-    texto: `${cantidad} cuotas sin interés de ${precioConDecimales(valorCuota)}`,
-  };
-}
-
-/** Todos los planes disponibles, para la página de producto. */
-export function todosLosPlanesDeCuotas(monto) {
-  if (!monto) return [];
-  return [...CONFIG.cuotasSinInteres]
-    .sort((a, b) => a - b)
-    .map((cantidad) => ({
-      cantidad,
-      monto: monto / cantidad,
-      texto: `${cantidad} cuotas sin interés de ${precioConDecimales(monto / cantidad)}`,
-    }));
 }
 
 /**

@@ -13,7 +13,6 @@ import { toastExito, toastError } from "../ui/toast.js";
 import {
   precio,
   porcentajeDescuento,
-  todosLosPlanesDeCuotas,
   textoCompatibilidad,
 } from "../utils/formato.js";
 
@@ -67,18 +66,23 @@ async function renderizarProducto(producto) {
   inyectarJsonLd(producto);
 
   // --- Breadcrumb ------------------------------------------------------------
+  // Element.replaceChildren() nativo no descarta valores falsy como el
+  // helper crear(): un `categoria` no encontrado (undefined) se vería como
+  // el texto literal "undefined" en el breadcrumb si no se filtra a mano.
   const categoria = CONFIG.categorias.find((c) => c.id === producto.categoria);
   $("#breadcrumb").replaceChildren(
-    crear("a", { href: "index.html" }, ["Inicio"]),
-    crear("span", { "aria-hidden": "true" }, [" / "]),
-    crear("a", { href: "tienda.html" }, ["Tienda"]),
-    categoria &&
-      crear("span", {}, [
-        crear("span", { "aria-hidden": "true" }, [" / "]),
-        crear("a", { href: `tienda.html?categoria=${categoria.id}` }, [categoria.nombre]),
-      ]),
-    crear("span", { "aria-hidden": "true" }, [" / "]),
-    crear("span", { "aria-current": "page" }, [producto.nombre])
+    ...[
+      crear("a", { href: "index.html" }, ["Inicio"]),
+      crear("span", { "aria-hidden": "true" }, [" / "]),
+      crear("a", { href: "tienda.html" }, ["Tienda"]),
+      categoria &&
+        crear("span", {}, [
+          crear("span", { "aria-hidden": "true" }, [" / "]),
+          crear("a", { href: `tienda.html?categoria=${categoria.id}` }, [categoria.nombre]),
+        ]),
+      crear("span", { "aria-hidden": "true" }, [" / "]),
+      crear("span", { "aria-current": "page" }, [producto.nombre]),
+    ].filter(Boolean)
   );
 
   // --- Galería -----------------------------------------------------------
@@ -106,11 +110,7 @@ async function renderizarProducto(producto) {
       descuento > 0 &&
         // Fondo blanco (la página de producto no está sobre card nude) → nude-oscuro.
         crear("span", { class: "badge badge--descuento-calido" }, [`${descuento}% OFF`]),
-    ]),
-
-    crear("ul", { class: "producto__cuotas", role: "list" },
-      todosLosPlanesDeCuotas(producto.precio).map((p) => crear("li", {}, [p.texto]))
-    )
+    ])
   );
 
   // --- Variantes -------------------------------------------------------------
@@ -212,21 +212,26 @@ async function renderizarProducto(producto) {
   actualizarStepper();
 
   // --- Especificaciones --------------------------------------------------
+  // Element.replaceChildren() nativo, a diferencia del helper crear(), no
+  // descarta valores falsy: convierte cualquier argumento que no sea un Node
+  // a texto (false → "false"), así que acá hay que filtrar a mano.
   const specs = Object.entries(producto.especificaciones ?? {});
   $("#producto-specs").replaceChildren(
-    crear("h2", { class: "producto__seccion-titulo" }, ["Descripción"]),
-    crear("p", { class: "producto__descripcion" }, [producto.descripcion]),
-    specs.length &&
-      crear("h2", { class: "producto__seccion-titulo", style: "margin-top:2rem" }, ["Especificaciones"]),
-    specs.length &&
-      crear(
-        "dl",
-        { class: "producto__tabla-specs" },
-        specs.flatMap(([clave, valor]) => [
-          crear("dt", {}, [clave]),
-          crear("dd", {}, [String(valor)]),
-        ])
-      )
+    ...[
+      crear("h2", { class: "producto__seccion-titulo" }, ["Descripción"]),
+      crear("p", { class: "producto__descripcion" }, [producto.descripcion]),
+      specs.length > 0 &&
+        crear("h2", { class: "producto__seccion-titulo", style: "margin-top:2rem" }, ["Especificaciones"]),
+      specs.length > 0 &&
+        crear(
+          "dl",
+          { class: "producto__tabla-specs" },
+          specs.flatMap(([clave, valor]) => [
+            crear("dt", {}, [clave]),
+            crear("dd", {}, [String(valor)]),
+          ])
+        ),
+    ].filter(Boolean)
   );
 
   // --- Relacionados --------------------------------------------------------

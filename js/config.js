@@ -7,7 +7,7 @@
 export const CONFIG = {
   // --- Negocio -------------------------------------------------------------
   nombre: "Wo!",
-  descripcion: "Accesorios para iPhone en Rafaela, Santa Fe. Envíos a todo el país.",
+  descripcion: "Accesorios para iPhone en Rafaela y Sunchales, Santa Fe. Envíos a todo el país.",
 
   // Formato wa.me: código de país (54) + 9 (celular AR, lo pide WhatsApp
   // aunque ya no haga falta para llamar) + área sin 0 + número sin 15.
@@ -15,7 +15,7 @@ export const CONFIG = {
   whatsapp: "5493492606377",
 
   email: "hola@wo.com.ar",
-  direccion: "Rafaela, Santa Fe",
+  direccion: "Rafaela y Sunchales, Santa Fe",
   horarios: "Lunes a viernes de 9 a 13 y de 16:30 a 20:30 · Sábados de 9 a 13",
 
   redes: {
@@ -34,7 +34,6 @@ export const CONFIG = {
 
   // --- Envíos y pagos ------------------------------------------------------
   envioGratisDesde: 50000,
-  cuotasSinInteres: [3, 6],
 
   // --- Catálogo ------------------------------------------------------------
   rutaProductos: "data/productos.json",

@@ -2,7 +2,7 @@
   "name": "wo-tienda",
   "version": "0.1.0",
   "private": true,
-  "description": "Wo! — Tienda online de accesorios para iPhone. Rafaela, Santa Fe.",
+  "description": "Wo! — Tienda online de accesorios para iPhone. Rafaela y Sunchales, Santa Fe.",
   "scripts": {
     "css": "sass scss/main.scss css/main.css --style=expanded --source-map",
     "css:watch": "sass --watch scss/main.scss css/main.css --style=expanded --source-map",

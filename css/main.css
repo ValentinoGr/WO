@@ -584,17 +584,6 @@ s, del {
   font-size: clamp(0.875rem, 0.85rem + 0.15vw, 0.9375rem);
 }
 
-.card-producto__cuotas {
-  font-size: clamp(0.75rem, 0.72rem + 0.15vw, 0.8125rem);
-  color: #4A4A4A;
-  margin-top: 0.25rem;
-  display: -webkit-box;
-  -webkit-line-clamp: 1;
-  line-clamp: 1;
-  -webkit-box-orient: vertical;
-  overflow: hidden;
-}
-
 .card-producto__colores {
   list-style: none;
   margin: 0;
@@ -2449,7 +2438,7 @@ body:has(main > .beneficios:last-child) .footer {
   align-items: center;
   gap: 0.75rem;
   flex-wrap: wrap;
-  margin-bottom: 0.75rem;
+  margin-bottom: 2rem;
 }
 
 .producto__precio {
@@ -2460,18 +2449,6 @@ body:has(main > .beneficios:last-child) .footer {
 
 .producto__precio-anterior {
   font-size: clamp(1.0625rem, 1rem + 0.3vw, 1.1875rem);
-}
-
-.producto__cuotas {
-  list-style: none;
-  margin: 0;
-  padding: 0;
-  font-size: clamp(0.875rem, 0.85rem + 0.15vw, 0.9375rem);
-  color: #4A4A4A;
-  margin-bottom: 2rem;
-}
-.producto__cuotas li + li {
-  margin-top: 2px;
 }
 
 .producto__seccion-titulo {

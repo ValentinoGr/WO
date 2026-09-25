@@ -8,7 +8,6 @@
 import { crear } from "../utils/dom.js";
 import {
   precio,
-  cuotas,
   porcentajeDescuento,
   textoCompatibilidad,
 } from "../utils/formato.js";
@@ -92,7 +91,6 @@ function construirVariantes(producto) {
  */
 export function crearCardProducto(producto, { indice = 0, superficieClara = false } = {}) {
   const descuento = porcentajeDescuento(producto.precio, producto.precioAnterior);
-  const plan = cuotas(producto.precio);
   const url = `producto.html?id=${encodeURIComponent(producto.id)}`;
 
   // --- Media -----------------------------------------------------------------
@@ -151,7 +149,6 @@ export function crearCardProducto(producto, { indice = 0, superficieClara = fals
             textoCompatibilidad(producto.compatibilidad),
           ]),
           bloquePrecio,
-          plan && crear("p", { class: "card-producto__cuotas" }, [plan.texto]),
           construirVariantes(producto),
         ]),
       ]),

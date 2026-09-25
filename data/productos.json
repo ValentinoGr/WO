@@ -75,6 +75,49 @@
     "activo": true
   },
   {
+    "id": "auriculares-airpods-max",
+    "slug": "airpods-max",
+    "nombre": "AirPods Max",
+    "marca": "Apple",
+    "categoria": "auriculares",
+    "subcategoria": "inalambricos",
+    "precio": 45000,
+    "precioAnterior": null,
+    "compatibilidad": [],
+    "descripcion": "Auriculares inalámbricos over-ear, sellados de fábrica, conexión Bluetooth. Sirven con cualquier iPhone.",
+    "especificaciones": {
+      "Conexión": "Bluetooth",
+      "Tipo": "Over-ear",
+      "Estado": "Sellado de fábrica"
+    },
+    "variantes": [
+      {
+        "tipo": "color",
+        "nombre": "Gris",
+        "hex": "#9C9C9E",
+        "stock": 5
+      },
+      {
+        "tipo": "color",
+        "nombre": "Rosado",
+        "hex": "#F6A9C7",
+        "stock": 5
+      },
+      {
+        "tipo": "color",
+        "nombre": "Celeste",
+        "hex": "#8ED2EC",
+        "stock": 5
+      }
+    ],
+    "imagenes": [],
+    "stock": 15,
+    "destacado": false,
+    "nuevo": true,
+    "envioGratis": false,
+    "activo": true
+  },
+  {
     "id": "cable-usbc-usbc-apple",
     "slug": "cable-usb-c-a-usb-c-apple",
     "nombre": "Cable USB-C a USB-C Apple",
@@ -209,23 +252,23 @@
     "activo": true
   },
   {
-    "id": "cargador-pared-samsung-45w",
-    "slug": "cargador-samsung-45w",
-    "nombre": "Cargador Samsung 45W",
-    "marca": "Samsung",
+    "id": "cargador-pared-generico-45w",
+    "slug": "cargador-generico-45w",
+    "nombre": "Cargador de Pared 45W",
+    "marca": "Generico",
     "categoria": "cargadores",
     "subcategoria": "pared",
     "precio": 20000,
     "precioAnterior": null,
     "compatibilidad": [],
-    "descripcion": "Cargador de pared Samsung de 45W con puerto USB tipo C. Sirve para cualquier iPhone con el cable correspondiente.",
+    "descripcion": "Cargador de pared de 45W con puerto USB tipo C. Sirve para cualquier iPhone con el cable correspondiente.",
     "especificaciones": {
       "Potencia": "45W",
       "Puerto": "USB-C"
     },
     "variantes": [],
     "imagenes": [
-      "assets/img/productos/cargador-pared-samsung-45w.webp"
+      "assets/img/productos/cargador-pared-generico-45w.webp"
     ],
     "stock": 10,
     "destacado": false,
@@ -247,7 +290,22 @@
     ],
     "descripcion": "Funda para iPhone 11.",
     "especificaciones": {},
-    "variantes": [],
+    "variantes": [
+      {
+        "tipo": "color",
+        "nombre": "Negro",
+        "hex": "#1D1D1F",
+        "stock": 5,
+        "imagen": "assets/img/productos/funda-iphone-11.webp"
+      },
+      {
+        "tipo": "color",
+        "nombre": "Gris",
+        "hex": "#9C9C9E",
+        "stock": 5,
+        "imagen": "assets/img/productos/funda-iphone-11.webp"
+      }
+    ],
     "imagenes": [
       "assets/img/productos/funda-iphone-11.webp"
     ],
@@ -271,11 +329,33 @@
     ],
     "descripcion": "Funda para iPhone 11 Pro.",
     "especificaciones": {},
-    "variantes": [],
+    "variantes": [
+      {
+        "tipo": "color",
+        "nombre": "Celeste",
+        "hex": "#8ED2EC",
+        "stock": 5,
+        "imagen": "assets/img/productos/funda-iphone-11-pro.webp"
+      },
+      {
+        "tipo": "color",
+        "nombre": "Lila",
+        "hex": "#C9B6E4",
+        "stock": 5,
+        "imagen": "assets/img/productos/funda-iphone-11-pro.webp"
+      },
+      {
+        "tipo": "color",
+        "nombre": "Blanco",
+        "hex": "#F2F1EC",
+        "stock": 5,
+        "imagen": "assets/img/productos/funda-iphone-11-pro.webp"
+      }
+    ],
     "imagenes": [
       "assets/img/productos/funda-iphone-11-pro.webp"
     ],
-    "stock": 10,
+    "stock": 15,
     "destacado": false,
     "nuevo": false,
     "envioGratis": false,
@@ -295,11 +375,40 @@
     ],
     "descripcion": "Funda para iPhone 11 Pro Max.",
     "especificaciones": {},
-    "variantes": [],
+    "variantes": [
+      {
+        "tipo": "color",
+        "nombre": "Lila",
+        "hex": "#C9B6E4",
+        "stock": 5,
+        "imagen": "assets/img/productos/funda-iphone-11-pro-max.webp"
+      },
+      {
+        "tipo": "color",
+        "nombre": "Verde Agua",
+        "hex": "#8FD9C4",
+        "stock": 5,
+        "imagen": "assets/img/productos/funda-iphone-11-pro-max.webp"
+      },
+      {
+        "tipo": "color",
+        "nombre": "Coral",
+        "hex": "#F98770",
+        "stock": 5,
+        "imagen": "assets/img/productos/funda-iphone-11-pro-max.webp"
+      },
+      {
+        "tipo": "color",
+        "nombre": "Fucsia",
+        "hex": "#EC1E79",
+        "stock": 5,
+        "imagen": "assets/img/productos/funda-iphone-11-pro-max.webp"
+      }
+    ],
     "imagenes": [
       "assets/img/productos/funda-iphone-11-pro-max.webp"
     ],
-    "stock": 10,
+    "stock": 20,
     "destacado": false,
     "nuevo": false,
     "envioGratis": false,
@@ -319,11 +428,40 @@
     ],
     "descripcion": "Funda para iPhone 12.",
     "especificaciones": {},
-    "variantes": [],
+    "variantes": [
+      {
+        "tipo": "color",
+        "nombre": "Durazno",
+        "hex": "#FBC9A3",
+        "stock": 5,
+        "imagen": "assets/img/productos/funda-iphone-12-12pro.webp"
+      },
+      {
+        "tipo": "color",
+        "nombre": "Azul Marino",
+        "hex": "#1C2B4A",
+        "stock": 0,
+        "imagen": "assets/img/productos/funda-iphone-12-12pro.webp"
+      },
+      {
+        "tipo": "color",
+        "nombre": "Azul Oscuro",
+        "hex": "#1E5AA8",
+        "stock": 5,
+        "imagen": "assets/img/productos/funda-iphone-12-12pro.webp"
+      },
+      {
+        "tipo": "color",
+        "nombre": "Blanco",
+        "hex": "#F2F1EC",
+        "stock": 5,
+        "imagen": "assets/img/productos/funda-iphone-12-12pro.webp"
+      }
+    ],
     "imagenes": [
       "assets/img/productos/funda-iphone-12-12pro.webp"
     ],
-    "stock": 10,
+    "stock": 15,
     "destacado": false,
     "nuevo": false,
     "envioGratis": false,
@@ -343,11 +481,40 @@
     ],
     "descripcion": "Funda para iPhone 12 Pro.",
     "especificaciones": {},
-    "variantes": [],
+    "variantes": [
+      {
+        "tipo": "color",
+        "nombre": "Durazno",
+        "hex": "#FBC9A3",
+        "stock": 5,
+        "imagen": "assets/img/productos/funda-iphone-12-12pro.webp"
+      },
+      {
+        "tipo": "color",
+        "nombre": "Azul Marino",
+        "hex": "#1C2B4A",
+        "stock": 0,
+        "imagen": "assets/img/productos/funda-iphone-12-12pro.webp"
+      },
+      {
+        "tipo": "color",
+        "nombre": "Azul Oscuro",
+        "hex": "#1E5AA8",
+        "stock": 5,
+        "imagen": "assets/img/productos/funda-iphone-12-12pro.webp"
+      },
+      {
+        "tipo": "color",
+        "nombre": "Blanco",
+        "hex": "#F2F1EC",
+        "stock": 5,
+        "imagen": "assets/img/productos/funda-iphone-12-12pro.webp"
+      }
+    ],
     "imagenes": [
       "assets/img/productos/funda-iphone-12-12pro.webp"
     ],
-    "stock": 10,
+    "stock": 15,
     "destacado": false,
     "nuevo": false,
     "envioGratis": false,
@@ -367,11 +534,33 @@
     ],
     "descripcion": "Funda para iPhone 12 Pro Max.",
     "especificaciones": {},
-    "variantes": [],
+    "variantes": [
+      {
+        "tipo": "color",
+        "nombre": "Blanco",
+        "hex": "#F2F1EC",
+        "stock": 5,
+        "imagen": "assets/img/productos/funda-iphone-12-pro-max.webp"
+      },
+      {
+        "tipo": "color",
+        "nombre": "Marrón",
+        "hex": "#5F4938",
+        "stock": 5,
+        "imagen": "assets/img/productos/funda-iphone-12-pro-max.webp"
+      },
+      {
+        "tipo": "color",
+        "nombre": "Gris",
+        "hex": "#9C9C9E",
+        "stock": 5,
+        "imagen": "assets/img/productos/funda-iphone-12-pro-max.webp"
+      }
+    ],
     "imagenes": [
       "assets/img/productos/funda-iphone-12-pro-max.webp"
     ],
-    "stock": 10,
+    "stock": 15,
     "destacado": false,
     "nuevo": false,
     "envioGratis": false,
@@ -391,11 +580,40 @@
     ],
     "descripcion": "Funda para iPhone 13.",
     "especificaciones": {},
-    "variantes": [],
+    "variantes": [
+      {
+        "tipo": "color",
+        "nombre": "Violeta",
+        "hex": "#8E6BC1",
+        "stock": 5,
+        "imagen": "assets/img/productos/funda-iphone-13.webp"
+      },
+      {
+        "tipo": "color",
+        "nombre": "Rosa",
+        "hex": "#F6A9C7",
+        "stock": 0,
+        "imagen": "assets/img/productos/funda-iphone-13.webp"
+      },
+      {
+        "tipo": "color",
+        "nombre": "Azul",
+        "hex": "#3B7DC4",
+        "stock": 0,
+        "imagen": "assets/img/productos/funda-iphone-13.webp"
+      },
+      {
+        "tipo": "color",
+        "nombre": "Blanco",
+        "hex": "#F2F1EC",
+        "stock": 0,
+        "imagen": "assets/img/productos/funda-iphone-13.webp"
+      }
+    ],
     "imagenes": [
       "assets/img/productos/funda-iphone-13.webp"
     ],
-    "stock": 10,
+    "stock": 5,
     "destacado": false,
     "nuevo": false,
     "envioGratis": false,
@@ -415,11 +633,40 @@
     ],
     "descripcion": "Funda para iPhone 13 Pro.",
     "especificaciones": {},
-    "variantes": [],
+    "variantes": [
+      {
+        "tipo": "color",
+        "nombre": "Azul",
+        "hex": "#3B7DC4",
+        "stock": 5,
+        "imagen": "assets/img/productos/funda-iphone-13-pro.webp"
+      },
+      {
+        "tipo": "color",
+        "nombre": "Fucsia",
+        "hex": "#EC1E79",
+        "stock": 5,
+        "imagen": "assets/img/productos/funda-iphone-13-pro.webp"
+      },
+      {
+        "tipo": "color",
+        "nombre": "Gris",
+        "hex": "#9C9C9E",
+        "stock": 5,
+        "imagen": "assets/img/productos/funda-iphone-13-pro.webp"
+      },
+      {
+        "tipo": "color",
+        "nombre": "Celeste",
+        "hex": "#8ED2EC",
+        "stock": 5,
+        "imagen": "assets/img/productos/funda-iphone-13-pro.webp"
+      }
+    ],
     "imagenes": [
       "assets/img/productos/funda-iphone-13-pro.webp"
     ],
-    "stock": 10,
+    "stock": 20,
     "destacado": false,
     "nuevo": false,
     "envioGratis": false,
@@ -439,11 +686,40 @@
     ],
     "descripcion": "Funda para iPhone 13 Pro Max.",
     "especificaciones": {},
-    "variantes": [],
+    "variantes": [
+      {
+        "tipo": "color",
+        "nombre": "Marrón",
+        "hex": "#5F4938",
+        "stock": 5,
+        "imagen": "assets/img/productos/funda-iphone-13-pro-max.webp"
+      },
+      {
+        "tipo": "color",
+        "nombre": "Negro",
+        "hex": "#1D1D1F",
+        "stock": 5,
+        "imagen": "assets/img/productos/funda-iphone-13-pro-max.webp"
+      },
+      {
+        "tipo": "color",
+        "nombre": "Violeta",
+        "hex": "#8E6BC1",
+        "stock": 5,
+        "imagen": "assets/img/productos/funda-iphone-13-pro-max.webp"
+      },
+      {
+        "tipo": "color",
+        "nombre": "Coral",
+        "hex": "#F98770",
+        "stock": 5,
+        "imagen": "assets/img/productos/funda-iphone-13-pro-max.webp"
+      }
+    ],
     "imagenes": [
       "assets/img/productos/funda-iphone-13-pro-max.webp"
     ],
-    "stock": 10,
+    "stock": 20,
     "destacado": false,
     "nuevo": false,
     "envioGratis": false,
@@ -463,11 +739,54 @@
     ],
     "descripcion": "Funda para iPhone 14.",
     "especificaciones": {},
-    "variantes": [],
+    "variantes": [
+      {
+        "tipo": "color",
+        "nombre": "Celeste",
+        "hex": "#8ED2EC",
+        "stock": 5,
+        "imagen": "assets/img/productos/funda-iphone-14.webp"
+      },
+      {
+        "tipo": "color",
+        "nombre": "Verde",
+        "hex": "#5EA97A",
+        "stock": 5,
+        "imagen": "assets/img/productos/funda-iphone-14.webp"
+      },
+      {
+        "tipo": "color",
+        "nombre": "Rosado Pastel",
+        "hex": "#F8C8D8",
+        "stock": 5,
+        "imagen": "assets/img/productos/funda-iphone-14.webp"
+      },
+      {
+        "tipo": "color",
+        "nombre": "Beige",
+        "hex": "#E3D5C0",
+        "stock": 5,
+        "imagen": "assets/img/productos/funda-iphone-14.webp"
+      },
+      {
+        "tipo": "color",
+        "nombre": "Negro",
+        "hex": "#1D1D1F",
+        "stock": 5,
+        "imagen": "assets/img/productos/funda-iphone-14.webp"
+      },
+      {
+        "tipo": "color",
+        "nombre": "Gris",
+        "hex": "#9C9C9E",
+        "stock": 5,
+        "imagen": "assets/img/productos/funda-iphone-14.webp"
+      }
+    ],
     "imagenes": [
       "assets/img/productos/funda-iphone-14.webp"
     ],
-    "stock": 10,
+    "stock": 30,
     "destacado": false,
     "nuevo": false,
     "envioGratis": false,
@@ -487,11 +806,47 @@
     ],
     "descripcion": "Funda para iPhone 14 Pro.",
     "especificaciones": {},
-    "variantes": [],
+    "variantes": [
+      {
+        "tipo": "color",
+        "nombre": "Verde",
+        "hex": "#5EA97A",
+        "stock": 5,
+        "imagen": "assets/img/productos/funda-iphone-14-pro.webp"
+      },
+      {
+        "tipo": "color",
+        "nombre": "Azul",
+        "hex": "#3B7DC4",
+        "stock": 5,
+        "imagen": "assets/img/productos/funda-iphone-14-pro.webp"
+      },
+      {
+        "tipo": "color",
+        "nombre": "Lila",
+        "hex": "#C9B6E4",
+        "stock": 5,
+        "imagen": "assets/img/productos/funda-iphone-14-pro.webp"
+      },
+      {
+        "tipo": "color",
+        "nombre": "Bordó",
+        "hex": "#5C1A24",
+        "stock": 5,
+        "imagen": "assets/img/productos/funda-iphone-14-pro.webp"
+      },
+      {
+        "tipo": "color",
+        "nombre": "Negro",
+        "hex": "#1D1D1F",
+        "stock": 5,
+        "imagen": "assets/img/productos/funda-iphone-14-pro.webp"
+      }
+    ],
     "imagenes": [
       "assets/img/productos/funda-iphone-14-pro.webp"
     ],
-    "stock": 10,
+    "stock": 25,
     "destacado": false,
     "nuevo": false,
     "envioGratis": false,
@@ -511,11 +866,47 @@
     ],
     "descripcion": "Funda para iPhone 14 Pro Max.",
     "especificaciones": {},
-    "variantes": [],
+    "variantes": [
+      {
+        "tipo": "color",
+        "nombre": "Marrón",
+        "hex": "#5F4938",
+        "stock": 5,
+        "imagen": "assets/img/productos/funda-iphone-14-pro-max.webp"
+      },
+      {
+        "tipo": "color",
+        "nombre": "Verde",
+        "hex": "#5EA97A",
+        "stock": 5,
+        "imagen": "assets/img/productos/funda-iphone-14-pro-max.webp"
+      },
+      {
+        "tipo": "color",
+        "nombre": "Blanco",
+        "hex": "#F2F1EC",
+        "stock": 5,
+        "imagen": "assets/img/productos/funda-iphone-14-pro-max.webp"
+      },
+      {
+        "tipo": "color",
+        "nombre": "Rosa",
+        "hex": "#F6A9C7",
+        "stock": 5,
+        "imagen": "assets/img/productos/funda-iphone-14-pro-max.webp"
+      },
+      {
+        "tipo": "color",
+        "nombre": "Lila",
+        "hex": "#C9B6E4",
+        "stock": 5,
+        "imagen": "assets/img/productos/funda-iphone-14-pro-max.webp"
+      }
+    ],
     "imagenes": [
       "assets/img/productos/funda-iphone-14-pro-max.webp"
     ],
-    "stock": 10,
+    "stock": 25,
     "destacado": false,
     "nuevo": false,
     "envioGratis": false,
@@ -535,11 +926,33 @@
     ],
     "descripcion": "Funda para iPhone 15.",
     "especificaciones": {},
-    "variantes": [],
+    "variantes": [
+      {
+        "tipo": "color",
+        "nombre": "Negro",
+        "hex": "#1D1D1F",
+        "stock": 5,
+        "imagen": "assets/img/productos/funda-iphone-15.webp"
+      },
+      {
+        "tipo": "color",
+        "nombre": "Celeste",
+        "hex": "#8ED2EC",
+        "stock": 5,
+        "imagen": "assets/img/productos/funda-iphone-15.webp"
+      },
+      {
+        "tipo": "color",
+        "nombre": "Marrón",
+        "hex": "#5F4938",
+        "stock": 5,
+        "imagen": "assets/img/productos/funda-iphone-15.webp"
+      }
+    ],
     "imagenes": [
       "assets/img/productos/funda-iphone-15.webp"
     ],
-    "stock": 10,
+    "stock": 15,
     "destacado": false,
     "nuevo": false,
     "envioGratis": false,
@@ -559,11 +972,40 @@
     ],
     "descripcion": "Funda para iPhone 15 Pro.",
     "especificaciones": {},
-    "variantes": [],
+    "variantes": [
+      {
+        "tipo": "color",
+        "nombre": "Celeste",
+        "hex": "#8ED2EC",
+        "stock": 5,
+        "imagen": "assets/img/productos/funda-iphone-15-pro.webp"
+      },
+      {
+        "tipo": "color",
+        "nombre": "Rojo",
+        "hex": "#D32F3C",
+        "stock": 5,
+        "imagen": "assets/img/productos/funda-iphone-15-pro.webp"
+      },
+      {
+        "tipo": "color",
+        "nombre": "Violeta",
+        "hex": "#8E6BC1",
+        "stock": 5,
+        "imagen": "assets/img/productos/funda-iphone-15-pro.webp"
+      },
+      {
+        "tipo": "color",
+        "nombre": "Gris",
+        "hex": "#9C9C9E",
+        "stock": 5,
+        "imagen": "assets/img/productos/funda-iphone-15-pro.webp"
+      }
+    ],
     "imagenes": [
       "assets/img/productos/funda-iphone-15-pro.webp"
     ],
-    "stock": 10,
+    "stock": 20,
     "destacado": false,
     "nuevo": false,
     "envioGratis": false,
@@ -583,11 +1025,40 @@
     ],
     "descripcion": "Funda para iPhone 15 Pro Max.",
     "especificaciones": {},
-    "variantes": [],
+    "variantes": [
+      {
+        "tipo": "color",
+        "nombre": "Blanco",
+        "hex": "#F2F1EC",
+        "stock": 5,
+        "imagen": "assets/img/productos/funda-iphone-15-pro-max.webp"
+      },
+      {
+        "tipo": "color",
+        "nombre": "Negro",
+        "hex": "#1D1D1F",
+        "stock": 5,
+        "imagen": "assets/img/productos/funda-iphone-15-pro-max.webp"
+      },
+      {
+        "tipo": "color",
+        "nombre": "Marrón",
+        "hex": "#5F4938",
+        "stock": 5,
+        "imagen": "assets/img/productos/funda-iphone-15-pro-max.webp"
+      },
+      {
+        "tipo": "color",
+        "nombre": "Celeste",
+        "hex": "#8ED2EC",
+        "stock": 5,
+        "imagen": "assets/img/productos/funda-iphone-15-pro-max.webp"
+      }
+    ],
     "imagenes": [
       "assets/img/productos/funda-iphone-15-pro-max.webp"
     ],
-    "stock": 10,
+    "stock": 20,
     "destacado": false,
     "nuevo": false,
     "envioGratis": false,
@@ -607,11 +1078,68 @@
     ],
     "descripcion": "Funda para iPhone 16.",
     "especificaciones": {},
-    "variantes": [],
+    "variantes": [
+      {
+        "tipo": "color",
+        "nombre": "Rosa",
+        "hex": "#F6A9C7",
+        "stock": 5,
+        "imagen": "assets/img/productos/funda-iphone-16.webp"
+      },
+      {
+        "tipo": "color",
+        "nombre": "Beige",
+        "hex": "#E3D5C0",
+        "stock": 5,
+        "imagen": "assets/img/productos/funda-iphone-16.webp"
+      },
+      {
+        "tipo": "color",
+        "nombre": "Azul Marino",
+        "hex": "#1C2B4A",
+        "stock": 5,
+        "imagen": "assets/img/productos/funda-iphone-16.webp"
+      },
+      {
+        "tipo": "color",
+        "nombre": "Marrón",
+        "hex": "#5F4938",
+        "stock": 5,
+        "imagen": "assets/img/productos/funda-iphone-16.webp"
+      },
+      {
+        "tipo": "color",
+        "nombre": "Lila",
+        "hex": "#C9B6E4",
+        "stock": 5,
+        "imagen": "assets/img/productos/funda-iphone-16.webp"
+      },
+      {
+        "tipo": "color",
+        "nombre": "Azul",
+        "hex": "#3B7DC4",
+        "stock": 5,
+        "imagen": "assets/img/productos/funda-iphone-16.webp"
+      },
+      {
+        "tipo": "color",
+        "nombre": "Azul Oscuro",
+        "hex": "#1E5AA8",
+        "stock": 5,
+        "imagen": "assets/img/productos/funda-iphone-16.webp"
+      },
+      {
+        "tipo": "color",
+        "nombre": "Gris",
+        "hex": "#9C9C9E",
+        "stock": 5,
+        "imagen": "assets/img/productos/funda-iphone-16.webp"
+      }
+    ],
     "imagenes": [
       "assets/img/productos/funda-iphone-16.webp"
     ],
-    "stock": 10,
+    "stock": 40,
     "destacado": false,
     "nuevo": false,
     "envioGratis": false,
@@ -631,11 +1159,54 @@
     ],
     "descripcion": "Funda para iPhone 16 Pro.",
     "especificaciones": {},
-    "variantes": [],
+    "variantes": [
+      {
+        "tipo": "color",
+        "nombre": "Blanco",
+        "hex": "#F2F1EC",
+        "stock": 5,
+        "imagen": "assets/img/productos/funda-iphone-16-pro.webp"
+      },
+      {
+        "tipo": "color",
+        "nombre": "Verde Agua",
+        "hex": "#8FD9C4",
+        "stock": 5,
+        "imagen": "assets/img/productos/funda-iphone-16-pro.webp"
+      },
+      {
+        "tipo": "color",
+        "nombre": "Celeste",
+        "hex": "#8ED2EC",
+        "stock": 5,
+        "imagen": "assets/img/productos/funda-iphone-16-pro.webp"
+      },
+      {
+        "tipo": "color",
+        "nombre": "Negro",
+        "hex": "#1D1D1F",
+        "stock": 5,
+        "imagen": "assets/img/productos/funda-iphone-16-pro.webp"
+      },
+      {
+        "tipo": "color",
+        "nombre": "Marrón",
+        "hex": "#5F4938",
+        "stock": 5,
+        "imagen": "assets/img/productos/funda-iphone-16-pro.webp"
+      },
+      {
+        "tipo": "color",
+        "nombre": "Violeta",
+        "hex": "#8E6BC1",
+        "stock": 5,
+        "imagen": "assets/img/productos/funda-iphone-16-pro.webp"
+      }
+    ],
     "imagenes": [
       "assets/img/productos/funda-iphone-16-pro.webp"
     ],
-    "stock": 10,
+    "stock": 30,
     "destacado": false,
     "nuevo": false,
     "envioGratis": false,
@@ -655,11 +1226,40 @@
     ],
     "descripcion": "Funda para iPhone 16 Pro Max.",
     "especificaciones": {},
-    "variantes": [],
+    "variantes": [
+      {
+        "tipo": "color",
+        "nombre": "Beige",
+        "hex": "#E3D5C0",
+        "stock": 5,
+        "imagen": "assets/img/productos/funda-iphone-16-pro-max.webp"
+      },
+      {
+        "tipo": "color",
+        "nombre": "Blanco",
+        "hex": "#F2F1EC",
+        "stock": 5,
+        "imagen": "assets/img/productos/funda-iphone-16-pro-max.webp"
+      },
+      {
+        "tipo": "color",
+        "nombre": "Verde",
+        "hex": "#5EA97A",
+        "stock": 5,
+        "imagen": "assets/img/productos/funda-iphone-16-pro-max.webp"
+      },
+      {
+        "tipo": "color",
+        "nombre": "Azul Marino",
+        "hex": "#1C2B4A",
+        "stock": 5,
+        "imagen": "assets/img/productos/funda-iphone-16-pro-max.webp"
+      }
+    ],
     "imagenes": [
       "assets/img/productos/funda-iphone-16-pro-max.webp"
     ],
-    "stock": 10,
+    "stock": 20,
     "destacado": false,
     "nuevo": false,
     "envioGratis": false,
@@ -679,11 +1279,75 @@
     ],
     "descripcion": "Funda para iPhone 17.",
     "especificaciones": {},
-    "variantes": [],
+    "variantes": [
+      {
+        "tipo": "color",
+        "nombre": "Rosa",
+        "hex": "#F6A9C7",
+        "stock": 5,
+        "imagen": "assets/img/productos/funda-iphone-17.webp"
+      },
+      {
+        "tipo": "color",
+        "nombre": "Blanco",
+        "hex": "#F2F1EC",
+        "stock": 0,
+        "imagen": "assets/img/productos/funda-iphone-17.webp"
+      },
+      {
+        "tipo": "color",
+        "nombre": "Marrón",
+        "hex": "#5F4938",
+        "stock": 5,
+        "imagen": "assets/img/productos/funda-iphone-17.webp"
+      },
+      {
+        "tipo": "color",
+        "nombre": "Coral",
+        "hex": "#F98770",
+        "stock": 5,
+        "imagen": "assets/img/productos/funda-iphone-17.webp"
+      },
+      {
+        "tipo": "color",
+        "nombre": "Negro",
+        "hex": "#1D1D1F",
+        "stock": 5,
+        "imagen": "assets/img/productos/funda-iphone-17.webp"
+      },
+      {
+        "tipo": "color",
+        "nombre": "Bordó",
+        "hex": "#5C1A24",
+        "stock": 5,
+        "imagen": "assets/img/productos/funda-iphone-17.webp"
+      },
+      {
+        "tipo": "color",
+        "nombre": "Violeta",
+        "hex": "#8E6BC1",
+        "stock": 5,
+        "imagen": "assets/img/productos/funda-iphone-17.webp"
+      },
+      {
+        "tipo": "color",
+        "nombre": "Lila",
+        "hex": "#C9B6E4",
+        "stock": 5,
+        "imagen": "assets/img/productos/funda-iphone-17.webp"
+      },
+      {
+        "tipo": "color",
+        "nombre": "Lavanda",
+        "hex": "#D8CFEF",
+        "stock": 5,
+        "imagen": "assets/img/productos/funda-iphone-17.webp"
+      }
+    ],
     "imagenes": [
       "assets/img/productos/funda-iphone-17.webp"
     ],
-    "stock": 10,
+    "stock": 40,
     "destacado": false,
     "nuevo": false,
     "envioGratis": false,
@@ -703,11 +1367,47 @@
     ],
     "descripcion": "Funda para iPhone 17 Pro.",
     "especificaciones": {},
-    "variantes": [],
+    "variantes": [
+      {
+        "tipo": "color",
+        "nombre": "Lila",
+        "hex": "#C9B6E4",
+        "stock": 5,
+        "imagen": "assets/img/productos/funda-iphone-17-pro.webp"
+      },
+      {
+        "tipo": "color",
+        "nombre": "Beige",
+        "hex": "#E3D5C0",
+        "stock": 5,
+        "imagen": "assets/img/productos/funda-iphone-17-pro.webp"
+      },
+      {
+        "tipo": "color",
+        "nombre": "Azul Marino",
+        "hex": "#1C2B4A",
+        "stock": 5,
+        "imagen": "assets/img/productos/funda-iphone-17-pro.webp"
+      },
+      {
+        "tipo": "color",
+        "nombre": "Verde",
+        "hex": "#5EA97A",
+        "stock": 5,
+        "imagen": "assets/img/productos/funda-iphone-17-pro.webp"
+      },
+      {
+        "tipo": "color",
+        "nombre": "Marrón",
+        "hex": "#5F4938",
+        "stock": 5,
+        "imagen": "assets/img/productos/funda-iphone-17-pro.webp"
+      }
+    ],
     "imagenes": [
       "assets/img/productos/funda-iphone-17-pro.webp"
     ],
-    "stock": 10,
+    "stock": 25,
     "destacado": false,
     "nuevo": false,
     "envioGratis": false,
@@ -727,11 +1427,47 @@
     ],
     "descripcion": "Funda para iPhone 17 Pro Max.",
     "especificaciones": {},
-    "variantes": [],
+    "variantes": [
+      {
+        "tipo": "color",
+        "nombre": "Marrón",
+        "hex": "#5F4938",
+        "stock": 5,
+        "imagen": "assets/img/productos/funda-iphone-17-pro-max.webp"
+      },
+      {
+        "tipo": "color",
+        "nombre": "Blanco",
+        "hex": "#F2F1EC",
+        "stock": 5,
+        "imagen": "assets/img/productos/funda-iphone-17-pro-max.webp"
+      },
+      {
+        "tipo": "color",
+        "nombre": "Verde",
+        "hex": "#5EA97A",
+        "stock": 5,
+        "imagen": "assets/img/productos/funda-iphone-17-pro-max.webp"
+      },
+      {
+        "tipo": "color",
+        "nombre": "Azul",
+        "hex": "#3B7DC4",
+        "stock": 5,
+        "imagen": "assets/img/productos/funda-iphone-17-pro-max.webp"
+      },
+      {
+        "tipo": "color",
+        "nombre": "Beige",
+        "hex": "#E3D5C0",
+        "stock": 5,
+        "imagen": "assets/img/productos/funda-iphone-17-pro-max.webp"
+      }
+    ],
     "imagenes": [
       "assets/img/productos/funda-iphone-17-pro-max.webp"
     ],
-    "stock": 10,
+    "stock": 25,
     "destacado": false,
     "nuevo": false,
     "envioGratis": false,

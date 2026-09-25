@@ -65,7 +65,7 @@
 .producto__precios {
   @include a.flex(row, flex-start, center, a.$esp-3);
   flex-wrap: wrap;
-  margin-bottom: a.$esp-3;
+  margin-bottom: a.$esp-6;
 }
 
 .producto__precio {
@@ -77,15 +77,6 @@
 .producto__precio-anterior {
   font-size: a.$txt-lg;
   // Hereda color de <s> (base/_tipografia.scss → $gris-oscuro).
-}
-
-.producto__cuotas {
-  @include a.sin-lista;
-  font-size: a.$txt-sm;
-  color: a.$color-texto-secundario;
-  margin-bottom: a.$esp-6;
-
-  li + li { margin-top: 2px; }
 }
 
 // --- Variantes ----------------------------------------------------------------

@@ -107,13 +107,6 @@
   // NO ponerlo en $nude-oscuro: no pasa AA sobre card nude.
 }
 
-.card-producto__cuotas {
-  font-size: a.$txt-xs;
-  color: a.$color-texto-secundario;
-  margin-top: a.$esp-1;
-  @include a.truncar(1);
-}
-
 // --- Puntos de color de las variantes ---------------------------------------
 
 .card-producto__colores {
