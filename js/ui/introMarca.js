@@ -6,8 +6,9 @@
 //
 // La composición (logo → blobs → título → bajada → cta) se arma sola y
 // después SE QUEDA QUIETA — sin timer ni botón de saltar. Se revela el hero
-// real recién cuando el usuario hace algo: intenta scrollear
-// (mouse/trackpad/touch/teclado) o clickea el <a> real "Ver toda la tienda".
+// real (quedándose en el home, no navega a tienda.html) recién cuando el
+// usuario hace algo: intenta scrollear (mouse/trackpad/touch/teclado) o
+// clickea el botón "Ver toda la tienda".
 //
 // El script inline en <head> de index.html ya decidió, antes del primer
 // paint, si esta sesión tiene que ver la intro (sessionStorage +
@@ -70,14 +71,6 @@ export function iniciarIntroMarca() {
   window.addEventListener("touchmove", revelar, { passive: true });
   window.addEventListener("keydown", alTeclado);
 
-  // El CTA es un <a href="tienda.html"> real: si lo clickean, el navegador
-  // ya se encarga de navegar. Solo dejamos guardado que la intro se vio,
-  // así un "atrás" del navegador no la vuelve a mostrar en esta sesión.
-  $(".intro-marca__cta", overlay)?.addEventListener("click", () => {
-    try {
-      sessionStorage.setItem(CONFIG.storage.claveIntroVista, "1");
-    } catch {
-      // Igual que arriba: no es crítico si el storage no está disponible.
-    }
-  });
+  // Mismo gatillo que el scroll: revela el home, no navega a otra página.
+  $("[data-revelar-intro]", overlay)?.addEventListener("click", revelar);
 }
